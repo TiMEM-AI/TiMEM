@@ -6,6 +6,7 @@ data/longmemeval_s_cleaned.json
 data/*_split/
 data/*_smart_split/
 data/*metadata*.json
+data/model_settings.json
 
 # Python
 __pycache__/
@@ -87,6 +88,10 @@ logs/
 secrets/
 config_private/
 credentials/
+
+# 前端
+frontend/node_modules/
+frontend/dist/
 *.keystore
 *.jks
 

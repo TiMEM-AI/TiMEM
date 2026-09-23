@@ -122,7 +122,7 @@ timem = "tools.cli.cli:app"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["timem*", "storage*", "services*", "llm*", "migration*", "tools*"]
+include = ["timem*", "storage*", "services*", "llm*", "migration*", "tools*", "server*"]
 exclude = ["tests*", "experiments*", "cloud-service*"]
 
 [tool.setuptools.package-data]

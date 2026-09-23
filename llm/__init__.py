@@ -1,25 +1,7 @@
-"""
-TiMem LLM Adapters
-LLM adapter module
-"""
+"""TiMem LLM adapters."""
 
-from .base_llm import BaseLLM
-from .claude_adapter import ClaudeAdapter
-from .openai_adapter import OpenAIAdapter
-from .zhipuai_adapter import ZhipuAIAdapter
-from .qwen_adapter import QwenAdapter
-from .qwen_embedding_adapter import Qwen3EmbeddingService
+def get_llm(provider: str = None, **kwargs):
+    from .llm_manager import get_llm as _get_llm
+    return _get_llm(provider)
 
-def get_llm(provider: str, **kwargs) -> BaseLLM:
-    # ... (implementation of get_llm)
-    pass
-
-__all__ = [
-    "BaseLLM",
-    "ClaudeAdapter",
-    "OpenAIAdapter",
-    "ZhipuAIAdapter",
-    "QwenAdapter",
-    "Qwen3EmbeddingService",
-    "get_llm",
-]
+__all__ = ["get_llm"]

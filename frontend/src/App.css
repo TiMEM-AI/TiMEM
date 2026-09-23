@@ -1,0 +1,344 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@420;560;680&family=Syne:wght@700&display=swap");
+
+:root {
+  color-scheme: light;
+  --ink: #10241f;
+  --rail: #17352c;
+  --paper: #f3f5f4;
+  --card: #ffffff;
+  --text: #17211e;
+  --muted: #5e6a64;
+  --line: #d5ddd8;
+  --mark: #e2a15a;
+  font-family: "Figtree", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+}
+
+button, input, textarea { font: inherit; }
+
+button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--mark);
+  outline-offset: 2px;
+}
+
+.shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 248px 1fr;
+}
+
+.rail {
+  background: var(--ink);
+  color: #e7efe9;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brand strong {
+  display: block;
+  font-family: Syne, sans-serif;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+.brand small {
+  color: #9eb0a6;
+}
+
+.mark {
+  width: 14px;
+  height: 42px;
+  border-radius: 7px;
+  background: linear-gradient(var(--mark), var(--mark)) 0 70% / 100% 28% no-repeat, #245246;
+}
+
+.user-field {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: #b7c6be;
+}
+
+.user-field input {
+  background: var(--rail);
+  color: white;
+  border: 1px solid #2c5246;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+nav { display: grid; gap: 6px; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  background: transparent;
+  color: #d5e2db;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 8px;
+}
+
+.nav.active {
+  background: var(--rail);
+  color: white;
+}
+
+.ticks {
+  display: grid;
+  gap: 3px;
+}
+
+.ticks i {
+  display: block;
+  width: 10px;
+  height: 2px;
+  background: #3d6458;
+}
+
+.nav.active .ticks i:nth-child(5) { background: var(--mark); }
+
+.rail-foot {
+  margin-top: auto;
+  color: #8ea399;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 28px 32px 20px;
+}
+
+.stage-head h1 {
+  margin: 0;
+  font-family: Syne, sans-serif;
+  font-size: 32px;
+  letter-spacing: -0.04em;
+}
+
+.stage-head p, .empty, .embed {
+  color: var(--muted);
+}
+
+.transcript {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 8px 0 16px;
+}
+
+article span {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+article p { margin: 0; line-height: 1.5; }
+
+article.you { align-self: flex-end; max-width: 70%; }
+article.timem, article.error { max-width: 76%; }
+
+.composer, .settings {
+  display: grid;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.composer { grid-template-columns: 1fr auto; align-items: end; }
+
+textarea, .settings input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: white;
+}
+
+.settings button {
+  background: var(--ink);
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+.switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.switch button {
+  background: white;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.switch button.on {
+  background: var(--ink);
+  color: white;
+}
+
+.settings { max-width: 520px; }
+.settings label { display: grid; gap: 6px; }
+
+.memory-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.memory-list li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--mark);
+  border-radius: 12px;
+}
+
+.memory-list button {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+}
+
+.memory-list button.on { background: #f7f1e8; }
+
+.memory-list span,
+.memory-detail span {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.memory-list strong,
+.memory-detail h2 {
+  display: block;
+  margin: 4px 0 0;
+  font-size: 16px;
+}
+
+.memory-list time,
+.memory-detail time {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.memory-list p {
+  margin: 6px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.levels button,
+.pager button,
+.memory-tools button {
+  background: white;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.levels button.on {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+}
+
+.memory-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.memory-tools input {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.memory-tools input[type="date"] { color: var(--text); }
+
+.memory-detail {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--mark);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 12px;
+}
+
+.memory-detail p {
+  margin: 12px 0 0;
+  white-space: pre-wrap;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  color: var(--muted);
+}
+
+.pager button:disabled { opacity: 0.45; cursor: default; }
+
+@media (max-width: 760px) {
+  .shell { grid-template-columns: 1fr; }
+  .rail { padding-bottom: 16px; }
+  nav { grid-template-columns: repeat(3, 1fr); }
+  .rail-foot { display: none; }
+  .stage { min-height: auto; padding: 20px 16px; }
+  article.you, article.timem, article.error { max-width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

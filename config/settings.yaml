@@ -18,7 +18,7 @@ app:
   version: 1.0.0
   workers: 1
 llm:
-  default_provider: openai
+  default_provider: xingliu
   dialogue_system:
     max_retries: 2
     max_tokens: 1024
@@ -59,9 +59,10 @@ llm:
       model: embedding-3
       provider: zhipuai
     max_length: 512
-    model: ${QWEN_EMBEDDING_PATH:./models/Qwen3-Embedding-0.6B}
+    model: ${XINGLIU_EMBED_MODEL:qwen3-embedding-8b}
+    dimensions: 2048
     normalize_embeddings: true
-    provider: qwen_local
+    provider: xingliu
   max_retries: 3
   providers:
     claude:
@@ -131,6 +132,17 @@ llm:
       use_flash_attention: true
       use_kv_cache: true
       use_torch_compile: true
+    xingliu:
+      api_key: ${XINGLIU_API_KEY:}
+      base_url: ${XINGLIU_BASE_URL:https://kspmas.ksyun.com/v1}
+      chat_model: ${XINGLIU_CHAT_MODEL:glm-5.3-flash}
+      reply_model: ${XINGLIU_REPLY_MODEL:qwen3.7-flash}
+      embed_model: ${XINGLIU_EMBED_MODEL:qwen3-embedding-8b}
+      embed_dim: 2048
+      max_tokens: 2048
+      model: ${XINGLIU_CHAT_MODEL:glm-5.3-flash}
+      temperature: 0.7
+      timeout: 120
     zhipuai:
       api_key: ${ZHIPUAI_API_KEY:}
       max_retries: 3
@@ -222,8 +234,8 @@ llm:
       requests_per_minute: 20000
     max_retries: 3
     max_tokens: 2048
-    model: gpt-4o-mini
-    provider: openai
+    model: ${XINGLIU_CHAT_MODEL:glm-5.3-flash}
+    provider: xingliu
     temperature: 0.7
     test_api_key_1: ${OPENAI_API_KEY:}
     test_api_key_number: 0

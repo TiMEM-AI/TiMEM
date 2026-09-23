@@ -133,6 +133,10 @@ class ComplexRetriever(BottomUpRetrieverBase):
             session_analysis = self.analyze_l1_for_session(l1_results)
             
             best_session_id = session_analysis.get('best_session_id')
+            from timem.utils.session_recall import limit_l1_to_top_sessions
+            l1_results = limit_l1_to_top_sessions(
+                l1_results, session_analysis.get("session_scores") or [], top_n=3
+            )
             if not best_session_id:
                 self.logger.warning("No valid session found, return only L1 results")
                 final_results = self._importance_weighted_sort(l1_results)

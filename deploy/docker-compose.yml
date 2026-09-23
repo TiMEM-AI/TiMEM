@@ -1,0 +1,48 @@
+# One stack for a laptop or a server.
+# Laptop: TIMEM_DEPLOY_MODE=local and publish 127.0.0.1:8000 only.
+# Server: put HTTPS in front of port 8000. Database ports stay on the compose network.
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: timem_db
+      POSTGRES_USER: ${POSTGRES_USER:-timem_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-timem_password}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U timem_user -d timem_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  qdrant:
+    image: qdrant/qdrant:v1.13.4
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+  api:
+    build:
+      context: ..
+    env_file:
+      - ../.env
+    environment:
+      TIMEM_DEPLOY_MODE: ${TIMEM_DEPLOY_MODE:-server}
+      TIMEM_HOST: 0.0.0.0
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: ${POSTGRES_USER:-timem_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-timem_password}
+      POSTGRES_DB: timem_db
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_VECTOR_SIZE: "2048"
+    ports:
+      - "${TIMEM_BIND:-0.0.0.0}:8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  qdrant_data:

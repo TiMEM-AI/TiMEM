@@ -66,7 +66,7 @@ class VectorStore:
                     'url': os.getenv('QDRANT_URL'),
                     'api_key': os.getenv('QDRANT_API_KEY'),
                     'collection_name': os.getenv('QDRANT_COLLECTION', 'timem_memories'),
-                    'vector_size': int(os.getenv('QDRANT_VECTOR_SIZE', '1024')),
+                    'vector_size': int(os.getenv('QDRANT_VECTOR_SIZE', '2048')),
                     'distance': os.getenv('QDRANT_DISTANCE', 'Cosine'),
                     'timeout': int(os.getenv('QDRANT_TIMEOUT', '30')),
                     'retry_count': int(os.getenv('QDRANT_RETRY_COUNT', '3'))
@@ -77,8 +77,13 @@ class VectorStore:
 
         self.client = None
         # Completely rely on config, no hardcoded defaults
+        import os
+        if os.getenv('QDRANT_URL'):
+            self.config['url'] = os.getenv('QDRANT_URL')
+        if os.getenv('QDRANT_VECTOR_SIZE'):
+            self.config['vector_size'] = int(os.getenv('QDRANT_VECTOR_SIZE'))
         self.collection_name = self.config.get('collection_name')
-        self.vector_size = self.config.get('vector_size', 1024)
+        self.vector_size = self.config.get('vector_size', 2048)
         self.distance = self.config.get('distance', 'Cosine')
         self._initialized = False
         

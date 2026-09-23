@@ -174,6 +174,26 @@ timem doctor      # 运行环境诊断
 timem config init # 交互式配置 .env
 ```
 
+## 自托管服务
+
+克隆后可以在自己的电脑或一台服务器上跑同一个进程。产品接口给 Agent，页面给聊天，`/aml/add` 与 `/aml/search` 给比赛。记忆生成用星流 `glm-5.3-flash`，聊天回复用 `qwen3.7-flash`，向量用 `qwen3-embedding-8b` 且固定 2048 维。每次对话请求都会显式关闭思考。
+
+贡献者本地要起两个进程：仓库根目录 `python -m server`，以及 `frontend` 里 `npm install` 后 `npm run dev`（http://127.0.0.1:5173，接口代理到 8000）。
+
+使用者只跑 Compose。镜像会先构建 `frontend/dist`，再由服务在 `/` 提供页面。
+
+```bash
+pip install -e .
+# 填写 .env：XINGLIU_API_KEY、TIMEM_API_KEY
+python -m server
+```
+
+本机默认只监听 `127.0.0.1:8000`。未构建前端时，这个地址只提供接口；聊天页在开发服务器上。构建后（`cd frontend && npm run build`）再打开 http://127.0.0.1:8000 即可聊天。Agent 调用 `/v1/memories` 与 `/v1/memories/search` 时带上 `TIMEM_API_KEY`。
+
+服务器使用 `deploy/docker-compose.yml`。数据库端口不映射出来，前面用自己的 HTTPS 反代转发到 8000。此时设置 `TIMEM_DEPLOY_MODE=server`，聊天页和 API 都要这把 Key。比赛提交的是 `/aml/add` 与 `/aml/search`。
+
+相对论文实现，这一层是适配：L1 可搜后才返回，L2–L5 在后台补；检索不在 AML Search 里生成答案。模型名在环境变量里，之后可以换成比赛要求的 `gpt-4o-mini` 与 `text-embedding-v4`（2048 维该模型也支持）。
+
 ## 📖 示例代码
 
 示例文件位于 [`cloud-service/examples/`](cloud-service/examples/) 目录：

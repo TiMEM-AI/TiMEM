@@ -126,6 +126,27 @@ class ZhipuAIEmbeddingService(EmbeddingService):
         return 384
 
 
+class XingliuEmbeddingService(EmbeddingService):
+    """Xingliu embedding. Rejects vectors whose length is not the requested dimension."""
+
+    def __init__(self, adapter):
+        self.adapter = adapter
+        self.logger = get_logger(__name__)
+        self.model_name = adapter.embed_model
+        self._dimension = adapter.embed_dim
+
+    async def embed_text(self, text: str) -> List[float]:
+        response = await self.adapter.embed(text, dimensions=self._dimension)
+        return response.embedding
+
+    async def embed_batch(self, texts: List[str]) -> List[List[float]]:
+        responses = await self.adapter.embed_batch(texts, dimensions=self._dimension)
+        return [response.embedding for response in responses]
+
+    def get_dimension(self) -> int:
+        return self._dimension
+
+
 class SentenceBERTEmbeddingService(BaseEmbeddingService):
     """SentenceBERT local embedding service"""
     
@@ -303,6 +324,11 @@ class UnifiedEmbeddingService:
                 # Qwen3 local embedding service
                 self.default_service = Qwen3EmbeddingService(embedding_config)
                 self.logger.info(f"Using local Qwen3 Embedding service: {embedding_config.get('model', 'not specified')}")
+
+            elif self.provider_name == 'xingliu':
+                from llm.xingliu_adapter import XingliuAdapter
+                self.default_service = XingliuEmbeddingService(XingliuAdapter())
+                self.logger.info("Using Xingliu embedding service")
             
             else:
                 self.logger.warning(f"Unknown embedding service provider: {self.provider_name}, using fallback")

@@ -1593,9 +1593,13 @@ class PostgreSQLStore(UnifiedStorageInterface):
                     text("(content_tsvector || title_tsvector) @@ plainto_tsquery('simple', :query_tokenized)")
                 ).params(query_tokenized=query_tokenized)
             
-            # Limit and sort
-            limit = kwargs.get('limit', 100)
-            query = query.limit(limit).order_by(desc(CoreMemory.created_at))
+            # Limit, offset, and sort
+            limit = int(kwargs.get('limit') or 100)
+            offset = int(kwargs.get('offset') or 0)
+            query = query.order_by(desc(CoreMemory.created_at))
+            if offset > 0:
+                query = query.offset(offset)
+            query = query.limit(limit)
             
             result = await session.execute(query)
             

@@ -414,6 +414,8 @@ class PostgreSQLAdapter(StorageAdapter):
                 
                 if "limit" in options and options["limit"]:
                     criteria["limit"] = options["limit"]
+                if options.get("offset"):
+                    criteria["offset"] = int(options["offset"])
 
             # Handle layer parameter compatibility
             if "layer" in criteria and "level" not in criteria:
