@@ -46,6 +46,21 @@ class ProductSearchBody(BaseModel):
     top_k: int = 10
 
 
+class GraphSearchBody(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    user_id: str
+    query: str
+    limit: int = 20
+
+
+class GraphQaBody(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    user_id: str
+    question: str
+    hops: int = 1
+    limit: int = 20
+
+
 class ChatBody(BaseModel):
     model_config = ConfigDict(extra="forbid")
     user_id: str
@@ -330,6 +345,33 @@ def create_app(
                 "created_at": item["created_at"],
             })
         return {"data": data}
+
+    @app.post("/v1/graph/search")
+    async def graph_search(body: GraphSearchBody, request: Request):
+        require_key(request)
+        from timem.memory_graph.search import run_search
+
+        if body.limit <= 0:
+            raise HTTPException(status_code=400, detail="limit must be positive")
+        view = await run_search(body.user_id, body.query, expert_id="assistant", limit=body.limit)
+        view["answer"] = None
+        return view
+
+    @app.post("/v1/graph/qa")
+    async def graph_qa(body: GraphQaBody, request: Request):
+        require_key(request)
+        from timem.memory_graph.qa import GraphQueryError, run_qa
+
+        try:
+            return await run_qa(
+                body.user_id,
+                body.question,
+                expert_id="assistant",
+                hops=body.hops,
+                limit=body.limit,
+            )
+        except GraphQueryError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
 
     if DIST_DIR.is_dir():
         app.mount("/", StaticFiles(directory=DIST_DIR, html=True), name="frontend")

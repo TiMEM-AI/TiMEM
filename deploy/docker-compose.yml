@@ -22,6 +22,17 @@ services:
     volumes:
       - qdrant_data:/qdrant/storage
 
+  neo4j:
+    image: neo4j:5
+    profiles: ["graph"]
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-neo4j_password}
+    ports:
+      - "127.0.0.1:17687:7687"
+      - "127.0.0.1:17474:7474"
+    volumes:
+      - neo4j_data:/data
+
   api:
     build:
       context: ..
@@ -46,3 +57,4 @@ services:
 volumes:
   postgres_data:
   qdrant_data:
+  neo4j_data:

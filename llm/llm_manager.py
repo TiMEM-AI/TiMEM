@@ -6,13 +6,6 @@ from typing import Optional
 from functools import lru_cache
 
 from .base_llm import BaseLLM
-from .openai_adapter import OpenAIAdapter
-from .claude_adapter import ClaudeAdapter
-from .zhipuai_adapter import ZhipuAIAdapter
-from .mock_adapter import MockLLMAdapter
-from .qwen_adapter import QwenAdapter
-from .qwen_local_adapter import QwenLocalAdapter
-from .xingliu_adapter import XingliuAdapter
 from timem.utils.config_manager import get_llm_config
 from timem.utils.logging import get_logger
 
@@ -26,18 +19,25 @@ def _get_llm_cached(provider: str) -> BaseLLM:
     logger.info(f"Getting LLM adapter, provider: {provider}")
 
     if provider == "openai":
+        from .openai_adapter import OpenAIAdapter
         return OpenAIAdapter()
     elif provider == "claude":
+        from .claude_adapter import ClaudeAdapter
         return ClaudeAdapter()
     elif provider == "zhipuai":
+        from .zhipuai_adapter import ZhipuAIAdapter
         return ZhipuAIAdapter()
     elif provider == "qwen":
+        from .qwen_adapter import QwenAdapter
         return QwenAdapter()
     elif provider == "qwen_local":
+        from .qwen_local_adapter import QwenLocalAdapter
         return QwenLocalAdapter()
     elif provider == "xingliu":
+        from .xingliu_adapter import XingliuAdapter
         return XingliuAdapter()
     elif provider == "mock":
+        from .mock_adapter import MockLLMAdapter
         return MockLLMAdapter()
     else:
         raise ValueError(f"Unsupported LLM provider: {provider}")
@@ -63,13 +63,14 @@ def get_llm(provider: Optional[str] = None) -> BaseLLM:
     # Use cached version to get instance, ensuring same provider returns same instance
     return _get_llm_cached(provider)
 
-def get_mock_llm_for_testing() -> MockLLMAdapter:
+def get_mock_llm_for_testing():
     """
     Get mock LLM instance, specifically for testing.
     
     Returns:
         MockLLMAdapter: Mock LLM adapter instance
     """
+    from .mock_adapter import MockLLMAdapter
     return MockLLMAdapter()
 
 def set_mock_mode(enabled: bool = True):

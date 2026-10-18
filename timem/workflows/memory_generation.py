@@ -905,13 +905,16 @@ class MemoryGenerationWorkflow:
                 update_result = await storage_manager.update_memory(existing_memory_id, updates)
                 
                 # Return update result
-                return {
+                updated = {
                     "success": any(update_result.values()) if update_result else False,
                     "memory_id": existing_memory_id,
                     "action": "updated",
                     "task": task,
                     "update_result": update_result
                 }
+                if updated["success"]:
+                    await self._schedule_memory_graph(task, memory)
+                return updated
             else:
                 logger.info(f"Force update mode but no existing memory found, executing create")
         
@@ -927,13 +930,22 @@ class MemoryGenerationWorkflow:
         await storage_router.run(state)
         
         logger.info(f"Memory storage successful")
-        
+        await self._schedule_memory_graph(task, memory)
+
         return {
             "success": True,
             "memory": memory,
             "action": "created",
             "task": task
         }
+
+    async def _schedule_memory_graph(self, task: Any, memory: Any) -> None:
+        """L3 success enqueues child-L2 graph ingest. Failures leave the L3 in place."""
+        if getattr(task, "layer", None) != "L3":
+            return
+        from timem.memory_graph.schedule import safe_schedule_after_l3
+
+        await safe_schedule_after_l3(task, memory)
     
     async def _find_existing_memory(self, task: Any, storage_manager: Any) -> Optional[Any]:
         """

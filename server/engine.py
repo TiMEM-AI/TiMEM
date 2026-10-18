@@ -151,7 +151,15 @@ class EngineMemoryService:
             item = memory_record(memory)
             if item["id"] and item["content"]:
                 records.append(item)
-        return records[:top_k]
+        from timem.memory_graph.recall import merge_search_results
+
+        return await merge_search_results(
+            records,
+            user_id=user_id,
+            expert_id=EXPERT_ID,
+            question=query,
+            top_k=top_k,
+        )
 
     async def list_memories(
         self,
