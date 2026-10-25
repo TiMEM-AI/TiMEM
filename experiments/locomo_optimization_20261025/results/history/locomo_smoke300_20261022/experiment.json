@@ -1,0 +1,8 @@
+{
+  "mode": "paired post-retrieval ablation, identical fresh current-model baseline candidates for both arms",
+  "source_sha256": "f9d9ca1532266d1302e28139433fd6ad2d5693693d072787375e28c10a6f4835",
+  "source_database_sha256": "cf56a1cf814eca61d5ec30b3a9722ddd4c8d6bd5a85c6868ebaab10477ad5888",
+  "answer_model": "deepseek-v4.1-flash",
+  "judge_model": "deepseek-v4.1-flash",
+  "temperature": 0
+}

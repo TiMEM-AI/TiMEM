@@ -1,0 +1,20 @@
+{
+  "schema": "r1.3b-fix-v1",
+  "evidence_files": {
+    "L": 20,
+    "H": 20
+  },
+  "changed_vs_B": [
+    {
+      "qid": "conv-43#q0073",
+      "arm": "L"
+    },
+    {
+      "qid": "conv-30#q0019",
+      "arm": "L"
+    }
+  ],
+  "controls_passed": true,
+  "tail_deletions_fixed": true,
+  "truncation": "removed in runner (full B serialized)"
+}

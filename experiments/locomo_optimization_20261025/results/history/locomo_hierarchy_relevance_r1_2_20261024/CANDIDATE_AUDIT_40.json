@@ -1,0 +1,999 @@
+{
+  "schema": "r1.2-candidate-audit-40-v1",
+  "seed": 20261024,
+  "rows": 40,
+  "sampling": "B-external folded-route targets, <=3 per dev question, shuffled, first 40",
+  "note": "arm labels and historical scores hidden; judgement fields left not_audited",
+  "sheet": [
+    {
+      "row": 1,
+      "question_id": "conv-44#q0042",
+      "question": "What is a skill that Audrey learned to take care of her dogs?",
+      "candidate_fact_id": "fact:c608ac5e7af6ad37fb80d1b3a8a3038a",
+      "candidate_text": "Audrey said “Sure!” and said, “See them with their new collars, cute right?”",
+      "observed_at": "2023-03-27T05:10:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 2,
+      "question_id": "conv-49#q0036",
+      "question": "How do Evan and Sam use creative outlets to cope with life's challenges?",
+      "candidate_fact_id": "fact:65bdcf77d6582f3f6229fc2a6055f059",
+      "candidate_text": "assistant (Sam) asked what happened to Evan's old Prius and where Evan went.",
+      "observed_at": "2023-05-18T05:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 3,
+      "question_id": "conv-26#q0060",
+      "question": "When did Melanie go on a hike after the roadtrip?",
+      "candidate_fact_id": "fact:2e308428bc8b21efa33db44b139476ff",
+      "candidate_text": "Caroline thanked Melanie, said “That’s really sweet,” and asked if this was Melanie’s own painting.",
+      "observed_at": "2023-05-08T05:56:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 4,
+      "question_id": "conv-43#q0018",
+      "question": "Which popular time management technique does Tim use to prepare for exams?",
+      "candidate_fact_id": "fact:b85c1c1d76093168d8d86cdd99161269",
+      "candidate_text": "Tim says he has been discussing collaborations for a Harry Potter fan project he is working on and says he is super excited.",
+      "observed_at": "2023-05-21T11:48:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 5,
+      "question_id": "conv-30#q0001",
+      "question": "When Gina has lost her job at Door Dash?",
+      "candidate_fact_id": "fact:c0f671cd173ca4e0862b586f2acda1fc",
+      "candidate_text": "Jon said he loves all dances but contemporary is his top pick, calling it expressive and powerful; he asked Gina her favorite.",
+      "observed_at": "2023-01-20T08:04:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 6,
+      "question_id": "conv-49#q0079",
+      "question": "Why did Evan decide to get the bonsai tree?",
+      "candidate_fact_id": "fact:695fdb43aa728c10fc06aeab745b3bed",
+      "candidate_text": "User (Evan) greeted Sam and said he “just got back” from a trip with his family in his new Prius.",
+      "observed_at": "2023-05-18T05:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 7,
+      "question_id": "conv-49#q0013",
+      "question": "What kind of unhealthy snacks does Sam enjoy eating?",
+      "candidate_fact_id": "fact:b52389db042a5cf8ad821831171d6b91",
+      "candidate_text": "User (Evan) said “Glad you asked,” that “we went to Rockies,” and told Sam to “check it out.”",
+      "observed_at": "2023-05-18T05:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 8,
+      "question_id": "conv-41#q0017",
+      "question": "What areas of the U.S. has John been to or is planning to go to?",
+      "candidate_fact_id": "fact:e7ed3486753e92ed3072ce2bc61ec842",
+      "candidate_text": "John said Maria’s activities sounded cool and said he is doing kickboxing, which is giving him so much energy.",
+      "observed_at": "2022-12-17T03:01:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 9,
+      "question_id": "conv-49#q0133",
+      "question": "How many times does Sam mention having had a health checkup or doctor's appointment?",
+      "candidate_fact_id": "fact:69238c508e9d94eb24ee2c6c8e0e9d84",
+      "candidate_text": "assistant (Sam) greeted Evan, asked what was new since they last met, and asked if anything cool was happening.",
+      "observed_at": "2023-05-18T05:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 10,
+      "question_id": "conv-48#q0048",
+      "question": "When did Jolene lose a lot of progress in her work?",
+      "candidate_fact_id": "fact:fe6e535e6ecfb4db6d96c2ad7c0d95c2",
+      "candidate_text": "Jolene said, \"This is my room in her house,\" and that she also has many memories there; Jolene asked if there was anything special about it Deb remembered.",
+      "observed_at": "2023-01-23T08:06:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 11,
+      "question_id": "conv-48#q0117",
+      "question": "What is the favorite game Jolene plays with her partner?",
+      "candidate_fact_id": "fact:156e6a588e3a80fe28154723d8016121",
+      "candidate_text": "Jolene greeted Deb, said it was good to meet her, and said her week had been busy.",
+      "observed_at": "2023-01-23T08:06:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 12,
+      "question_id": "conv-41#q0070",
+      "question": "What topic has John been blogging about recently?",
+      "candidate_fact_id": "fact:937cbd69b3710c7f9cbf6f562e4b1843",
+      "candidate_text": "Maria said she had been busy volunteering at the homeless shelter and keeping fit; she said she had just started doing aerial yoga and it was great; Maria asked John if he had tried any other cool workout classes.",
+      "observed_at": "2022-12-17T03:01:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 13,
+      "question_id": "conv-42#q0177",
+      "question": "What types of animals and insects does Joanna mention being allergic to?",
+      "candidate_fact_id": "fact:85481338fc1cc1a5475b305cb65ea4bb",
+      "candidate_text": "The assistant (addressed as Nate by the user) greeted Joanna; the user (addressed as Joanna by the assistant) greeted Nate.",
+      "observed_at": "2022-01-21T11:31:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 14,
+      "question_id": "conv-44#q0036",
+      "question": "What technique is Audrey using to discipline her dogs?",
+      "candidate_fact_id": "fact:a2def4d820dca0ada1a04f043d91b1f6",
+      "candidate_text": "Audrey said birds are amazing; she imagined it feels incredible to soar and see the world from up high; she asked if Andrew has a favorite type of bird.",
+      "observed_at": "2023-03-27T05:10:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 15,
+      "question_id": "conv-49#q0030",
+      "question": "What role does nature and the outdoors play in Evan and Sam's mental well-being?",
+      "candidate_fact_id": "fact:69238c508e9d94eb24ee2c6c8e0e9d84",
+      "candidate_text": "assistant (Sam) greeted Evan, asked what was new since they last met, and asked if anything cool was happening.",
+      "observed_at": "2023-05-18T05:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 16,
+      "question_id": "conv-43#q0060",
+      "question": "How long has John been surfing?",
+      "candidate_fact_id": "fact:045173aa0ddf9fd04fd97d346e2231cb",
+      "candidate_text": "John says he signed with the Minnesota Wolves and says he can’t wait to play with them.",
+      "observed_at": "2023-05-21T11:48:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 17,
+      "question_id": "conv-30#q0007",
+      "question": "When did Gina launch an ad campaign for her store?",
+      "candidate_fact_id": "fact:da3af7901331f673a0d8df0a23d9ee48",
+      "candidate_text": "Jon and Gina greeted each other; Gina asked Jon what was new.",
+      "observed_at": "2023-01-20T08:04:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 18,
+      "question_id": "conv-49#q0030",
+      "question": "What role does nature and the outdoors play in Evan and Sam's mental well-being?",
+      "candidate_fact_id": "fact:65bdcf77d6582f3f6229fc2a6055f059",
+      "candidate_text": "assistant (Sam) asked what happened to Evan's old Prius and where Evan went.",
+      "observed_at": "2023-05-18T05:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 19,
+      "question_id": "conv-26#q0089",
+      "question": "What did Caroline take away from the book \"Becoming Nicole\"?",
+      "candidate_fact_id": "fact:c272607857e77506d553dcfa17d99a89",
+      "candidate_text": "Mel asked what happened that was so awesome and whether Caroline heard any inspiring stories.",
+      "observed_at": "2023-05-08T05:56:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 20,
+      "question_id": "conv-47#q0014",
+      "question": "Who or which organizations have been the beneficiaries of John's charity tournaments?",
+      "candidate_fact_id": "fact:142fc70dd6b9e87ee71120147c1262a6",
+      "candidate_text": "Assistant greeted and said he is glad to finally talk, then asked what motivates the user.",
+      "observed_at": "2022-03-17T07:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 21,
+      "question_id": "conv-26#q0021",
+      "question": "Would Caroline pursue writing as a career option?",
+      "candidate_fact_id": "fact:c272607857e77506d553dcfa17d99a89",
+      "candidate_text": "Mel asked what happened that was so awesome and whether Caroline heard any inspiring stories.",
+      "observed_at": "2023-05-08T05:56:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 22,
+      "question_id": "conv-49#q0043",
+      "question": "What is Sam's persistent problem with his phone?",
+      "candidate_fact_id": "fact:69238c508e9d94eb24ee2c6c8e0e9d84",
+      "candidate_text": "assistant (Sam) greeted Evan, asked what was new since they last met, and asked if anything cool was happening.",
+      "observed_at": "2023-05-18T05:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 23,
+      "question_id": "conv-42#q0017",
+      "question": "When did Joanna start writing her third screenplay?",
+      "candidate_fact_id": "fact:db653106ecc3618961a2e56be4006bef",
+      "candidate_text": "Joanna recommended a romantic drama that is all about memory and relationships.",
+      "observed_at": "2022-01-21T11:31:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 24,
+      "question_id": "conv-47#q0029",
+      "question": "When did James take his 3 dogs to the beach?",
+      "candidate_fact_id": "fact:142fc70dd6b9e87ee71120147c1262a6",
+      "candidate_text": "Assistant greeted and said he is glad to finally talk, then asked what motivates the user.",
+      "observed_at": "2022-03-17T07:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 25,
+      "question_id": "conv-48#q0033",
+      "question": "When did Deborah go for her first morning jog in a nearby park?",
+      "candidate_fact_id": "fact:8d499606939fd339e1187aad555d5e9a",
+      "candidate_text": "Jolene asked what inspired Deb to go down this route.",
+      "observed_at": "2023-01-23T08:06:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 26,
+      "question_id": "conv-26#q0104",
+      "question": "Why did Melanie choose to use colors and patterns in her pottery project?",
+      "candidate_fact_id": "fact:bf7c2b322d4ee1c13469cec960cef4d8",
+      "candidate_text": "Melanie (the assistant) told Caroline that since they last chatted, she had had a lot of things happening, and that she ran a charity race for mental health “last Saturday”; she described it as really rewarding and said it made her think about taking care of our minds.",
+      "observed_at": "2023-05-25T05:14:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 27,
+      "question_id": "conv-41#q0108",
+      "question": "Why did John feel inspired to join the military after the visit to the hospital?",
+      "candidate_fact_id": "fact:3776aa303582dfb83e1220227321c008",
+      "candidate_text": "Maria said kickboxing is a perfect way to stay in shape and de-stress; Maria asked John if he had any goals he was working towards.",
+      "observed_at": "2022-12-17T03:01:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 28,
+      "question_id": "conv-50#q0114",
+      "question": "How does Calvin describe his music in relation to capturing feelings?",
+      "candidate_fact_id": "fact:e91521d680e85f81d8577da9524ed725",
+      "candidate_text": "Calvin said something really exciting happened to him and that he had just had a big life change.",
+      "observed_at": "2023-03-23T03:53:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 29,
+      "question_id": "conv-44#q0042",
+      "question": "What is a skill that Audrey learned to take care of her dogs?",
+      "candidate_fact_id": "fact:bb1dce431524f468b124892800fdf11c",
+      "candidate_text": "Audrey congratulated Andrew on the new job and said she got new collars and tags for her dogs, describing them as “so cute.”",
+      "observed_at": "2023-03-27T05:10:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 30,
+      "question_id": "conv-49#q0030",
+      "question": "What role does nature and the outdoors play in Evan and Sam's mental well-being?",
+      "candidate_fact_id": "fact:3cea8fe7ff6280d1e72a2317bdf689a2",
+      "candidate_text": "user (Evan) greeted Sam and said he \"just got back\" from a trip with his family in his new Prius.",
+      "observed_at": "2023-05-18T05:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 31,
+      "question_id": "conv-49#q0091",
+      "question": "What suggestion did Sam give to Evan to help with his knee issue?",
+      "candidate_fact_id": "fact:65bdcf77d6582f3f6229fc2a6055f059",
+      "candidate_text": "assistant (Sam) asked what happened to Evan's old Prius and where Evan went.",
+      "observed_at": "2023-05-18T05:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 32,
+      "question_id": "conv-41#q0108",
+      "question": "Why did John feel inspired to join the military after the visit to the hospital?",
+      "candidate_fact_id": "fact:e7ed3486753e92ed3072ce2bc61ec842",
+      "candidate_text": "John said Maria’s activities sounded cool and said he is doing kickboxing, which is giving him so much energy.",
+      "observed_at": "2022-12-17T03:01:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 33,
+      "question_id": "conv-41#q0021",
+      "question": "What has Maria done to feel closer to her faith?",
+      "candidate_fact_id": "fact:918e2b0d2f33f0ab9325b8a7f62efbb7",
+      "candidate_text": "Maria greeted John with “Hey John! Long time no see!” and asked “What’s up?”",
+      "observed_at": "2022-12-17T03:01:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 34,
+      "question_id": "conv-41#q0032",
+      "question": "What are the names of John's children?",
+      "candidate_fact_id": "fact:937cbd69b3710c7f9cbf6f562e4b1843",
+      "candidate_text": "Maria said she had been busy volunteering at the homeless shelter and keeping fit; she said she had just started doing aerial yoga and it was great; Maria asked John if he had tried any other cool workout classes.",
+      "observed_at": "2022-12-17T03:01:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 35,
+      "question_id": "conv-26#q0024",
+      "question": "Would Melanie be considered a member of the LGBTQ community?",
+      "candidate_fact_id": "fact:a5d62ec6d0d010ffcaa39571c9611ae4",
+      "candidate_text": "Melanie thanked Caroline; she said the event was really thought-provoking and that she was starting to realize self-care is really important; she described self-care as a journey for her and said that when she looks after herself, she is able to better look after her family.",
+      "observed_at": "2023-05-25T05:14:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 36,
+      "question_id": "conv-49#q0079",
+      "question": "Why did Evan decide to get the bonsai tree?",
+      "candidate_fact_id": "fact:b52389db042a5cf8ad821831171d6b91",
+      "candidate_text": "User (Evan) said “Glad you asked,” that “we went to Rockies,” and told Sam to “check it out.”",
+      "observed_at": "2023-05-18T05:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 37,
+      "question_id": "conv-43#q0069",
+      "question": "What organization is John teaming up with for his charity work?",
+      "candidate_fact_id": "fact:405e87d067cd1313a6613236271d65e6",
+      "candidate_text": "John asks Tim if Tim has been to any places related to Harry Potter.",
+      "observed_at": "2023-05-21T11:48:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 38,
+      "question_id": "conv-26#q0116",
+      "question": "What setback did Melanie face in October 2023?",
+      "candidate_fact_id": "fact:f12e91be308a270d57b8c68c8f8abcb7",
+      "candidate_text": "Melanie agreed that taking care of ourselves was vital; she said she was off to go swimming with the kids and “Talk to you soon!” (plan/action)",
+      "observed_at": "2023-05-08T05:56:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 39,
+      "question_id": "conv-49#q0068",
+      "question": "What advice did Evan give Sam about finding a passion?",
+      "candidate_fact_id": "fact:3481fe90ee85dd4614e91ff9336a92b5",
+      "candidate_text": "user (Evan) said his old Prius broke down.",
+      "observed_at": "2023-05-18T05:47:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    },
+    {
+      "row": 40,
+      "question_id": "conv-43#q0073",
+      "question": "What is the main intention behind Tim wanting to attend the book conference?",
+      "candidate_fact_id": "fact:b85c1c1d76093168d8d86cdd99161269",
+      "candidate_text": "Tim says he has been discussing collaborations for a Harry Potter fan project he is working on and says he is super excited.",
+      "observed_at": "2023-05-21T11:48:00+00:00",
+      "route_levels": [
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "hidden": {
+        "arm": "not_shown",
+        "historical_correctness": "not_shown"
+      },
+      "audit": {
+        "supported": "not_audited",
+        "relevance": "not_audited",
+        "new_answer_value": "not_audited",
+        "would_replace_unique_support": "not_audited",
+        "decision": "not_audited",
+        "notes": ""
+      }
+    }
+  ]
+}

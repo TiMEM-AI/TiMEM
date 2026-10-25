@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-10-24T02:17:38.463830+00:00",
+  "schema": "upper-w0-fact-time-v2",
+  "records": 1236,
+  "changed_upper_nodes": 565,
+  "unchanged_L1_L2_nodes": 671,
+  "stats": {
+    "facts": 16950,
+    "calendar_bindings": 609,
+    "week_bindings": 417
+  },
+  "issues": [],
+  "source_sha256": "be39d7392b260db65314bcb350ac15be74e887305037014a02c814ceb9f2b5fa",
+  "memory_construction_reads_questions_or_gold": false,
+  "original_text_copied_as_new_facts": false,
+  "whole_phrase_and_longest_match_validation": true,
+  "source_use": "construction-time verification of inherited short time phrases only",
+  "passed": true
+}

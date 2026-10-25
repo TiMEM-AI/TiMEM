@@ -1,0 +1,10 @@
+{
+  "tested_questions": 300,
+  "database_integrity": "ok",
+  "source_turns": 5882,
+  "fts_turns": 5882,
+  "requests": 299,
+  "returned_source_records": 5932,
+  "verified_source_references": 40943,
+  "cross_user_source_references": 0
+}

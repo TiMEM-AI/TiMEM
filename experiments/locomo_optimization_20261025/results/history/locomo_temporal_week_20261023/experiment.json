@@ -1,0 +1,49 @@
+{
+  "created_at": "2026-10-23T05:32:24.792019+00:00",
+  "run_root": "F:\\codex数据库memory\\locomo_temporal_week_20261023",
+  "questions": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\frozen\\questions.json",
+  "candidates": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\frozen\\candidates.json",
+  "source_snapshot": "F:\\codex数据库memory\\locomo_temporal_v2_20261023\\frozen\\aml_sources.sqlite",
+  "arms": {
+    "b": "frozen C1",
+    "w0": "C1 + anchored last week/weekend",
+    "w1": "W0 + calendar range"
+  },
+  "primary_comparison": "w0-b",
+  "secondary_comparisons": [
+    "w1-w0",
+    "w1-b"
+  ],
+  "model": {
+    "answer_model": "deepseek-v4.1-flash",
+    "judge_model": "deepseek-v4.1-flash",
+    "answer_host": "kspmas.ksyun.com",
+    "judge_host": "kspmas.ksyun.com"
+  },
+  "temperature": 0,
+  "seed": 20261023,
+  "budget_chars": 8000,
+  "cache_protocol": "share one sample per identical full answer request and per identical judge request within one replicate",
+  "hashes": {
+    "questions": "0ebfca7be1654b3d34b41e5536838ffef0e287cca5a5782af5d86a37840a142c",
+    "candidates": "3ae08960f460a5ca64aa65a01e7f9ae3a8d85bf81b6f60592bb6cec4f727d6b7",
+    "source": "be39d7392b260db65314bcb350ac15be74e887305037014a02c814ceb9f2b5fa",
+    "a0": "a3cc21b988046114a6038d5d3a2b86b4199ac79991859373296c22141cbd2473",
+    "v1": "f9d9ca1532266d1302e28139433fd6ad2d5693693d072787375e28c10a6f4835",
+    "week_ext": "d6172dba939f778ae731a554f9b049a906d97aae1b406fccebdf66c54f60fd74",
+    "arm_b": "1f03a08a2c28611b46e869c4be946334d6c259e72789f07d954af4ecd1b0a734",
+    "arm_w0": "eeecd60d0e1e9991b9d861c63079de0cdfd9ce233f1d46da5f199311a87970a1",
+    "arm_w1": "088a82646e30bff297b8d3bf11d65b325f9bd7ad015313250080e2dd59e91231",
+    "bench_aml_score": "1c8e03ad40bd92b9e997ae48331c1f9c7a9bf251692221870d5860c04c8e0e4e",
+    "bench_aml_run": "47c2f6196af076437f2b1547dbdbeca6e8f67744a3a050fd7144443bbcf99853"
+  },
+  "counts": {
+    "questions": 861,
+    "categories": {
+      "2": 167,
+      "3": 36,
+      "1": 77,
+      "4": 581
+    }
+  }
+}

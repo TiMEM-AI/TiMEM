@@ -1,0 +1,34 @@
+{
+  "completed_at": "2026-10-25T13:33:37.076677+00:00",
+  "collisions": [
+    {
+      "question_id": "conv-26#q0026",
+      "reused_question_id": "conv-26#q0025"
+    },
+    {
+      "question_id": "conv-47#q0066",
+      "reused_question_id": "conv-47#q0016"
+    }
+  ],
+  "unique_question_requests": 1124,
+  "answer_model": "deepseek-v4.1-flash",
+  "judge_model": "deepseek-v4.1-flash",
+  "repaired": [
+    "conv-26#q0026",
+    "conv-47#q0066"
+  ],
+  "stats": {
+    "B": {
+      "correct": 723,
+      "total": 861
+    },
+    "L": {
+      "correct": 723,
+      "total": 861
+    },
+    "H": {
+      "correct": 728,
+      "total": 861
+    }
+  }
+}

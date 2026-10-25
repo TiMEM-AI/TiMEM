@@ -1,0 +1,178 @@
+{
+  "schema": "timem-locomo-release-v1",
+  "date": "2026-10-25",
+  "scope": "local offline reference implementation and PR materials; no production integration or PR publication",
+  "final_counts": {
+    "questions": 861,
+    "B": 723,
+    "L": 723,
+    "H": 728
+  },
+  "models": {
+    "answer": "deepseek-v4.1-flash",
+    "judge": "deepseek-v4.1-flash",
+    "temperature": 0
+  },
+  "files": [
+    {
+      "path": "locomo_hierarchy_grounded_20261024/grounded.py",
+      "bytes": 19552,
+      "sha256": "00e8dff96aff3cdf94be1c8a993dc182ddb6a0d78570ef9351c92fc8a4b789b4"
+    },
+    {
+      "path": "locomo_hierarchy_grounded_20261024/index.sqlite",
+      "bytes": 7303168,
+      "sha256": "5cd748b210b723656f6b58cad91f39a01372688b94bc015ab650aa4c782df77b"
+    },
+    {
+      "path": "locomo_hierarchy_grounded_20261024/store.json",
+      "bytes": 24149049,
+      "sha256": "1f09619f73a3fb9b8cd7504938fdab9e9bf21d6ae4017d583e54af33ad8d0ae8"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/cache_repair_20261025/COMPLETED.json",
+      "bytes": 674,
+      "sha256": "9046d2f5d7a924f31cd168eea819b99b211c39bff12a3bd02e2fdc565edcec91"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/cache_repair_20261025/model_calls.jsonl",
+      "bytes": 58623,
+      "sha256": "f9ed4c1cdbf183e011f215bf12949d7c634319004afb259a1a45da9714b05714"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/cache_repair_20261025/REGRESSION_CHECKS.json",
+      "bytes": 619,
+      "sha256": "b3546f388de85ea7d355ce00c0f98dfd164aaaa24ab060363f0c5d466c51096b"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/cache_repair_20261025/UNIT_TEST_RESULTS.json",
+      "bytes": 240,
+      "sha256": "d92939b70aa3119b2efb99017506d0e3c7a5bf1befc9689c53edc01c173355b3"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/finalize_results.py",
+      "bytes": 8657,
+      "sha256": "60094a7bba7615dce4b8b81f42fa901057bcb5550c24a172d5a19b68dab6f4cd"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/full_answer.py",
+      "bytes": 5795,
+      "sha256": "38ce40d68acdcd476db96b51f1d52edaa6ee836dc80be51b2e9c6d1d16b468a0"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/full_prepare.py",
+      "bytes": 6039,
+      "sha256": "01ed63d92af7e74d037868ad6040a8a73796564f0087732bd438141b14fff744"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/full_run.py",
+      "bytes": 7558,
+      "sha256": "d063903c70f57772db5e3c4e0edf25561de7df6e57469af7bcf080c29be05e70"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/repair_cached_answers.py",
+      "bytes": 5917,
+      "sha256": "368ebd053abb9e2c5c77349979aac1243da52e8a7f4b5bd4a701f19ebbae8402"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/RESULTS_FULL.json",
+      "bytes": 2717,
+      "sha256": "24bb610a421b8a759dcdf1b2b599a0c05f2b284c54e0cecfb73374bee8a41cb5"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/RESULTS_FULL_20261025.md",
+      "bytes": 4024,
+      "sha256": "484f52c0238b1e4e683badc414837f502629a65d27a45d0e468052b0ae9256a6"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/RUN_MANIFEST.json",
+      "bytes": 1007,
+      "sha256": "e9790c6c78ef42a252b116cfc80bec03a0c119ffe463bb237217abcda77d915e"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_full_20261025/test_scoring_cache.py",
+      "bytes": 2910,
+      "sha256": "5a19c07b0f50cca7de924e99890540aecfbe67ff3d901276b24f37cc7e6fe060"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_r1_20261024/routes_r1.json",
+      "bytes": 6666553,
+      "sha256": "c75a7e799f02bd7c435bff1a6fbc705a67efbf8b92cf0b03aab606a0b3d21544"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_r1_3b_20261024/r13b_fix.py",
+      "bytes": 7307,
+      "sha256": "efcc920ea23034ed37548f68d8fee6593610f68e92fcca1dbe4657777cf754a4"
+    },
+    {
+      "path": "locomo_hierarchy_relevance_r1_3b_20261024/r13b_prepare.py",
+      "bytes": 11997,
+      "sha256": "c272499a84daaf5feaadb5a02d52f2c1e0c1aca45cf2e00cc203250f7d8be458"
+    },
+    {
+      "path": "locomo_temporal_week_20261023/frozen/questions.json",
+      "bytes": 283853,
+      "sha256": "0ebfca7be1654b3d34b41e5536838ffef0e287cca5a5782af5d86a37840a142c"
+    },
+    {
+      "path": "pr_materials_20261025/EXAMPLES.json",
+      "bytes": 6563,
+      "sha256": "9b8a07d88061e311aa5e4f65b4f4ed79455391b426b38777afde043034e616a9"
+    },
+    {
+      "path": "pr_materials_20261025/FINAL_RESULTS.json",
+      "bytes": 2717,
+      "sha256": "24bb610a421b8a759dcdf1b2b599a0c05f2b284c54e0cecfb73374bee8a41cb5"
+    },
+    {
+      "path": "pr_materials_20261025/FINAL_VERIFICATION.md",
+      "bytes": 6166,
+      "sha256": "d09473a5b36607274b82010aab142a6ae82657a1cfd9d6e8512161b8f469d052"
+    },
+    {
+      "path": "pr_materials_20261025/HIERARCHY_CHANGE_CATALOG.md",
+      "bytes": 19454,
+      "sha256": "28b91b195f7f218e887fdbf9753eed15933c0aa3f2900b51625c2a81ef516c23"
+    },
+    {
+      "path": "pr_materials_20261025/HISTORY_BEFORE_HIERARCHY.md",
+      "bytes": 17924,
+      "sha256": "5a6866c359797b11bba6453210ba08e93a64a3fe9dec60b43ec932a6c7b718f1"
+    },
+    {
+      "path": "pr_materials_20261025/OPTIMIZATION_REPORT.md",
+      "bytes": 23713,
+      "sha256": "0f963f4f7fe10a37c81fa6e908f826bc727fb740e49b727b0f9646043b831cd0"
+    },
+    {
+      "path": "pr_materials_20261025/PR_DESCRIPTION.md",
+      "bytes": 5024,
+      "sha256": "878e45cbcd0b9ffae6370881bf64d535ec57fe0a862f284313cd18c658cbbebd"
+    },
+    {
+      "path": "pr_materials_20261025/README.md",
+      "bytes": 2536,
+      "sha256": "6af4574dc64af6b7796a92db4ea2f0490913f36806d17bad427f672da4e37d00"
+    },
+    {
+      "path": "pr_materials_20261025/REPOSITORY_CONTEXT.md",
+      "bytes": 8852,
+      "sha256": "08675a4ddcc7db22bb8a97b12e0e83ce2d63dc977981fb9bca4f2ac9461ee68b"
+    },
+    {
+      "path": "pr_materials_20261025/RESULTS_FINAL.csv",
+      "bytes": 385,
+      "sha256": "6736d354e76b69de9bda85bcb7210c2d102cf742c23479b6a5d86e3caf7f60e6"
+    },
+    {
+      "path": "pr_materials_20261025/RESULTS_TABLE.md",
+      "bytes": 552,
+      "sha256": "e8d0fc27fab8df37f3952bac3b4a7c873b2fa9ab3e823715a90dbd01db4d0557"
+    },
+    {
+      "path": "pr_materials_20261025/SCORING_CACHE_FIX.patch",
+      "bytes": 25690,
+      "sha256": "5bff9d116409636d79b106ed64deeb9ad73ed21c4d7abc1580e55a0a6c9f1cc1"
+    }
+  ]
+}

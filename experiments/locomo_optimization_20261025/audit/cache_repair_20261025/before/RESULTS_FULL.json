@@ -1,0 +1,88 @@
+{
+  "questions": 861,
+  "unique_evidence_scored": 1122,
+  "stats": {
+    "B": {
+      "correct": 724,
+      "total": 861
+    },
+    "L": {
+      "correct": 724,
+      "total": 861
+    },
+    "H": {
+      "correct": 729,
+      "total": 861
+    }
+  },
+  "by_category": {
+    "2": {
+      "B": {
+        "correct": 132,
+        "n": 167
+      },
+      "L": {
+        "correct": 132,
+        "n": 167
+      },
+      "H": {
+        "correct": 133,
+        "n": 167
+      }
+    },
+    "3": {
+      "B": {
+        "correct": 33,
+        "n": 36
+      },
+      "L": {
+        "correct": 32,
+        "n": 36
+      },
+      "H": {
+        "correct": 32,
+        "n": 36
+      }
+    },
+    "1": {
+      "B": {
+        "correct": 54,
+        "n": 77
+      },
+      "L": {
+        "correct": 52,
+        "n": 77
+      },
+      "H": {
+        "correct": 53,
+        "n": 77
+      }
+    },
+    "4": {
+      "B": {
+        "correct": 505,
+        "n": 581
+      },
+      "L": {
+        "correct": 508,
+        "n": 581
+      },
+      "H": {
+        "correct": 511,
+        "n": 581
+      }
+    }
+  },
+  "pairing": {
+    "L-B_True-True": 720,
+    "H-L_True-True": 720,
+    "L-B_False-False": 133,
+    "H-L_False-False": 128,
+    "L-B_False-True": 4,
+    "H-L_True-False": 9,
+    "L-B_True-False": 4,
+    "H-L_False-True": 4
+  },
+  "answer_model": "deepseek-v4.1-flash",
+  "judge_model": "deepseek-v4.1-flash"
+}

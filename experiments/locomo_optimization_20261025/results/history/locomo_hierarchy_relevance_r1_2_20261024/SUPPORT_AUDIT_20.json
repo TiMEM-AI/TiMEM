@@ -1,0 +1,388 @@
+{
+  "schema": "r1.2-support-audit-20-v1",
+  "seed": 20261024,
+  "questions": 20,
+  "sampling": "12 absent_everywhere (4/4/3/1 by category) + 8 in_facts (2 each)",
+  "rows": [
+    {
+      "question_id": "conv-47#q0045",
+      "category": "2",
+      "question": "When did John and his gaming friends organize the charity tournament?",
+      "gold": "On the night of October 30, 2022",
+      "diagnosis_bucket": "absent_everywhere",
+      "source_messages": 689,
+      "b_facts": 135,
+      "auto_source_token_overlap": 0.25,
+      "auto_fact_token_overlap": 0.25,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-26#q0044",
+      "category": "2",
+      "question": "When did Melanie make a plate in pottery class?",
+      "gold": "24 August 2023",
+      "diagnosis_bucket": "absent_everywhere",
+      "source_messages": 419,
+      "b_facts": 134,
+      "auto_source_token_overlap": 0.0,
+      "auto_fact_token_overlap": 0.0,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-47#q0029",
+      "category": "2",
+      "question": "When did James take his 3 dogs to the beach?",
+      "gold": "August 9, 2022",
+      "diagnosis_bucket": "absent_everywhere",
+      "source_messages": 689,
+      "b_facts": 131,
+      "auto_source_token_overlap": 0.0,
+      "auto_fact_token_overlap": 0.5,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-48#q0020",
+      "category": "2",
+      "question": "When did Deborah meet Anna?",
+      "gold": "31 January, 2023",
+      "diagnosis_bucket": "absent_everywhere",
+      "source_messages": 681,
+      "b_facts": 107,
+      "auto_source_token_overlap": 0.0,
+      "auto_fact_token_overlap": 0.0,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-49#q0044",
+      "category": "3",
+      "question": "Which US state(s) was Sam travelling in during October 2023?",
+      "gold": "California and Nevada / California / Nevada / California and Nevada (Lake Tahoe)",
+      "diagnosis_bucket": "absent_everywhere",
+      "source_messages": 509,
+      "b_facts": 143,
+      "auto_source_token_overlap": 0.5,
+      "auto_fact_token_overlap": 0.5,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-48#q0070",
+      "category": "3",
+      "question": "What card game is Deborah talking about?",
+      "gold": "Exploding Kittens",
+      "diagnosis_bucket": "absent_everywhere",
+      "source_messages": 681,
+      "b_facts": 96,
+      "auto_source_token_overlap": 0.0,
+      "auto_fact_token_overlap": 0.0,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-48#q0016",
+      "category": "3",
+      "question": "In what country did Jolene buy snake Seraphim?",
+      "gold": "In France",
+      "diagnosis_bucket": "absent_everywhere",
+      "source_messages": 681,
+      "b_facts": 126,
+      "auto_source_token_overlap": 0.0,
+      "auto_fact_token_overlap": 0.0,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-47#q0019",
+      "category": "3",
+      "question": "Which country did James book tickets for in July 2022?",
+      "gold": "Canada",
+      "diagnosis_bucket": "absent_everywhere",
+      "source_messages": 689,
+      "b_facts": 127,
+      "auto_source_token_overlap": 0.0,
+      "auto_fact_token_overlap": 0.0,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-43#q0022",
+      "category": "1",
+      "question": "What outdoor activities does John enjoy?",
+      "gold": "Hiking, surfing",
+      "diagnosis_bucket": "absent_everywhere",
+      "source_messages": 680,
+      "b_facts": 147,
+      "auto_source_token_overlap": 0.5,
+      "auto_fact_token_overlap": 0.5,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-26#q0060",
+      "category": "1",
+      "question": "When did Melanie go on a hike after the roadtrip?",
+      "gold": "19 October 2023",
+      "diagnosis_bucket": "absent_everywhere",
+      "source_messages": 419,
+      "b_facts": 113,
+      "auto_source_token_overlap": 0.0,
+      "auto_fact_token_overlap": 0.0,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-41#q0021",
+      "category": "1",
+      "question": "What has Maria done to feel closer to her faith?",
+      "gold": "Join a local church, buy a cross necklace",
+      "diagnosis_bucket": "absent_everywhere",
+      "source_messages": 663,
+      "b_facts": 145,
+      "auto_source_token_overlap": 0.333,
+      "auto_fact_token_overlap": 0.333,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-48#q0055",
+      "category": "4",
+      "question": "What do Deborah and her husband do together?",
+      "gold": "play detective games together, spend time outdoors and explore nature",
+      "diagnosis_bucket": "absent_everywhere",
+      "source_messages": 681,
+      "b_facts": 124,
+      "auto_source_token_overlap": 0.444,
+      "auto_fact_token_overlap": 0.444,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-41#q0010",
+      "category": "2",
+      "question": "When did Maria's grandmother pass away?",
+      "gold": "The week before 6 March 2023 / From February 27, 2023 to March 5, 2023",
+      "diagnosis_bucket": "in_facts",
+      "source_messages": 663,
+      "b_facts": 125,
+      "auto_source_token_overlap": 0.333,
+      "auto_fact_token_overlap": 0.167,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-48#q0048",
+      "category": "2",
+      "question": "When did Jolene lose a lot of progress in her work?",
+      "gold": "last week of July 2023 / From July 24, 2023 to July 30, 2023",
+      "diagnosis_bucket": "in_facts",
+      "source_messages": 681,
+      "b_facts": 139,
+      "auto_source_token_overlap": 0.333,
+      "auto_fact_token_overlap": 0.333,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-43#q0115",
+      "category": "4",
+      "question": "How did John overcome his ankle injury from last season?",
+      "gold": "stayed focused on recovery and worked hard to strengthen his body",
+      "diagnosis_bucket": "in_facts",
+      "source_messages": 680,
+      "b_facts": 120,
+      "auto_source_token_overlap": 1.0,
+      "auto_fact_token_overlap": 1.0,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-43#q0060",
+      "category": "4",
+      "question": "How long has John been surfing?",
+      "gold": "five years",
+      "diagnosis_bucket": "in_facts",
+      "source_messages": 680,
+      "b_facts": 114,
+      "auto_source_token_overlap": 1.0,
+      "auto_fact_token_overlap": 1.0,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-49#q0043",
+      "category": "1",
+      "question": "What is Sam's persistent problem with his phone?",
+      "gold": "His new phone malfunctioning, particularly with the navigation app.",
+      "diagnosis_bucket": "in_facts",
+      "source_messages": 509,
+      "b_facts": 123,
+      "auto_source_token_overlap": 0.833,
+      "auto_fact_token_overlap": 0.833,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-44#q0036",
+      "category": "1",
+      "question": "What technique is Audrey using to discipline her dogs?",
+      "gold": "Positive reinforcement",
+      "diagnosis_bucket": "in_facts",
+      "source_messages": 675,
+      "b_facts": 138,
+      "auto_source_token_overlap": 1.0,
+      "auto_fact_token_overlap": 1.0,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-41#q0011",
+      "category": "3",
+      "question": "Would John be considered a patriotic person?",
+      "gold": "Yes",
+      "diagnosis_bucket": "in_facts",
+      "source_messages": 663,
+      "b_facts": 136,
+      "auto_source_token_overlap": 1.0,
+      "auto_fact_token_overlap": 1.0,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    },
+    {
+      "question_id": "conv-43#q0158",
+      "category": "3",
+      "question": "Which movie's theme does Tim enjoy playing on the piano?",
+      "gold": "Harry Potter and the Philosopher's Stone",
+      "diagnosis_bucket": "in_facts",
+      "source_messages": 680,
+      "b_facts": 143,
+      "auto_source_token_overlap": 1.0,
+      "auto_fact_token_overlap": 1.0,
+      "audit": {
+        "S_source": "not_audited",
+        "D_derived": "not_audited",
+        "C_L_candidates": "not_audited",
+        "C_H_candidates": "not_audited",
+        "B_evidence": "not_audited",
+        "answer_judge": "not_run"
+      }
+    }
+  ]
+}

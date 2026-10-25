@@ -1,0 +1,5 @@
+{
+  "target_baseline": "two original answer files archived before any repair",
+  "non_target_baseline": "859 unchanged files captured during repair; no separate pre-run backup of these files",
+  "note": "Do not describe the non-target snapshot as an independently archived full pre-repair dataset; repair code only writes the two target answer paths."
+}
