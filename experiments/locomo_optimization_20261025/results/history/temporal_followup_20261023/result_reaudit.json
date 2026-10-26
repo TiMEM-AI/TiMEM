@@ -1,0 +1,56 @@
+{
+  "review_date": "2026-10-23",
+  "input_run": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023",
+  "metrics": {
+    "c0": {
+      "correct": 697,
+      "n": 861,
+      "temporal_correct": 89
+    },
+    "c1": {
+      "correct": 714,
+      "n": 861,
+      "temporal_correct": 106
+    },
+    "c2": {
+      "correct": 707,
+      "n": 861,
+      "temporal_correct": 100
+    },
+    "c3": {
+      "correct": 703,
+      "n": 861,
+      "temporal_correct": 95
+    }
+  },
+  "additional_pairwise_audit": {
+    "c1-c0": {
+      "gains": 27,
+      "losses": 10,
+      "net": 17,
+      "exploratory_mcnemar_two_sided": 0.007632078602910042
+    },
+    "c3-c1": {
+      "gains": 3,
+      "losses": 14,
+      "net": -11,
+      "exploratory_mcnemar_two_sided": 0.012725830078125
+    }
+  },
+  "saved_records": 3444,
+  "distinct_saved_answer_hashes": 1242,
+  "distinct_question_gold_answer_triples": 1009,
+  "same_answer_request_different_answers": 0,
+  "reported_last_invocation_requests": {
+    "answer_requests": 1222,
+    "judge_requests": 996,
+    "answer_hits": 2190,
+    "judge_hits": 2416,
+    "logical_evaluations": 3444
+  },
+  "notes": [
+    "No remote model calls during this review.",
+    "Distinct request hashes are not a measurement of actual API calls including retries.",
+    "Zero judge flips is expected under identical-request result sharing; it does not establish judge stability."
+  ]
+}

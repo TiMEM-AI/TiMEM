@@ -1,0 +1,89 @@
+{
+  "run_id": "f1022b",
+  "status": "incomplete_insufficient_balance",
+  "time": "2026-10-22T16:53:18+08:00",
+  "expected_questions": 861,
+  "scored": 747,
+  "searched": 748,
+  "correct": 556,
+  "partial_accuracy": 0.7443105756358769,
+  "unscored": 114,
+  "categories": {
+    "2": {
+      "name": "时间",
+      "correct": 94,
+      "total": 160,
+      "accuracy": 0.5875
+    },
+    "4": {
+      "name": "单跳",
+      "correct": 390,
+      "total": 481,
+      "accuracy": 0.8108108108108109
+    },
+    "1": {
+      "name": "多跳",
+      "correct": 46,
+      "total": 72,
+      "accuracy": 0.6388888888888888
+    },
+    "3": {
+      "name": "推理",
+      "correct": 26,
+      "total": 34,
+      "accuracy": 0.7647058823529411
+    }
+  },
+  "expected_by_category": {
+    "2": 167,
+    "3": 36,
+    "1": 77,
+    "4": 581
+  },
+  "conv26": {
+    "total": 87,
+    "correct": 65,
+    "accuracy": 0.7471264367816092,
+    "categories": {
+      "2": {
+        "name": "时间",
+        "correct": 10,
+        "total": 20,
+        "accuracy": 0.5
+      },
+      "4": {
+        "name": "单跳",
+        "correct": 43,
+        "total": 50,
+        "accuracy": 0.86
+      },
+      "1": {
+        "name": "多跳",
+        "correct": 6,
+        "total": 10,
+        "accuracy": 0.6
+      },
+      "3": {
+        "name": "推理",
+        "correct": 6,
+        "total": 7,
+        "accuracy": 0.8571428571428571
+      }
+    }
+  },
+  "baseline": {
+    "category_mean": {
+      "2": 0.6,
+      "4": 0.9066666666666667,
+      "1": 0.6666666666666666,
+      "3": 0.9523809523809523
+    },
+    "total_median": 0.8045977011494253
+  },
+  "blocker": {
+    "http_status": 402,
+    "message": "Insufficient Balance",
+    "balance_cny_latest": "-0.15"
+  },
+  "resume_command": "python -B -u main.py aml-search f1022b --score"
+}

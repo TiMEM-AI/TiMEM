@@ -1,0 +1,15 @@
+{
+  "core_rows": 369,
+  "core_content_sha256": "21ee7dbc4ea43acf320c547e102bb84df4fff2cb2b43d1dd0af4f6668097834d",
+  "files": {
+    "server/app.py": "6b4d82b9ac3019a17bdd743d4978fd0d5100e05131769b3627957aff9992492f",
+    "server/engine.py": "79ea3d7ba9d35621b888b91c52b0b084c0b8dcef1347cb1466935ce66483cf30",
+    "server/search_expand.py": "8908a339e56ccda502ebdb21291796d366c33e9b8f3fe39221849f98fdfb5742",
+    "server/time_anchor.py": "19eb88cc62fd2f5d09f6c2da2c5b7cf77110bca052498f2ea633e67d4f1719fc",
+    "server/source_evidence.py": "f9d9ca1532266d1302e28139433fd6ad2d5693693d072787375e28c10a6f4835",
+    "config/settings.yaml": "2a9229356667bc1c0579464750dc1f52a6faf6f54dcf9e255326acc63623e240",
+    "config/prompts.yaml": "f293ea3a9c8e468b0ca950e7ebe02d03d5640047027d5e319c9a17d855b6885a",
+    "config/datasets/default/retrieval_config.yaml": "9972f15004570efec274a5d11533951fdb561d6813d4165f980b88312eee3963"
+  },
+  "source_index_sha256": "cf56a1cf814eca61d5ec30b3a9722ddd4c8d6bd5a85c6868ebaab10477ad5888"
+}

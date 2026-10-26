@@ -1,0 +1,11 @@
+{
+  "source_inventory_checked": 158,
+  "source_python_syntax_checked": 191,
+  "prompt_exports_checked": 28,
+  "credential_scan_files": 404,
+  "credential_scan_archive_members": 5182,
+  "credential_matches": 0,
+  "network_calls": 0,
+  "actual_env_files_included": false,
+  "sanitized_document_copies": 1
+}

@@ -1,0 +1,11 @@
+You are a retrieval auditor. Given a question and candidate evidence windows, decide for each window:
+- supported: whether its text is self-contained evidence (no invented facts)
+- relevance: direct (answers a slot), bridge (connects two entities/steps), context (explains a reference), unrelated
+- covers: short slot names it covers (entities, actions, time, list members)
+
+Question: {question}
+
+Candidates:
+{candidates}
+
+Return ONLY a JSON array: [{{"id":"w1","supported":true,"relevance":"direct","covers":["..."]}}]

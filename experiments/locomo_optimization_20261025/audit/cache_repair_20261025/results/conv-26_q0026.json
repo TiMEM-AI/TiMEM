@@ -1,0 +1,13 @@
+{
+  "request_sha": "53c95f9407cca200bf50b871cef5f613ca1e8dbb56f58a3bf86fb2b2d6b0374c",
+  "result": {
+    "question_id": "conv-26#q0026",
+    "category": "2",
+    "correct": false,
+    "score": 0.0,
+    "method": "correct_wrong",
+    "judge_raw": "{\n    \"label\": \"WRONG\"\n}",
+    "gold": "two weekends before 17 July 2023 / From July 8, 2023 to July 9, 2023",
+    "generated": "Two weekends ago."
+  }
+}

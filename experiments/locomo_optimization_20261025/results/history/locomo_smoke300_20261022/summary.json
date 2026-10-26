@@ -1,0 +1,86 @@
+{
+  "complete": true,
+  "metrics": [
+    {
+      "category": "2",
+      "label": "时间",
+      "n": 100,
+      "baseline_correct": 57,
+      "variant_correct": 49,
+      "baseline_pct": 56.99999999999999,
+      "variant_pct": 49.0,
+      "delta_pp": -8.0
+    },
+    {
+      "category": "1",
+      "label": "多跳",
+      "n": 77,
+      "baseline_correct": 50,
+      "variant_correct": 54,
+      "baseline_pct": 64.93506493506493,
+      "variant_pct": 70.12987012987013,
+      "delta_pp": 5.194805194805195
+    },
+    {
+      "category": "4",
+      "label": "单跳",
+      "n": 98,
+      "baseline_correct": 77,
+      "variant_correct": 87,
+      "baseline_pct": 78.57142857142857,
+      "variant_pct": 88.77551020408163,
+      "delta_pp": 10.204081632653061
+    },
+    {
+      "category": "3",
+      "label": "推理",
+      "n": 25,
+      "baseline_correct": 18,
+      "variant_correct": 19,
+      "baseline_pct": 72.0,
+      "variant_pct": 76.0,
+      "delta_pp": 4.0
+    },
+    {
+      "category": "all",
+      "label": "总计",
+      "n": 300,
+      "baseline_correct": 202,
+      "variant_correct": 209,
+      "baseline_pct": 67.33333333333333,
+      "variant_pct": 69.66666666666667,
+      "delta_pp": 2.3333333333333335
+    }
+  ],
+  "wrong_to_right": 44,
+  "right_to_wrong": 37,
+  "net": 7,
+  "mcnemar_exact_p": 0.5052364407669359,
+  "paired_question_bootstrap_95ci_delta_pp": [
+    -3.6666666666666665,
+    8.0
+  ],
+  "source_coverage": 300,
+  "empty_search": {
+    "baseline": 0,
+    "variant": 0
+  },
+  "judge_parse_errors": {
+    "baseline": 0,
+    "variant": 0
+  },
+  "mean_evidence_tokens": {
+    "baseline": 10320.28,
+    "variant": 7782.173333333333
+  },
+  "median_grounding_ms": 6.330149999485002,
+  "provenance": {
+    "mode": "paired post-retrieval ablation, identical fresh current-model baseline candidates for both arms",
+    "source_sha256": "f9d9ca1532266d1302e28139433fd6ad2d5693693d072787375e28c10a6f4835",
+    "source_database_sha256": "cf56a1cf814eca61d5ec30b3a9722ddd4c8d6bd5a85c6868ebaab10477ad5888",
+    "answer_model": "deepseek-v4.1-flash",
+    "judge_model": "deepseek-v4.1-flash",
+    "temperature": 0
+  },
+  "selection_sha256": "b99c43721dafec8321ba1ccd95d5201a6bc853f97de1af69bbf111c6f183d92b"
+}

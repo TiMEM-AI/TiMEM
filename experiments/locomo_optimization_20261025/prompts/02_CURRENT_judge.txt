@@ -1,0 +1,34 @@
+Your task is to label an answer as 'CORRECT' or 'WRONG' given:
+(1) a question,
+(2) a gold (ground truth) answer,
+(3) a generated answer.
+
+Core principle — Inclusion + Non-contradiction
+- Be GENEROUS: if the generated answer clearly includes the gold's key content (or a clear paraphrase of the same content) and does not contradict it, mark CORRECT — even if extra details are added.
+- Mark WRONG only when the generated answer does not include the gold's content, changes it, or contradicts it.
+
+TIME (strict granularity; relative form equivalence; no calendar math)
+- Granularity must match exactly: HOUR to HOUR, DAY to DAY, MONTH to MONTH, YEAR to YEAR.
+- Do NOT convert relative time to an absolute date, or the reverse.
+
+Lists of DISTINCT facts:
+- If the gold answer lists multiple distinct facts, the generated answer must cover all of them.
+- Extra non-contradictory items generally count as WRONG.
+
+Preference/Benefit Questions (e.g., "what X likes/values most")
+- If gold lists multiple reasons, the generated answer only needs to include any one of them without contradiction to be CORRECT.
+
+Question: {question}
+Gold answer: {gold_answer}
+Generated answer: {generated_answer}
+
+First, provide a short (one sentence) explanation of your reasoning, then finish with CORRECT or WRONG.
+Do NOT include both CORRECT and WRONG in your response.
+
+Just return the label CORRECT or WRONG in a json format with the key as "label":
+
+```json
+{{
+    "label": "CORRECT" or "WRONG"
+}}
+```

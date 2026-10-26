@@ -1,0 +1,69 @@
+{
+  "created_at": "2026-10-23T04:33:10.446036+00:00",
+  "run_root": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023",
+  "questions": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\frozen\\questions.json",
+  "candidates": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\frozen\\candidates.json",
+  "source_snapshot": "F:\\codex数据库memory\\locomo_temporal_v2_20261023\\frozen\\aml_sources.sqlite",
+  "arms": {
+    "c0": {
+      "label": "raw_v1",
+      "module": null
+    },
+    "c1": {
+      "label": "a0_frozen",
+      "module": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\frozen\\arm_c1.py"
+    },
+    "c2": {
+      "label": "spec_format",
+      "module": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\frozen\\arm_c2.py"
+    },
+    "c3": {
+      "label": "spec_safe_context",
+      "module": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\frozen\\arm_c3.py"
+    }
+  },
+  "denominator": 861,
+  "primary_comparison": "c3-c0",
+  "secondary_comparisons": [
+    "c2-c1",
+    "c3-c2"
+  ],
+  "model": {
+    "answer_model": "deepseek-v4.1-flash",
+    "judge_model": "deepseek-v4.1-flash",
+    "answer_host": "kspmas.ksyun.com",
+    "judge_host": "kspmas.ksyun.com"
+  },
+  "temperature": 0,
+  "seed": 20261023,
+  "cache_protocol": "share one sample per identical full answer request and per identical judge request within a replicate",
+  "budget_chars": 8000,
+  "max_source_sentence_chars": 400,
+  "hashes": {
+    "spec": "da18e4c5067c10f86d1d55ebe844fcf0da27b20aef551fe410d63fdd9a40bc21",
+    "questions": "0ebfca7be1654b3d34b41e5536838ffef0e287cca5a5782af5d86a37840a142c",
+    "candidates": "3ae08960f460a5ca64aa65a01e7f9ae3a8d85bf81b6f60592bb6cec4f727d6b7",
+    "source_snapshot": "be39d7392b260db65314bcb350ac15be74e887305037014a02c814ceb9f2b5fa",
+    "v1_source_evidence": "f9d9ca1532266d1302e28139433fd6ad2d5693693d072787375e28c10a6f4835",
+    "a0_temporal_evidence": "a3cc21b988046114a6038d5d3a2b86b4199ac79991859373296c22141cbd2473",
+    "bench_aml_score": "1c8e03ad40bd92b9e997ae48331c1f9c7a9bf251692221870d5860c04c8e0e4e",
+    "bench_aml_run": "47c2f6196af076437f2b1547dbdbeca6e8f67744a3a050fd7144443bbcf99853",
+    "arms": {
+      "arm_c1.py": "1b4b17c8c92168de09662a75322b4bcbe7e392b98683704f0a508ee82c652a93",
+      "arm_c2.py": "2ead0965eb320443cc183083dcaea54f3aa68c68eec65da6fea95c65f609ad6a",
+      "arm_c3.py": "541bc764c59add8c0d5fbe8bdbf40c17a185e417a322cdbe6e99362a3a585893"
+    }
+  },
+  "counts": {
+    "questions": 861,
+    "candidates": 861,
+    "categories": {
+      "2": 167,
+      "3": 36,
+      "1": 77,
+      "4": 581
+    },
+    "source_turns": 5882,
+    "source_requests": 299
+  }
+}

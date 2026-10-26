@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "real_collision_checks": [
+    {
+      "pair": [
+        "conv-26#q0025",
+        "conv-26#q0026"
+      ],
+      "same_evidence": true,
+      "different_question_keys": true,
+      "same_request_shared": true,
+      "changed_model_invalidates": true,
+      "changed_gold_invalidates": true
+    },
+    {
+      "pair": [
+        "conv-47#q0016",
+        "conv-47#q0066"
+      ],
+      "same_evidence": true,
+      "different_question_keys": true,
+      "same_request_shared": true,
+      "changed_model_invalidates": true,
+      "changed_gold_invalidates": true
+    }
+  ]
+}

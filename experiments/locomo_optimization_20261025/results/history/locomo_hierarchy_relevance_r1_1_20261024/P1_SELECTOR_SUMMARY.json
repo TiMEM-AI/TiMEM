@@ -1,0 +1,49 @@
+{
+  "schema": "r1.1-p1-selector-v1",
+  "created_at": "2026-10-24T08:23:51.059411+00:00",
+  "questions": 80,
+  "groups": {
+    "B": {
+      "changed": 0,
+      "windows": 1897
+    },
+    "H_raw": {
+      "changed": 0,
+      "windows": 1897,
+      "accepted": 0,
+      "replaced": 0,
+      "rej_no_new_slot": 38616,
+      "rej_irrelevant": 400,
+      "rej_no_replaceable_tail": 102
+    },
+    "H_fold": {
+      "changed": 0,
+      "windows": 1897,
+      "accepted": 0,
+      "replaced": 0,
+      "rej_no_new_slot": 40382,
+      "rej_irrelevant": 512,
+      "rej_no_replaceable_tail": 102
+    },
+    "L_rel": {
+      "changed": 0,
+      "windows": 1897,
+      "accepted": 0,
+      "replaced": 0,
+      "rej_no_new_slot": 29332,
+      "rej_irrelevant": 323,
+      "rej_no_replaceable_tail": 65
+    },
+    "H_rel": {
+      "changed": 0,
+      "windows": 1897,
+      "accepted": 0,
+      "replaced": 0,
+      "rej_no_new_slot": 40382,
+      "rej_irrelevant": 512,
+      "rej_no_replaceable_tail": 102
+    }
+  },
+  "selector": "deterministic: support(same conv/time/<=7 facts) + relevance(query token) + marginal(new slot) + replacement loss",
+  "model_calls": 0
+}

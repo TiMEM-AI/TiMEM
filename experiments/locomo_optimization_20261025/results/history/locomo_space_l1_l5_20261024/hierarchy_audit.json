@@ -1,0 +1,96 @@
+{
+  "audited_at": "2026-10-24T01:57:45.466130+00:00",
+  "source_turns": 5882,
+  "source_assignment_count": 5882,
+  "source_sha256": "be39d7392b260db65314bcb350ac15be74e887305037014a02c814ceb9f2b5fa",
+  "planned": 1236,
+  "generated": 1236,
+  "missing": [],
+  "issues": [],
+  "complete": true,
+  "levels": {
+    "L1": 399,
+    "L2": 272,
+    "L3": 272,
+    "L4": 207,
+    "L5": 86
+  },
+  "per_conversation": {
+    "conv-26": {
+      "L1": 28,
+      "L2": 19,
+      "L3": 19,
+      "L4": 13,
+      "L5": 6
+    },
+    "conv-30": {
+      "L1": 27,
+      "L2": 19,
+      "L3": 19,
+      "L4": 15,
+      "L5": 7
+    },
+    "conv-41": {
+      "L1": 46,
+      "L2": 32,
+      "L3": 32,
+      "L4": 24,
+      "L5": 9
+    },
+    "conv-42": {
+      "L1": 44,
+      "L2": 29,
+      "L3": 29,
+      "L4": 23,
+      "L5": 11
+    },
+    "conv-43": {
+      "L1": 43,
+      "L2": 29,
+      "L3": 29,
+      "L4": 22,
+      "L5": 9
+    },
+    "conv-44": {
+      "L1": 46,
+      "L2": 28,
+      "L3": 28,
+      "L4": 23,
+      "L5": 9
+    },
+    "conv-47": {
+      "L1": 46,
+      "L2": 31,
+      "L3": 31,
+      "L4": 25,
+      "L5": 9
+    },
+    "conv-48": {
+      "L1": 46,
+      "L2": 30,
+      "L3": 30,
+      "L4": 21,
+      "L5": 8
+    },
+    "conv-49": {
+      "L1": 34,
+      "L2": 25,
+      "L3": 25,
+      "L4": 19,
+      "L5": 9
+    },
+    "conv-50": {
+      "L1": 39,
+      "L2": 30,
+      "L3": 30,
+      "L4": 22,
+      "L5": 9
+    }
+  },
+  "generation_methods": {
+    "DeepSeek consolidation": 648,
+    "single-child preservation": 588
+  },
+  "content_note": "Single-child parents preserve the child verbatim; retrieval deduplicates identical content.",
+  "method": "Local chronological grouping and external DeepSeek consolidation; not native Space consolidation."
+}

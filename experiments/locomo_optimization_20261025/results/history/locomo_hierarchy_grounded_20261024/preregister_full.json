@@ -1,0 +1,241 @@
+{
+  "frozen_at": "2026-10-24T02:46:15.924257+00:00",
+  "primary_comparison": "lower_only vs all_levels; same max24 windows, W0 formatter/token budget and canonical fact bank",
+  "rules": {
+    "schema": "inherited-evidence-navigation-v1",
+    "retrieval_policy": "conditional-navigation-v2",
+    "max_windows": 24,
+    "protected_flat_windows": 20,
+    "upper_extra_windows": 4,
+    "context_radius": 2,
+    "opening_facts": 2,
+    "rrf_k": 60,
+    "route_min_dice": 0.38,
+    "route_link_limit": 2,
+    "route_link_margin": 0.03,
+    "leaf_candidates": 400,
+    "route_candidates": 200,
+    "annotation_budget": 8000,
+    "formatter": "original W0 format_memories",
+    "runtime_routing_uses_gold": false,
+    "development": "fixed prior 40-question smoke; policy frozen before full comparison",
+    "upper_guard": "compositional query, informative query token, new observation date, verified child link"
+  },
+  "development_40_ids": [
+    "conv-50#q0015",
+    "conv-49#q0048",
+    "conv-43#q0026",
+    "conv-42#q0023",
+    "conv-42#q0002",
+    "conv-26#q0012",
+    "conv-48#q0007",
+    "conv-47#q0048",
+    "conv-48#q0072",
+    "conv-41#q0040",
+    "conv-50#q0047",
+    "conv-42#q0007",
+    "conv-30#q0025",
+    "conv-26#q0007",
+    "conv-26#q0028",
+    "conv-50#q0005",
+    "conv-41#q0024",
+    "conv-30#q0015",
+    "conv-43#q0009",
+    "conv-42#q0035",
+    "conv-30#q0049",
+    "conv-48#q0080",
+    "conv-47#q0129",
+    "conv-49#q0108",
+    "conv-41#q0114",
+    "conv-50#q0064",
+    "conv-44#q0109",
+    "conv-50#q0066",
+    "conv-48#q0164",
+    "conv-42#q0168",
+    "conv-43#q0159",
+    "conv-50#q0037",
+    "conv-26#q0035",
+    "conv-50#q0012",
+    "conv-26#q0002",
+    "conv-42#q0068",
+    "conv-42#q0010",
+    "conv-48#q0066",
+    "conv-47#q0133",
+    "conv-47#q0023"
+  ],
+  "smoke_v1": {
+    "lower_only": {
+      "completed": 40,
+      "total": 40,
+      "correct": 31,
+      "accuracy": 0.775,
+      "categories": {
+        "2": {
+          "name": "时间",
+          "completed": 10,
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        },
+        "4": {
+          "name": "单跳",
+          "completed": 10,
+          "correct": 9,
+          "total": 10,
+          "accuracy": 0.9
+        },
+        "1": {
+          "name": "多跳",
+          "completed": 10,
+          "correct": 6,
+          "total": 10,
+          "accuracy": 0.6
+        },
+        "3": {
+          "name": "推理",
+          "completed": 10,
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        }
+      },
+      "no_evidence": 0,
+      "actual_models": {
+        "deepseek-v4.1-flash": 80
+      },
+      "errors": {}
+    },
+    "all_levels": {
+      "completed": 40,
+      "total": 40,
+      "correct": 28,
+      "accuracy": 0.7,
+      "categories": {
+        "2": {
+          "name": "时间",
+          "completed": 10,
+          "correct": 7,
+          "total": 10,
+          "accuracy": 0.7
+        },
+        "4": {
+          "name": "单跳",
+          "completed": 10,
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        },
+        "1": {
+          "name": "多跳",
+          "completed": 10,
+          "correct": 5,
+          "total": 10,
+          "accuracy": 0.5
+        },
+        "3": {
+          "name": "推理",
+          "completed": 10,
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        }
+      },
+      "no_evidence": 0,
+      "actual_models": {
+        "deepseek-v4.1-flash": 80
+      },
+      "errors": {}
+    }
+  },
+  "smoke_v2": {
+    "lower_only": {
+      "completed": 40,
+      "total": 40,
+      "correct": 29,
+      "accuracy": 0.725,
+      "categories": {
+        "2": {
+          "name": "时间",
+          "completed": 10,
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        },
+        "4": {
+          "name": "单跳",
+          "completed": 10,
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        },
+        "1": {
+          "name": "多跳",
+          "completed": 10,
+          "correct": 5,
+          "total": 10,
+          "accuracy": 0.5
+        },
+        "3": {
+          "name": "推理",
+          "completed": 10,
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        }
+      },
+      "no_evidence": 0,
+      "actual_models": {
+        "deepseek-v4.1-flash": 80
+      },
+      "errors": {}
+    },
+    "all_levels": {
+      "completed": 40,
+      "total": 40,
+      "correct": 30,
+      "accuracy": 0.75,
+      "categories": {
+        "2": {
+          "name": "时间",
+          "completed": 10,
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        },
+        "4": {
+          "name": "单跳",
+          "completed": 10,
+          "correct": 9,
+          "total": 10,
+          "accuracy": 0.9
+        },
+        "1": {
+          "name": "多跳",
+          "completed": 10,
+          "correct": 5,
+          "total": 10,
+          "accuracy": 0.5
+        },
+        "3": {
+          "name": "推理",
+          "completed": 10,
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        }
+      },
+      "no_evidence": 0,
+      "actual_models": {
+        "deepseek-v4.1-flash": 80
+      },
+      "errors": {}
+    }
+  },
+  "report_821_excluding_development_sample": true,
+  "full_score_will_not_be_used_to_change_current_policy": true,
+  "paired_significance": "two-sided exact McNemar, descriptive per-category scores",
+  "code_sha256": {
+    "grounded.py": "00e8dff96aff3cdf94be1c8a993dc182ddb6a0d78570ef9351c92fc8a4b789b4",
+    "evaluate.py": "e8e61d35ad0737e012ea02cef4f7d37a427b2356e80271968e56225d4097b03b"
+  }
+}
