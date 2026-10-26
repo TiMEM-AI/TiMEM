@@ -1,0 +1,2234 @@
+{
+  "schema": "r1.3-semantic-audit-20-v1",
+  "rules": "question entities + relation stem; S/D hit requires both; C_H from top folded routes with B-external target; B from hit.in_b",
+  "questions": [
+    {
+      "question_id": "conv-47#q0045",
+      "category": "2",
+      "question": "When did John and his gaming friends organize the charity tournament?",
+      "gold": "On the night of October 30, 2022",
+      "plan": {
+        "entities": [
+          "john"
+        ],
+        "relations": [],
+        "temporal": true
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:cf3c08e21e05df5e46b50e9eb6dcbf22",
+            "observed_at": "2022-03-17T07:47:00+00:00",
+            "text": "Hey John! Video games give me tons of joy and excitement, so they keep me motivated!"
+          },
+          {
+            "source_id": "src:8bc8d385b1cb5e6cd28e9d269b86a444",
+            "observed_at": "2022-03-17T07:47:00+00:00",
+            "text": "Thanks, John! The personal touch really sets it apart. Users can add their pup's preferences/needs - just like they were customizing it for them. Making it unique for each owner an"
+          },
+          {
+            "source_id": "src:a14d924f7c9d69d69fd83b8ff065c71b",
+            "observed_at": "2022-03-17T07:47:00+00:00",
+            "text": "Thanks John! It's super exciting. I'll keep you updated on the progress. Perhaps, thanks to your knowledge of HTML, I'll invite you to help with some things in my game."
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:fc4499d9d166028903dd05334490aea5",
+            "observed_at": "2022-03-17T07:47:00+00:00",
+            "in_b": false,
+            "text": "User addresses the assistant as John and says video games give them tons of joy and excitement, so they keep them motivated."
+          },
+          {
+            "fact_id": "fact:84f82e6f05526cffcad9c8de0ae61615",
+            "observed_at": "2022-03-17T07:47:00+00:00",
+            "in_b": false,
+            "text": "User addresses the assistant as John, says thanks, says the personal touch really sets it apart, and says users can add their pup’s preferences/needs — just like they were customiz"
+          },
+          {
+            "fact_id": "fact:b557818fca58c237367d537925c3d851",
+            "observed_at": "2022-03-17T07:47:00+00:00",
+            "in_b": false,
+            "text": "User thanked John, said it is super exciting, said he’ll keep John updated on the progress, and said that perhaps, thanks to John’s knowledge of HTML, he’ll invite John to help wit"
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:bf0a6c53404b752f24cb2042c2560b19",
+            "observed_at": "2022-03-26T16:40:00+00:00",
+            "in_b": true,
+            "text": "assistant (addressed as John) reported a big win in his game “last week”; he finally advanced to the next level, and it was a huge confidence booster and felt like he had really ac"
+          },
+          {
+            "fact_id": "fact:1cd70462acfa012566d7ef2b426ac0f0",
+            "observed_at": "2022-03-26T16:40:00+00:00",
+            "in_b": true,
+            "text": "user (addressed as James) congratulated John on his win; said games can really boost confidence; said he is challenging himself too by learning an instrument, which has been quite "
+          },
+          {
+            "fact_id": "fact:234e4fb5bf21f8d23e655bb0deaacb3a",
+            "observed_at": "2022-03-26T16:40:00+00:00",
+            "in_b": true,
+            "text": "assistant/John said “Nice work!” and that James looks like he is doing great; he asked if there was anything new in general James would recommend."
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:142fc70dd6b9e87ee71120147c1262a6",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Assistant greeted and said he is glad to finally talk, then asked what motivates the user."
+          },
+          {
+            "fact_id": "fact:d3f231a80b4fad10dec3dc8bd31a046d",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "User addressed the assistant as John and said video games give them tons of joy and excitement, so they keep them motivated."
+          },
+          {
+            "fact_id": "fact:cbc28cc025180bda73cb1c62c0201887",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Assistant addressed the user as James, said he is a big video game fan too, said video games help him relax after a long day, and asked what game the user is cu"
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:bf0a6c53404b752f24cb2042c2560b19",
+          "fact:1cd70462acfa012566d7ef2b426ac0f0",
+          "fact:234e4fb5bf21f8d23e655bb0deaacb3a",
+          "fact:582adfccc94d6e95695f2b0d02e525b2",
+          "fact:9e49dbdd1da41fc1d993f9256269feb9"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-26#q0044",
+      "category": "2",
+      "question": "When did Melanie make a plate in pottery class?",
+      "gold": "24 August 2023",
+      "plan": {
+        "entities": [
+          "melanie"
+        ],
+        "relations": [
+          "make"
+        ],
+        "temporal": true
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:2a5f556f7d05e2ac6602998ce69917d9",
+            "observed_at": "2023-05-25T05:14:00+00:00",
+            "text": "Thanks, Melanie! Your kind words really mean a lot. I'll do my best to make sure these kids have a safe and loving home."
+          },
+          {
+            "source_id": "src:4ad3cd93507938b66a04b0548d8444d8",
+            "observed_at": "2023-07-12T08:33:00+00:00",
+            "text": "Awesome, Melanie! Mental health's a priority, so make sure you take care of yourself."
+          },
+          {
+            "source_id": "src:d9fbb9058553e82a89c2fc410ae7dfd4",
+            "observed_at": "2023-07-15T05:51:00+00:00",
+            "text": "Thanks Melanie - love the blue vase in the pic! Blue's my fave, it makes me feel relaxed. Sunflowers mean warmth and happiness, right? While roses stand for love and beauty? That's"
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:ff52131e46f6da64022c740d1ac73a3e",
+            "observed_at": "2023-05-25T05:14:00+00:00",
+            "in_b": true,
+            "text": "Caroline thanked Melanie, said Melanie’s kind words really mean a lot, and said she will do her best to make sure these kids have a safe and loving home."
+          },
+          {
+            "fact_id": "fact:d676915ba45543ee08197da489879285",
+            "observed_at": "2023-06-09T11:55:00+00:00",
+            "in_b": true,
+            "text": "Caroline said she is going to keep using her voice to make a change and lift others up, and told Melanie she is part of that."
+          },
+          {
+            "fact_id": "fact:360c3f375f350dec02ff4cbe9b709c2c",
+            "observed_at": "2023-06-09T11:55:00+00:00",
+            "in_b": true,
+            "text": "Melanie thanked Caroline, said she appreciated the kind words, said she was looking forward to more happy years, and said their family and moments make it all worth it."
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:ff52131e46f6da64022c740d1ac73a3e",
+            "observed_at": "2023-05-25T05:14:00+00:00",
+            "in_b": true,
+            "text": "Caroline thanked Melanie, said Melanie’s kind words really mean a lot, and said she will do her best to make sure these kids have a safe and loving home."
+          },
+          {
+            "fact_id": "fact:d676915ba45543ee08197da489879285",
+            "observed_at": "2023-06-09T11:55:00+00:00",
+            "in_b": true,
+            "text": "Caroline said she is going to keep using her voice to make a change and lift others up, and told Melanie she is part of that."
+          },
+          {
+            "fact_id": "fact:360c3f375f350dec02ff4cbe9b709c2c",
+            "observed_at": "2023-06-09T11:55:00+00:00",
+            "in_b": true,
+            "text": "Melanie thanked Caroline, said she appreciated the kind words, said she was looking forward to more happy years, and said their family and moments make it all worth it."
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:2e308428bc8b21efa33db44b139476ff",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Caroline thanked Melanie, said “That’s really sweet,” and asked if this was Melanie’s own painting."
+          },
+          {
+            "fact_id": "fact:819f062730d49622666aa1e68e5cf6e5",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Melanie said yes, she painted that lake sunrise last year and that it was special to her. (completed event; time reference: last year)"
+          },
+          {
+            "fact_id": "fact:3be2376c71951cfb120b64de7b70b952",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Caroline said “Wow, Melanie! The colors really blend nicely,” and that painting looked like a great outlet for expressing herself."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:ff52131e46f6da64022c740d1ac73a3e",
+          "fact:d676915ba45543ee08197da489879285",
+          "fact:360c3f375f350dec02ff4cbe9b709c2c",
+          "fact:cc8c2c2dd60186322ffbdf99513f2a1b",
+          "fact:9c032254dab2d40fe0c09db708069176"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-47#q0029",
+      "category": "2",
+      "question": "When did James take his 3 dogs to the beach?",
+      "gold": "August 9, 2022",
+      "plan": {
+        "entities": [
+          "james"
+        ],
+        "relations": [
+          "take"
+        ],
+        "temporal": true
+      },
+      "S_source": {
+        "state": "not_found_after_review",
+        "hits": []
+      },
+      "D_derived": {
+        "state": "not_found_after_review",
+        "hits": []
+      },
+      "C_L": {
+        "state": "not_found_after_review",
+        "hits": []
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:142fc70dd6b9e87ee71120147c1262a6",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Assistant greeted and said he is glad to finally talk, then asked what motivates the user."
+          },
+          {
+            "fact_id": "fact:d3f231a80b4fad10dec3dc8bd31a046d",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "User addressed the assistant as John and said video games give them tons of joy and excitement, so they keep them motivated."
+          },
+          {
+            "fact_id": "fact:cbc28cc025180bda73cb1c62c0201887",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Assistant addressed the user as James, said he is a big video game fan too, said video games help him relax after a long day, and asked what game the user is cu"
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "partial",
+        "fact_ids": []
+      },
+      "answer_judge": "not_run",
+      "overall": "uncertain"
+    },
+    {
+      "question_id": "conv-48#q0020",
+      "category": "2",
+      "question": "When did Deborah meet Anna?",
+      "gold": "31 January, 2023",
+      "plan": {
+        "entities": [
+          "anna",
+          "deborah"
+        ],
+        "relations": [
+          "meet"
+        ],
+        "temporal": true
+      },
+      "S_source": {
+        "state": "not_found_after_review",
+        "hits": []
+      },
+      "D_derived": {
+        "state": "not_found_after_review",
+        "hits": []
+      },
+      "C_L": {
+        "state": "not_found_after_review",
+        "hits": []
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:dc8180f9f91e31e88656205df677675f",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Jolene said, “What touching words!” and asked who the letter was from; Jolene asked where Deborah most often does yoga."
+          },
+          {
+            "fact_id": "fact:02b576e015e4c6aeb308588899ea354e",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Deborah said the place shown was “one of the places where I do it”; she identified it as “my old home”; she said she goes there now and then for her mom, who pa"
+          },
+          {
+            "fact_id": "fact:712dbbb701bc21f970fc32c5dc2201a5",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Jolene said it must be great to have that place where Deborah feels connected to her; Jolene asked if it brings back any special memories."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "partial",
+        "fact_ids": []
+      },
+      "answer_judge": "not_run",
+      "overall": "uncertain"
+    },
+    {
+      "question_id": "conv-49#q0044",
+      "category": "3",
+      "question": "Which US state(s) was Sam travelling in during October 2023?",
+      "gold": "California and Nevada / California / Nevada / California and Nevada (Lake Tahoe)",
+      "plan": {
+        "entities": [
+          "october",
+          "sam"
+        ],
+        "relations": [],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:455e2ecc99456cebbf0193c0468a31d7",
+            "observed_at": "2023-05-18T05:47:00+00:00",
+            "text": "Hey Sam! Good to see you! Yeah, I just got back from a trip with my family in my new Prius."
+          },
+          {
+            "source_id": "src:7127d2f0c9290378d29f6c77fb567ff3",
+            "observed_at": "2023-05-18T05:47:00+00:00",
+            "text": "Cool idea, Sam! I love it. Have you tried it before?"
+          },
+          {
+            "source_id": "src:21891d151c165f6c8f00440687388a08",
+            "observed_at": "2023-05-18T05:47:00+00:00",
+            "text": "No worries, Sam! Super pumped for you! Let's catch up soon and see how you're enjoying your new hobbies!"
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:69238c508e9d94eb24ee2c6c8e0e9d84",
+            "observed_at": "2023-05-18T05:47:00+00:00",
+            "in_b": false,
+            "text": "assistant (Sam) greeted Evan, asked what was new since they last met, and asked if anything cool was happening."
+          },
+          {
+            "fact_id": "fact:3cea8fe7ff6280d1e72a2317bdf689a2",
+            "observed_at": "2023-05-18T05:47:00+00:00",
+            "in_b": false,
+            "text": "user (Evan) greeted Sam and said he \"just got back\" from a trip with his family in his new Prius."
+          },
+          {
+            "fact_id": "fact:65bdcf77d6582f3f6229fc2a6055f059",
+            "observed_at": "2023-05-18T05:47:00+00:00",
+            "in_b": false,
+            "text": "assistant (Sam) asked what happened to Evan's old Prius and where Evan went."
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:09ab253e0c61872c78fb74d53cb81892",
+            "observed_at": "2023-05-24T11:11:00+00:00",
+            "in_b": true,
+            "text": "Evan greeted Sam, said it was good to hear from Sam, and said that since they last talked, lots had been happening."
+          },
+          {
+            "fact_id": "fact:f7ced903c550bfce736b9779e62e1687",
+            "observed_at": "2023-05-24T11:11:00+00:00",
+            "in_b": true,
+            "text": "Sam thanked Evan, said breaking old habits isn’t easy, and asked Evan for tips for starting the process."
+          },
+          {
+            "fact_id": "fact:076ff4f7bfa6b0b0586da4932e011bb5",
+            "observed_at": "2023-05-24T11:11:00+00:00",
+            "in_b": true,
+            "text": "Evan said what worked for Evan was finding a fitness routine Evan really enjoys; it is Evan’s go-to; Evan loves the feeling of being healthy and strong; making it fun and finding l"
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:69238c508e9d94eb24ee2c6c8e0e9d84",
+            "levels": [
+              "L3",
+              "L4"
+            ],
+            "text": "assistant (Sam) greeted Evan, asked what was new since they last met, and asked if anything cool was happening."
+          },
+          {
+            "fact_id": "fact:3cea8fe7ff6280d1e72a2317bdf689a2",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "user (Evan) greeted Sam and said he \"just got back\" from a trip with his family in his new Prius."
+          },
+          {
+            "fact_id": "fact:65bdcf77d6582f3f6229fc2a6055f059",
+            "levels": [
+              "L3",
+              "L4"
+            ],
+            "text": "assistant (Sam) asked what happened to Evan's old Prius and where Evan went."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:09ab253e0c61872c78fb74d53cb81892",
+          "fact:f7ced903c550bfce736b9779e62e1687",
+          "fact:076ff4f7bfa6b0b0586da4932e011bb5",
+          "fact:240174a7f70e1352de6355771eab1b86",
+          "fact:c33d730f91dac7ae7c802e1830f7517b"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-48#q0070",
+      "category": "3",
+      "question": "What card game is Deborah talking about?",
+      "gold": "Exploding Kittens",
+      "plan": {
+        "entities": [
+          "deborah"
+        ],
+        "relations": [],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:e159d9e1a7070636e2347a83ac16705a",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "text": "Sorry to hear about your dad, Deborah. Losing a parent is tough - how's it going for you and your family?"
+          },
+          {
+            "source_id": "src:ba1098988fc93401148e1a458594f4ee",
+            "observed_at": "2023-02-04T01:48:00+00:00",
+            "text": "Hey Deborah! Good to hear from you. How've you been? I've been on an emotional rollercoaster lately, but I'm coping."
+          },
+          {
+            "source_id": "src:0b0166f276b48004ff3b3223368e2c7e",
+            "observed_at": "2023-02-04T01:48:00+00:00",
+            "text": "Thanks Deborah! I'm really into this book called \"Sapiens\" - it's a fascinating look at human history and how technology has affected us. It's giving me a lot to think about!"
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:c5e35815de57dfe4696165cb3002b814",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "in_b": true,
+            "text": "Deborah addressed the assistant as Jolene; the assistant addressed Deborah by name while saying sorry about her dad."
+          },
+          {
+            "fact_id": "fact:301dc82796bffb1fc38958aa0c054710",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "in_b": true,
+            "text": "Deborah told Jolene, “my dad passed away two days ago”; she said it had been really tough on us all and his sudden death left us all kinda shell-shocked."
+          },
+          {
+            "fact_id": "fact:8af487880791398b318bc106ab5e63af",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "in_b": true,
+            "text": "Deborah said she is trying to channel her grief by spending more time with family and cherishing the memories; she said these moments remind her to live life fully."
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:c5e35815de57dfe4696165cb3002b814",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "in_b": true,
+            "text": "Deborah addressed the assistant as Jolene; the assistant addressed Deborah by name while saying sorry about her dad."
+          },
+          {
+            "fact_id": "fact:301dc82796bffb1fc38958aa0c054710",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "in_b": true,
+            "text": "Deborah told Jolene, “my dad passed away two days ago”; she said it had been really tough on us all and his sudden death left us all kinda shell-shocked."
+          },
+          {
+            "fact_id": "fact:8af487880791398b318bc106ab5e63af",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "in_b": true,
+            "text": "Deborah said she is trying to channel her grief by spending more time with family and cherishing the memories; she said these moments remind her to live life fully."
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:dc8180f9f91e31e88656205df677675f",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Jolene said, “What touching words!” and asked who the letter was from; Jolene asked where Deborah most often does yoga."
+          },
+          {
+            "fact_id": "fact:02b576e015e4c6aeb308588899ea354e",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Deborah said the place shown was “one of the places where I do it”; she identified it as “my old home”; she said she goes there now and then for her mom, who pa"
+          },
+          {
+            "fact_id": "fact:712dbbb701bc21f970fc32c5dc2201a5",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Jolene said it must be great to have that place where Deborah feels connected to her; Jolene asked if it brings back any special memories."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:c5e35815de57dfe4696165cb3002b814",
+          "fact:301dc82796bffb1fc38958aa0c054710",
+          "fact:8af487880791398b318bc106ab5e63af",
+          "fact:8f3e2a72548e51655d16396674045cdc",
+          "fact:02a424d7c7edb3c9fab8b135cf20eeb5"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-48#q0016",
+      "category": "3",
+      "question": "In what country did Jolene buy snake Seraphim?",
+      "gold": "In France",
+      "plan": {
+        "entities": [
+          "jolene",
+          "seraphim"
+        ],
+        "relations": [
+          "buy"
+        ],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "not_found_after_review",
+        "hits": []
+      },
+      "D_derived": {
+        "state": "not_found_after_review",
+        "hits": []
+      },
+      "C_L": {
+        "state": "not_found_after_review",
+        "hits": []
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:42ea0fc9adf9e960f156e82263cadf58",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Jolene asked if anything fun was happening for Deb."
+          },
+          {
+            "fact_id": "fact:835aaac47e654bed50084a41ca0ca60d",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Deb congratulated Jolene and said that last week Deb visited a place that holds a lot of memories for her: Deb's mother's old house."
+          },
+          {
+            "fact_id": "fact:6e613f351db507ccaee14253fac867ba",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Jolene asked why the place held such special memories for Deb."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "partial",
+        "fact_ids": []
+      },
+      "answer_judge": "not_run",
+      "overall": "uncertain"
+    },
+    {
+      "question_id": "conv-47#q0019",
+      "category": "3",
+      "question": "Which country did James book tickets for in July 2022?",
+      "gold": "Canada",
+      "plan": {
+        "entities": [
+          "james",
+          "july"
+        ],
+        "relations": [],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:b6fb9c8b59d44e374bf2e43f9d62502c",
+            "observed_at": "2022-07-09T09:13:00+00:00",
+            "text": "I plan to return on July 20, I’ll definitely bring you some kind of souvenir!"
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:f89cf68145aa98c5b6a585d704a3e043",
+            "observed_at": "2022-07-09T09:13:00+00:00",
+            "in_b": true,
+            "text": "James said he plans to return on July 20 and will definitely bring John some kind of souvenir."
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:f89cf68145aa98c5b6a585d704a3e043",
+            "observed_at": "2022-07-09T09:13:00+00:00",
+            "in_b": true,
+            "text": "James said he plans to return on July 20 and will definitely bring John some kind of souvenir."
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:142fc70dd6b9e87ee71120147c1262a6",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Assistant greeted and said he is glad to finally talk, then asked what motivates the user."
+          },
+          {
+            "fact_id": "fact:d3f231a80b4fad10dec3dc8bd31a046d",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "User addressed the assistant as John and said video games give them tons of joy and excitement, so they keep them motivated."
+          },
+          {
+            "fact_id": "fact:cbc28cc025180bda73cb1c62c0201887",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Assistant addressed the user as James, said he is a big video game fan too, said video games help him relax after a long day, and asked what game the user is cu"
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:f89cf68145aa98c5b6a585d704a3e043"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-43#q0022",
+      "category": "1",
+      "question": "What outdoor activities does John enjoy?",
+      "gold": "Hiking, surfing",
+      "plan": {
+        "entities": [
+          "john"
+        ],
+        "relations": [],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:eba3c27c5c3a79a94a0e2b584f531bcb",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "text": "Hey John! Great to meet you. Been discussing collaborations for a Harry Potter fan project I am working on - super excited! Anything interesting happening for you?"
+          },
+          {
+            "source_id": "src:d3c440fbbf1f43468e540e7e7dc9c98a",
+            "observed_at": "2023-06-15T09:08:00+00:00",
+            "text": "Yeah, John! Count on me for support. Can't wait to see what's up! This is my book collection so far."
+          },
+          {
+            "source_id": "src:29d35e783476d19165c7fc238ee1eee2",
+            "observed_at": "2023-08-02T08:17:00+00:00",
+            "text": "Hey John! How've you been? Something awesome happened - I'm writing articles about fantasy novels for an online mag. It's so rewarding!"
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:18b5edc05e719e6af9212520192c2975",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "in_b": false,
+            "text": "The user greets the assistant as Tim; the assistant greets the user as John."
+          },
+          {
+            "fact_id": "fact:f454868f20912f37fac5a68c85d33580",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "in_b": false,
+            "text": "John says he just signed with a new team and is excited for the season."
+          },
+          {
+            "fact_id": "fact:045173aa0ddf9fd04fd97d346e2231cb",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "in_b": false,
+            "text": "John says he signed with the Minnesota Wolves and says he can’t wait to play with them."
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:83e0847bcb4798b1e200d0566b7d21f2",
+            "observed_at": "2023-08-02T08:17:00+00:00",
+            "in_b": true,
+            "text": "Tim greeted John and asked, \"How've you been?\""
+          },
+          {
+            "fact_id": "fact:ee97573339d099737a1d84907743a33c",
+            "observed_at": "2023-08-02T08:17:00+00:00",
+            "in_b": true,
+            "text": "John said, \"Have fun with your writing! Catch you later!\""
+          },
+          {
+            "fact_id": "fact:ac5c13990cfdae4ec4879a27ec89320f",
+            "observed_at": "2023-08-02T08:17:00+00:00",
+            "in_b": true,
+            "text": "Tim thanked John, said, \"I'll enjoy writing them,\" and said, \"Take care and talk soon!\""
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:18b5edc05e719e6af9212520192c2975",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "The user greets the assistant as Tim; the assistant greets the user as John."
+          },
+          {
+            "fact_id": "fact:f454868f20912f37fac5a68c85d33580",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "John says he just signed with a new team and is excited for the season."
+          },
+          {
+            "fact_id": "fact:045173aa0ddf9fd04fd97d346e2231cb",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "John says he signed with the Minnesota Wolves and says he can’t wait to play with them."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:83e0847bcb4798b1e200d0566b7d21f2",
+          "fact:ee97573339d099737a1d84907743a33c",
+          "fact:ac5c13990cfdae4ec4879a27ec89320f",
+          "fact:bdc60e0215938cedabbbfcf3622a38f7",
+          "fact:eee72866703e8406b11f1e6ed5d8e02b"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-26#q0060",
+      "category": "1",
+      "question": "When did Melanie go on a hike after the roadtrip?",
+      "gold": "19 October 2023",
+      "plan": {
+        "entities": [
+          "melanie"
+        ],
+        "relations": [
+          "go"
+        ],
+        "temporal": true
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:fc622f9a7828f7e4f8da533ef20a2527",
+            "observed_at": "2023-06-27T02:37:00+00:00",
+            "text": "Thanks, Melanie. It really mattered. My own journey and the support I got made a huge difference. Now I want to help people go through it too. I saw how counseling and support grou"
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:f12e91be308a270d57b8c68c8f8abcb7",
+            "observed_at": "2023-05-08T05:56:00+00:00",
+            "in_b": true,
+            "text": "Melanie agreed that taking care of ourselves was vital; she said she was off to go swimming with the kids and “Talk to you soon!” (plan/action)"
+          },
+          {
+            "fact_id": "fact:4f4d3777d46e69628d679f97ac142cb3",
+            "observed_at": "2023-06-27T02:37:00+00:00",
+            "in_b": true,
+            "text": "Caroline thanked Melanie and said it really mattered; her own journey and the support she got made a huge difference; and now she wants to help people go through it too."
+          },
+          {
+            "fact_id": "fact:824e0c59b2a837ac75c2528704b3bfe0",
+            "observed_at": "2023-07-20T12:56:00+00:00",
+            "in_b": true,
+            "text": "Melanie said, “We don’t go often, usually only once or twice a year. But those times are always special to spend time together and chill.”"
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:f12e91be308a270d57b8c68c8f8abcb7",
+            "observed_at": "2023-05-08T05:56:00+00:00",
+            "in_b": true,
+            "text": "Melanie agreed that taking care of ourselves was vital; she said she was off to go swimming with the kids and “Talk to you soon!” (plan/action)"
+          },
+          {
+            "fact_id": "fact:4f4d3777d46e69628d679f97ac142cb3",
+            "observed_at": "2023-06-27T02:37:00+00:00",
+            "in_b": true,
+            "text": "Caroline thanked Melanie and said it really mattered; her own journey and the support she got made a huge difference; and now she wants to help people go through it too."
+          },
+          {
+            "fact_id": "fact:824e0c59b2a837ac75c2528704b3bfe0",
+            "observed_at": "2023-07-20T12:56:00+00:00",
+            "in_b": true,
+            "text": "Melanie said, “We don’t go often, usually only once or twice a year. But those times are always special to spend time together and chill.”"
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:2e308428bc8b21efa33db44b139476ff",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Caroline thanked Melanie, said “That’s really sweet,” and asked if this was Melanie’s own painting."
+          },
+          {
+            "fact_id": "fact:dbc15cf17ef74ef969ac33ad1ad11453",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Melanie responded that taking in kids in need was awesome and kind, and said Caroline’s future family would be lucky to have her."
+          },
+          {
+            "fact_id": "fact:d4f6398b32ba519a53f75939283b3bc9",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Melanie said the agency looked great and asked what made Caroline pick it."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:f12e91be308a270d57b8c68c8f8abcb7",
+          "fact:4f4d3777d46e69628d679f97ac142cb3",
+          "fact:824e0c59b2a837ac75c2528704b3bfe0"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-41#q0021",
+      "category": "1",
+      "question": "What has Maria done to feel closer to her faith?",
+      "gold": "Join a local church, buy a cross necklace",
+      "plan": {
+        "entities": [
+          "maria"
+        ],
+        "relations": [],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:dd1fe286b5dd50ece00c4a9575733d35",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "text": "Hey Maria! Good to see you. Just got back from a family road trip yesterday, it was fun! Anything exciting happening for you?"
+          },
+          {
+            "source_id": "src:45fd872bf2d3def14a19e6d1f47f83ff",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "text": "Woah, Maria, that sounds cool! I'm doing kickboxing and it's giving me so much energy."
+          },
+          {
+            "source_id": "src:3c31a863c972ff835be53e62c6ee6172",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "text": "Yeah Maria, I'm really hoping to get into local politics. I love helping the community and making it a better place."
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:918e2b0d2f33f0ab9325b8a7f62efbb7",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": false,
+            "text": "Maria greeted John with “Hey John! Long time no see!” and asked “What’s up?”"
+          },
+          {
+            "fact_id": "fact:b7b8dbe8fa2ff658b07b67583c7d3a22",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": false,
+            "text": "John greeted Maria, said “Good to see you,” and said he had just gotten back from a family road trip “yesterday” (spoken on 2022-12-17T03:01:00+00:00), which was fun; John asked if"
+          },
+          {
+            "fact_id": "fact:937cbd69b3710c7f9cbf6f562e4b1843",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": false,
+            "text": "Maria said she had been busy volunteering at the homeless shelter and keeping fit; she said she had just started doing aerial yoga and it was great; Maria asked John if he had trie"
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:37da017dc812360c7a4af8c311e484e6",
+            "observed_at": "2022-12-22T10:10:00+00:00",
+            "in_b": true,
+            "text": "Maria greeted John, noted it had been a few days since they chatted, and said she was keen to hear about the campaign."
+          },
+          {
+            "fact_id": "fact:db2d831db43e23dbfc4dc32566c3f4f4",
+            "observed_at": "2022-12-22T10:10:00+00:00",
+            "in_b": true,
+            "text": "Maria said that in the meantime she donated her old car to a homeless shelter she volunteers at yesterday."
+          },
+          {
+            "fact_id": "fact:eb52ac438f8e4fb6b50801a9379d417d",
+            "observed_at": "2022-12-22T10:10:00+00:00",
+            "in_b": true,
+            "text": "Maria said her family is small, but she loves spending time with the friends she has; they usually watch movies, hike, and have game nights at her place; she said quality connectio"
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:918e2b0d2f33f0ab9325b8a7f62efbb7",
+            "levels": [
+              "L3",
+              "L4"
+            ],
+            "text": "Maria greeted John with “Hey John! Long time no see!” and asked “What’s up?”"
+          },
+          {
+            "fact_id": "fact:b7b8dbe8fa2ff658b07b67583c7d3a22",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "John greeted Maria, said “Good to see you,” and said he had just gotten back from a family road trip “yesterday” (spoken on 2022-12-17T03:01:00+00:00), which wa"
+          },
+          {
+            "fact_id": "fact:937cbd69b3710c7f9cbf6f562e4b1843",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Maria said she had been busy volunteering at the homeless shelter and keeping fit; she said she had just started doing aerial yoga and it was great; Maria asked"
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:37da017dc812360c7a4af8c311e484e6",
+          "fact:db2d831db43e23dbfc4dc32566c3f4f4",
+          "fact:eb52ac438f8e4fb6b50801a9379d417d",
+          "fact:a1bc64764715dac3d688326f0e2c2576",
+          "fact:6a4042aa8f91171d0e94d3ce7f1e9990"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-48#q0055",
+      "category": "4",
+      "question": "What do Deborah and her husband do together?",
+      "gold": "play detective games together, spend time outdoors and explore nature",
+      "plan": {
+        "entities": [
+          "deborah"
+        ],
+        "relations": [],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:e159d9e1a7070636e2347a83ac16705a",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "text": "Sorry to hear about your dad, Deborah. Losing a parent is tough - how's it going for you and your family?"
+          },
+          {
+            "source_id": "src:ba1098988fc93401148e1a458594f4ee",
+            "observed_at": "2023-02-04T01:48:00+00:00",
+            "text": "Hey Deborah! Good to hear from you. How've you been? I've been on an emotional rollercoaster lately, but I'm coping."
+          },
+          {
+            "source_id": "src:0b0166f276b48004ff3b3223368e2c7e",
+            "observed_at": "2023-02-04T01:48:00+00:00",
+            "text": "Thanks Deborah! I'm really into this book called \"Sapiens\" - it's a fascinating look at human history and how technology has affected us. It's giving me a lot to think about!"
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:c5e35815de57dfe4696165cb3002b814",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "in_b": true,
+            "text": "Deborah addressed the assistant as Jolene; the assistant addressed Deborah by name while saying sorry about her dad."
+          },
+          {
+            "fact_id": "fact:301dc82796bffb1fc38958aa0c054710",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "in_b": true,
+            "text": "Deborah told Jolene, “my dad passed away two days ago”; she said it had been really tough on us all and his sudden death left us all kinda shell-shocked."
+          },
+          {
+            "fact_id": "fact:8af487880791398b318bc106ab5e63af",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "in_b": true,
+            "text": "Deborah said she is trying to channel her grief by spending more time with family and cherishing the memories; she said these moments remind her to live life fully."
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:c5e35815de57dfe4696165cb3002b814",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "in_b": true,
+            "text": "Deborah addressed the assistant as Jolene; the assistant addressed Deborah by name while saying sorry about her dad."
+          },
+          {
+            "fact_id": "fact:301dc82796bffb1fc38958aa0c054710",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "in_b": true,
+            "text": "Deborah told Jolene, “my dad passed away two days ago”; she said it had been really tough on us all and his sudden death left us all kinda shell-shocked."
+          },
+          {
+            "fact_id": "fact:8af487880791398b318bc106ab5e63af",
+            "observed_at": "2023-01-27T01:49:00+00:00",
+            "in_b": true,
+            "text": "Deborah said she is trying to channel her grief by spending more time with family and cherishing the memories; she said these moments remind her to live life fully."
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:9d88506c9bd74ef22cc7b808a6653718",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Deb said, \"This is our last photo together.\""
+          },
+          {
+            "fact_id": "fact:a3dc557e29d3c99481be976d4f9ab6ef",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Deborah said, “Look what letter I received yesterday!”; she said the group members sent this to her; they thanked her for the positive influence she had on them"
+          },
+          {
+            "fact_id": "fact:dc8180f9f91e31e88656205df677675f",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Jolene said, “What touching words!” and asked who the letter was from; Jolene asked where Deborah most often does yoga."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:c5e35815de57dfe4696165cb3002b814",
+          "fact:301dc82796bffb1fc38958aa0c054710",
+          "fact:8af487880791398b318bc106ab5e63af",
+          "fact:8f3e2a72548e51655d16396674045cdc",
+          "fact:02a424d7c7edb3c9fab8b135cf20eeb5"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-41#q0010",
+      "category": "2",
+      "question": "When did Maria's grandmother pass away?",
+      "gold": "The week before 6 March 2023 / From February 27, 2023 to March 5, 2023",
+      "plan": {
+        "entities": [
+          "maria"
+        ],
+        "relations": [],
+        "temporal": true
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:dd1fe286b5dd50ece00c4a9575733d35",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "text": "Hey Maria! Good to see you. Just got back from a family road trip yesterday, it was fun! Anything exciting happening for you?"
+          },
+          {
+            "source_id": "src:45fd872bf2d3def14a19e6d1f47f83ff",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "text": "Woah, Maria, that sounds cool! I'm doing kickboxing and it's giving me so much energy."
+          },
+          {
+            "source_id": "src:3c31a863c972ff835be53e62c6ee6172",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "text": "Yeah Maria, I'm really hoping to get into local politics. I love helping the community and making it a better place."
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:918e2b0d2f33f0ab9325b8a7f62efbb7",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": true,
+            "text": "Maria greeted John with “Hey John! Long time no see!” and asked “What’s up?”"
+          },
+          {
+            "fact_id": "fact:b7b8dbe8fa2ff658b07b67583c7d3a22",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": true,
+            "text": "John greeted Maria, said “Good to see you,” and said he had just gotten back from a family road trip “yesterday” (spoken on 2022-12-17T03:01:00+00:00), which was fun; John asked if"
+          },
+          {
+            "fact_id": "fact:937cbd69b3710c7f9cbf6f562e4b1843",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": false,
+            "text": "Maria said she had been busy volunteering at the homeless shelter and keeping fit; she said she had just started doing aerial yoga and it was great; Maria asked John if he had trie"
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:918e2b0d2f33f0ab9325b8a7f62efbb7",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": true,
+            "text": "Maria greeted John with “Hey John! Long time no see!” and asked “What’s up?”"
+          },
+          {
+            "fact_id": "fact:b7b8dbe8fa2ff658b07b67583c7d3a22",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": true,
+            "text": "John greeted Maria, said “Good to see you,” and said he had just gotten back from a family road trip “yesterday” (spoken on 2022-12-17T03:01:00+00:00), which was fun; John asked if"
+          },
+          {
+            "fact_id": "fact:777354d438725070e6ed124e1dc9222d",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": true,
+            "text": "Maria said “Looks good!” and asked how the extra funding helped with building the school."
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:937cbd69b3710c7f9cbf6f562e4b1843",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Maria said she had been busy volunteering at the homeless shelter and keeping fit; she said she had just started doing aerial yoga and it was great; Maria asked"
+          },
+          {
+            "fact_id": "fact:e7ed3486753e92ed3072ce2bc61ec842",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "John said Maria’s activities sounded cool and said he is doing kickboxing, which is giving him so much energy."
+          },
+          {
+            "fact_id": "fact:3776aa303582dfb83e1220227321c008",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Maria said kickboxing is a perfect way to stay in shape and de-stress; Maria asked John if he had any goals he was working towards."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:918e2b0d2f33f0ab9325b8a7f62efbb7",
+          "fact:b7b8dbe8fa2ff658b07b67583c7d3a22",
+          "fact:777354d438725070e6ed124e1dc9222d",
+          "fact:2e6b208e97e0d1c53fb533d3da541a11",
+          "fact:f419092146b50ce2886db2aa9171d8e2"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-48#q0048",
+      "category": "2",
+      "question": "When did Jolene lose a lot of progress in her work?",
+      "gold": "last week of July 2023 / From July 24, 2023 to July 30, 2023",
+      "plan": {
+        "entities": [
+          "jolene"
+        ],
+        "relations": [
+          "work"
+        ],
+        "temporal": true
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:d6d0de33f9aa8164a29744c9fef0c4ef",
+            "observed_at": "2023-02-01T11:03:00+00:00",
+            "text": "Hey Jolene! It's great to hear from you. It sounds challenging but interesting! It must be really putting your creative and problem-solving skills to the test. How did you feel whe"
+          },
+          {
+            "source_id": "src:4869e378f2c627cbade4b9d6e195a67e",
+            "observed_at": "2023-02-01T11:03:00+00:00",
+            "text": "That's awesome, Jolene! You're enjoying the process. It must be really satisfying to see it come together. Keep up the good work! Oh, by the way, I met my new neighbor Anna yesterd"
+          },
+          {
+            "source_id": "src:1ff1bee3cf30f71007fedc4937b16019",
+            "observed_at": "2023-03-13T03:22:00+00:00",
+            "text": "Sure, Jolene. Let's find a time that works for both of us."
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:196670520963620ab70531d0bb60a9ea",
+            "observed_at": "2023-01-23T08:06:00+00:00",
+            "in_b": true,
+            "text": "Jolene said she finished an electrical engineering project last week; it took a lot of work but is done now."
+          },
+          {
+            "fact_id": "fact:9b39edce93bbddfeb68f8c7c89630f42",
+            "observed_at": "2023-02-01T11:03:00+00:00",
+            "in_b": true,
+            "text": "Deb asked Jolene how she felt when she first received the project and whether she was enjoying working on it."
+          },
+          {
+            "fact_id": "fact:1893e28ed750d05cac7edaf016cf9496",
+            "observed_at": "2023-02-01T11:03:00+00:00",
+            "in_b": false,
+            "text": "Jolene said working on the project is like trying to solve a puzzle, figuring out the best design and programming."
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:196670520963620ab70531d0bb60a9ea",
+            "observed_at": "2023-01-23T08:06:00+00:00",
+            "in_b": true,
+            "text": "Jolene said she finished an electrical engineering project last week; it took a lot of work but is done now."
+          },
+          {
+            "fact_id": "fact:9b39edce93bbddfeb68f8c7c89630f42",
+            "observed_at": "2023-02-01T11:03:00+00:00",
+            "in_b": true,
+            "text": "Deb asked Jolene how she felt when she first received the project and whether she was enjoying working on it."
+          },
+          {
+            "fact_id": "fact:09ae7885bb4ff66300577ce0ec468968",
+            "observed_at": "2023-02-04T01:48:00+00:00",
+            "in_b": true,
+            "text": "Jolene said seeing the water purifier working and providing clean water to the community was a surreal and satisfying moment; it reminded her how engineering can make a difference "
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:6e613f351db507ccaee14253fac867ba",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Jolene asked why the place held such special memories for Deb."
+          },
+          {
+            "fact_id": "fact:191a48920ef441710fbdaa50cc132491",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Jolene expressed sympathy about Deb's loss and said Jolene's mother also passed away last year."
+          },
+          {
+            "fact_id": "fact:fe6e535e6ecfb4db6d96c2ad7c0d95c2",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Jolene said, \"This is my room in her house,\" and that she also has many memories there; Jolene asked if there was anything special about it Deb remembered."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:196670520963620ab70531d0bb60a9ea",
+          "fact:9b39edce93bbddfeb68f8c7c89630f42",
+          "fact:09ae7885bb4ff66300577ce0ec468968",
+          "fact:ed51f790ea191d79188f4eacac177a1c",
+          "fact:9321ae71bbb817fdf4074f64f372108a"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-43#q0115",
+      "category": "4",
+      "question": "How did John overcome his ankle injury from last season?",
+      "gold": "stayed focused on recovery and worked hard to strengthen his body",
+      "plan": {
+        "entities": [
+          "john"
+        ],
+        "relations": [],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:eba3c27c5c3a79a94a0e2b584f531bcb",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "text": "Hey John! Great to meet you. Been discussing collaborations for a Harry Potter fan project I am working on - super excited! Anything interesting happening for you?"
+          },
+          {
+            "source_id": "src:d3c440fbbf1f43468e540e7e7dc9c98a",
+            "observed_at": "2023-06-15T09:08:00+00:00",
+            "text": "Yeah, John! Count on me for support. Can't wait to see what's up! This is my book collection so far."
+          },
+          {
+            "source_id": "src:29d35e783476d19165c7fc238ee1eee2",
+            "observed_at": "2023-08-02T08:17:00+00:00",
+            "text": "Hey John! How've you been? Something awesome happened - I'm writing articles about fantasy novels for an online mag. It's so rewarding!"
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:18b5edc05e719e6af9212520192c2975",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "in_b": true,
+            "text": "The user greets the assistant as Tim; the assistant greets the user as John."
+          },
+          {
+            "fact_id": "fact:f454868f20912f37fac5a68c85d33580",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "in_b": true,
+            "text": "John says he just signed with a new team and is excited for the season."
+          },
+          {
+            "fact_id": "fact:045173aa0ddf9fd04fd97d346e2231cb",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "in_b": true,
+            "text": "John says he signed with the Minnesota Wolves and says he can’t wait to play with them."
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:18b5edc05e719e6af9212520192c2975",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "in_b": true,
+            "text": "The user greets the assistant as Tim; the assistant greets the user as John."
+          },
+          {
+            "fact_id": "fact:f454868f20912f37fac5a68c85d33580",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "in_b": true,
+            "text": "John says he just signed with a new team and is excited for the season."
+          },
+          {
+            "fact_id": "fact:045173aa0ddf9fd04fd97d346e2231cb",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "in_b": true,
+            "text": "John says he signed with the Minnesota Wolves and says he can’t wait to play with them."
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:e6d52a54181b4d48566594274567174b",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Tim says his Harry Potter fan project is going well; he says “last week” as spoken on 2023-05-21 he talked to his friend who is a fan of Harry Potter, and they "
+          },
+          {
+            "fact_id": "fact:3739a11c9eba66000cedc4e6c820042c",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "John says he loves it when people are passionate about their work; he asks what kind of collaborations Tim is involved in for the fan project; John says he love"
+          },
+          {
+            "fact_id": "fact:405e87d067cd1313a6613236271d65e6",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "John asks Tim if Tim has been to any places related to Harry Potter."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:18b5edc05e719e6af9212520192c2975",
+          "fact:f454868f20912f37fac5a68c85d33580",
+          "fact:045173aa0ddf9fd04fd97d346e2231cb",
+          "fact:4c4ce0a3b4e25882c832ce69aa058de4",
+          "fact:23fe4f08ecece1bc7378808c5e82731a"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-43#q0060",
+      "category": "4",
+      "question": "How long has John been surfing?",
+      "gold": "five years",
+      "plan": {
+        "entities": [
+          "john"
+        ],
+        "relations": [],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:eba3c27c5c3a79a94a0e2b584f531bcb",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "text": "Hey John! Great to meet you. Been discussing collaborations for a Harry Potter fan project I am working on - super excited! Anything interesting happening for you?"
+          },
+          {
+            "source_id": "src:d3c440fbbf1f43468e540e7e7dc9c98a",
+            "observed_at": "2023-06-15T09:08:00+00:00",
+            "text": "Yeah, John! Count on me for support. Can't wait to see what's up! This is my book collection so far."
+          },
+          {
+            "source_id": "src:29d35e783476d19165c7fc238ee1eee2",
+            "observed_at": "2023-08-02T08:17:00+00:00",
+            "text": "Hey John! How've you been? Something awesome happened - I'm writing articles about fantasy novels for an online mag. It's so rewarding!"
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:18b5edc05e719e6af9212520192c2975",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "in_b": false,
+            "text": "The user greets the assistant as Tim; the assistant greets the user as John."
+          },
+          {
+            "fact_id": "fact:f454868f20912f37fac5a68c85d33580",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "in_b": false,
+            "text": "John says he just signed with a new team and is excited for the season."
+          },
+          {
+            "fact_id": "fact:045173aa0ddf9fd04fd97d346e2231cb",
+            "observed_at": "2023-05-21T11:48:00+00:00",
+            "in_b": false,
+            "text": "John says he signed with the Minnesota Wolves and says he can’t wait to play with them."
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:e48035ec4441916b24b5819ce6e1be78",
+            "observed_at": "2023-08-09T02:29:00+00:00",
+            "in_b": true,
+            "text": "Tim greeted John, said “Long time no see,” and said he had been super busy lately."
+          },
+          {
+            "fact_id": "fact:f4ba7e2012c216ec35527f122819c6a0",
+            "observed_at": "2023-08-09T02:29:00+00:00",
+            "in_b": true,
+            "text": "Tim said it is a book by Patrick Rothfuss and described it as awesome; he praised how the author builds the world and characters and recommended John read it."
+          },
+          {
+            "fact_id": "fact:0cf6353f6ee15ff8a4c3bccb76f51c30",
+            "observed_at": "2023-08-09T02:29:00+00:00",
+            "in_b": true,
+            "text": "John said it sounds cool, said he would definitely check it out, and thanked Tim for the recommendation."
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:18b5edc05e719e6af9212520192c2975",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "The user greets the assistant as Tim; the assistant greets the user as John."
+          },
+          {
+            "fact_id": "fact:f454868f20912f37fac5a68c85d33580",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "John says he just signed with a new team and is excited for the season."
+          },
+          {
+            "fact_id": "fact:045173aa0ddf9fd04fd97d346e2231cb",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "John says he signed with the Minnesota Wolves and says he can’t wait to play with them."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:e48035ec4441916b24b5819ce6e1be78",
+          "fact:f4ba7e2012c216ec35527f122819c6a0",
+          "fact:0cf6353f6ee15ff8a4c3bccb76f51c30",
+          "fact:ecbc4e7f2a6dcf5d627056a2398b2c8b",
+          "fact:3ee381bbddd37529d05a3841b86b88ee"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-49#q0043",
+      "category": "1",
+      "question": "What is Sam's persistent problem with his phone?",
+      "gold": "His new phone malfunctioning, particularly with the navigation app.",
+      "plan": {
+        "entities": [
+          "sam"
+        ],
+        "relations": [],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:455e2ecc99456cebbf0193c0468a31d7",
+            "observed_at": "2023-05-18T05:47:00+00:00",
+            "text": "Hey Sam! Good to see you! Yeah, I just got back from a trip with my family in my new Prius."
+          },
+          {
+            "source_id": "src:7127d2f0c9290378d29f6c77fb567ff3",
+            "observed_at": "2023-05-18T05:47:00+00:00",
+            "text": "Cool idea, Sam! I love it. Have you tried it before?"
+          },
+          {
+            "source_id": "src:21891d151c165f6c8f00440687388a08",
+            "observed_at": "2023-05-18T05:47:00+00:00",
+            "text": "No worries, Sam! Super pumped for you! Let's catch up soon and see how you're enjoying your new hobbies!"
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:69238c508e9d94eb24ee2c6c8e0e9d84",
+            "observed_at": "2023-05-18T05:47:00+00:00",
+            "in_b": false,
+            "text": "assistant (Sam) greeted Evan, asked what was new since they last met, and asked if anything cool was happening."
+          },
+          {
+            "fact_id": "fact:3cea8fe7ff6280d1e72a2317bdf689a2",
+            "observed_at": "2023-05-18T05:47:00+00:00",
+            "in_b": false,
+            "text": "user (Evan) greeted Sam and said he \"just got back\" from a trip with his family in his new Prius."
+          },
+          {
+            "fact_id": "fact:65bdcf77d6582f3f6229fc2a6055f059",
+            "observed_at": "2023-05-18T05:47:00+00:00",
+            "in_b": false,
+            "text": "assistant (Sam) asked what happened to Evan's old Prius and where Evan went."
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:09ab253e0c61872c78fb74d53cb81892",
+            "observed_at": "2023-05-24T11:11:00+00:00",
+            "in_b": true,
+            "text": "Evan greeted Sam, said it was good to hear from Sam, and said that since they last talked, lots had been happening."
+          },
+          {
+            "fact_id": "fact:076ff4f7bfa6b0b0586da4932e011bb5",
+            "observed_at": "2023-05-24T11:11:00+00:00",
+            "in_b": true,
+            "text": "Evan said what worked for Evan was finding a fitness routine Evan really enjoys; it is Evan’s go-to; Evan loves the feeling of being healthy and strong; making it fun and finding l"
+          },
+          {
+            "fact_id": "fact:240174a7f70e1352de6355771eab1b86",
+            "observed_at": "2023-05-24T11:11:00+00:00",
+            "in_b": true,
+            "text": "Sam thanked Evan and said Sam had been looking for a hobby to stay motivated; Sam had been thinking about trying painting; Sam asked whether Evan thought it would help Sam de-stres"
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:69238c508e9d94eb24ee2c6c8e0e9d84",
+            "levels": [
+              "L3",
+              "L4"
+            ],
+            "text": "assistant (Sam) greeted Evan, asked what was new since they last met, and asked if anything cool was happening."
+          },
+          {
+            "fact_id": "fact:3cea8fe7ff6280d1e72a2317bdf689a2",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "user (Evan) greeted Sam and said he \"just got back\" from a trip with his family in his new Prius."
+          },
+          {
+            "fact_id": "fact:65bdcf77d6582f3f6229fc2a6055f059",
+            "levels": [
+              "L3",
+              "L4"
+            ],
+            "text": "assistant (Sam) asked what happened to Evan's old Prius and where Evan went."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:09ab253e0c61872c78fb74d53cb81892",
+          "fact:076ff4f7bfa6b0b0586da4932e011bb5",
+          "fact:240174a7f70e1352de6355771eab1b86",
+          "fact:c33d730f91dac7ae7c802e1830f7517b",
+          "fact:655f0586cd3075095b280da09e4f7115"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-44#q0036",
+      "category": "1",
+      "question": "What technique is Audrey using to discipline her dogs?",
+      "gold": "Positive reinforcement",
+      "plan": {
+        "entities": [
+          "audrey"
+        ],
+        "relations": [],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:5742d6e17e8bb1913bb42654628dc799",
+            "observed_at": "2023-03-27T05:10:00+00:00",
+            "text": "Hey Audrey! So, I started a new job as a Financial Analyst last week - it's been quite a change from my previous job. How about you? Anything interesting happening?"
+          },
+          {
+            "source_id": "src:88e108f76094f436d93eaa8fe80d8706",
+            "observed_at": "2023-04-16T08:19:00+00:00",
+            "text": "Hey Audrey! What's up? Missed chatting with ya! Check it out, my girl & I tried out that new cafe scene in the city last weekend! Super fun but kinda sad not being out in nature - "
+          },
+          {
+            "source_id": "src:834bc3a881d5325ea2f0eedb0bcdd1c3",
+            "observed_at": "2023-05-03T09:41:00+00:00",
+            "text": "Hey Audrey! Glad to hear from you. That hummingbird was awesome! Nature's the best. Remember I was feeling down because I couldn't get out more? Well, good news - I found a new ope"
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:c559ffd831170423fa0796d4abd6f239",
+            "observed_at": "2023-03-27T05:10:00+00:00",
+            "in_b": true,
+            "text": "Audrey (assistant) greeted Andrew (user) with “Hey Andrew! Good to see ya!” and asked what had been up since they last talked."
+          },
+          {
+            "fact_id": "fact:6f899b6b6c506fd10c85a42a6d11f209",
+            "observed_at": "2023-03-27T05:10:00+00:00",
+            "in_b": true,
+            "text": "Andrew (user) greeted Audrey (assistant) with “Hey Audrey!” and said he started a new job as a Financial Analyst last week; he said it has been quite a change from his previous job"
+          },
+          {
+            "fact_id": "fact:bb1dce431524f468b124892800fdf11c",
+            "observed_at": "2023-03-27T05:10:00+00:00",
+            "in_b": true,
+            "text": "Audrey congratulated Andrew on the new job and said she got new collars and tags for her dogs, describing them as “so cute.”"
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:c559ffd831170423fa0796d4abd6f239",
+            "observed_at": "2023-03-27T05:10:00+00:00",
+            "in_b": true,
+            "text": "Audrey (assistant) greeted Andrew (user) with “Hey Andrew! Good to see ya!” and asked what had been up since they last talked."
+          },
+          {
+            "fact_id": "fact:6f899b6b6c506fd10c85a42a6d11f209",
+            "observed_at": "2023-03-27T05:10:00+00:00",
+            "in_b": true,
+            "text": "Andrew (user) greeted Audrey (assistant) with “Hey Audrey!” and said he started a new job as a Financial Analyst last week; he said it has been quite a change from his previous job"
+          },
+          {
+            "fact_id": "fact:bb1dce431524f468b124892800fdf11c",
+            "observed_at": "2023-03-27T05:10:00+00:00",
+            "in_b": true,
+            "text": "Audrey congratulated Andrew on the new job and said she got new collars and tags for her dogs, describing them as “so cute.”"
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:a0141324061d7726b3d624292fa62a68",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Audrey said they really do and it’s great how much happiness they bring; she asked if Andrew has any pets."
+          },
+          {
+            "fact_id": "fact:1d051ec6f47a16b7b6c5864dce20800d",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Audrey said animals are truly amazing and asked if Andrew has a favorite animal."
+          },
+          {
+            "fact_id": "fact:a2def4d820dca0ada1a04f043d91b1f6",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Audrey said birds are amazing; she imagined it feels incredible to soar and see the world from up high; she asked if Andrew has a favorite type of bird."
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:c559ffd831170423fa0796d4abd6f239",
+          "fact:6f899b6b6c506fd10c85a42a6d11f209",
+          "fact:bb1dce431524f468b124892800fdf11c",
+          "fact:4315df4273e3632afc6b7571ff0465da",
+          "fact:c608ac5e7af6ad37fb80d1b3a8a3038a"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-41#q0011",
+      "category": "3",
+      "question": "Would John be considered a patriotic person?",
+      "gold": "Yes",
+      "plan": {
+        "entities": [
+          "john",
+          "would"
+        ],
+        "relations": [],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "complete",
+        "hits": [
+          {
+            "source_id": "src:452ee000eeeb004cc20b6cdc5c86b5f1",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "text": "Hey John! Long time no see! What's up?"
+          },
+          {
+            "source_id": "src:edb412c5a53af9fe78b3864109da2c13",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "text": "Cool, John. Kickboxing is a perfect way to stay in shape and de-stress. Do you have any goals you're working towards?"
+          },
+          {
+            "source_id": "src:41f26ccfbe2a77e63e9fc41b5bb53bb0",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "text": "Woohoo, John! That's awesome! Any specific areas you want to tackle?"
+          }
+        ]
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:918e2b0d2f33f0ab9325b8a7f62efbb7",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": true,
+            "text": "Maria greeted John with “Hey John! Long time no see!” and asked “What’s up?”"
+          },
+          {
+            "fact_id": "fact:b7b8dbe8fa2ff658b07b67583c7d3a22",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": true,
+            "text": "John greeted Maria, said “Good to see you,” and said he had just gotten back from a family road trip “yesterday” (spoken on 2022-12-17T03:01:00+00:00), which was fun; John asked if"
+          },
+          {
+            "fact_id": "fact:937cbd69b3710c7f9cbf6f562e4b1843",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": false,
+            "text": "Maria said she had been busy volunteering at the homeless shelter and keeping fit; she said she had just started doing aerial yoga and it was great; Maria asked John if he had trie"
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:918e2b0d2f33f0ab9325b8a7f62efbb7",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": true,
+            "text": "Maria greeted John with “Hey John! Long time no see!” and asked “What’s up?”"
+          },
+          {
+            "fact_id": "fact:b7b8dbe8fa2ff658b07b67583c7d3a22",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": true,
+            "text": "John greeted Maria, said “Good to see you,” and said he had just gotten back from a family road trip “yesterday” (spoken on 2022-12-17T03:01:00+00:00), which was fun; John asked if"
+          },
+          {
+            "fact_id": "fact:3776aa303582dfb83e1220227321c008",
+            "observed_at": "2022-12-17T03:01:00+00:00",
+            "in_b": true,
+            "text": "Maria said kickboxing is a perfect way to stay in shape and de-stress; Maria asked John if he had any goals he was working towards."
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:937cbd69b3710c7f9cbf6f562e4b1843",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Maria said she had been busy volunteering at the homeless shelter and keeping fit; she said she had just started doing aerial yoga and it was great; Maria asked"
+          },
+          {
+            "fact_id": "fact:e7ed3486753e92ed3072ce2bc61ec842",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "John said Maria’s activities sounded cool and said he is doing kickboxing, which is giving him so much energy."
+          },
+          {
+            "fact_id": "fact:eb33ab13eac357a53e436b33e44c21d6",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "John said that growing up he saw how lack of education and crumbling infrastructure affected his neighborhood; John said he does not want future generations to "
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:918e2b0d2f33f0ab9325b8a7f62efbb7",
+          "fact:b7b8dbe8fa2ff658b07b67583c7d3a22",
+          "fact:3776aa303582dfb83e1220227321c008",
+          "fact:42c47a2da058a87ba1fa44c51641437e",
+          "fact:e38d508899b960aa0c725f33d27e230d"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "complete"
+    },
+    {
+      "question_id": "conv-43#q0158",
+      "category": "3",
+      "question": "Which movie's theme does Tim enjoy playing on the piano?",
+      "gold": "Harry Potter and the Philosopher's Stone",
+      "plan": {
+        "entities": [
+          "tim"
+        ],
+        "relations": [
+          "play"
+        ],
+        "temporal": false
+      },
+      "S_source": {
+        "state": "not_found_after_review",
+        "hits": []
+      },
+      "D_derived": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:1fc6bfc58fa44bb86fb5452a037f7fd3",
+            "observed_at": "2023-08-21T08:29:00+00:00",
+            "in_b": true,
+            "text": "Tim said things had been great “since we last talked”: he had been focusing on school and reading a bunch of fantasy books, which was a nice way to take a break from stress; he had"
+          },
+          {
+            "fact_id": "fact:d5f166bf213e2edafd0ec453414b918a",
+            "observed_at": "2023-08-21T08:29:00+00:00",
+            "in_b": true,
+            "text": "John said Tim was staying busy and having fun, said learning to play “this” is awesome and that it is such a beautiful instrument, and asked whether Tim had any favorite songs he l"
+          },
+          {
+            "fact_id": "fact:0a1f8c7b532f4ecef362853118b1cf94",
+            "observed_at": "2023-08-21T08:29:00+00:00",
+            "in_b": true,
+            "text": "Tim thanked John and said he loves playing different songs on the piano, but his favorite one to jam to is a theme from a movie he really enjoys; it brings back lots of great memor"
+          }
+        ]
+      },
+      "C_L": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:1fc6bfc58fa44bb86fb5452a037f7fd3",
+            "observed_at": "2023-08-21T08:29:00+00:00",
+            "in_b": true,
+            "text": "Tim said things had been great “since we last talked”: he had been focusing on school and reading a bunch of fantasy books, which was a nice way to take a break from stress; he had"
+          },
+          {
+            "fact_id": "fact:d5f166bf213e2edafd0ec453414b918a",
+            "observed_at": "2023-08-21T08:29:00+00:00",
+            "in_b": true,
+            "text": "John said Tim was staying busy and having fun, said learning to play “this” is awesome and that it is such a beautiful instrument, and asked whether Tim had any favorite songs he l"
+          },
+          {
+            "fact_id": "fact:0a1f8c7b532f4ecef362853118b1cf94",
+            "observed_at": "2023-08-21T08:29:00+00:00",
+            "in_b": true,
+            "text": "Tim thanked John and said he loves playing different songs on the piano, but his favorite one to jam to is a theme from a movie he really enjoys; it brings back lots of great memor"
+          }
+        ]
+      },
+      "C_H": {
+        "state": "complete",
+        "hits": [
+          {
+            "fact_id": "fact:bec55cfb290d70c5bd59387377cba823",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "John asks Tim how Tim’s fan project is coming along."
+          },
+          {
+            "fact_id": "fact:e6d52a54181b4d48566594274567174b",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "Tim says his Harry Potter fan project is going well; he says “last week” as spoken on 2023-05-21 he talked to his friend who is a fan of Harry Potter, and they "
+          },
+          {
+            "fact_id": "fact:3739a11c9eba66000cedc4e6c820042c",
+            "levels": [
+              "L3",
+              "L4",
+              "L5"
+            ],
+            "text": "John says he loves it when people are passionate about their work; he asks what kind of collaborations Tim is involved in for the fan project; John says he love"
+          }
+        ]
+      },
+      "B_evidence": {
+        "state": "complete",
+        "fact_ids": [
+          "fact:1fc6bfc58fa44bb86fb5452a037f7fd3",
+          "fact:d5f166bf213e2edafd0ec453414b918a",
+          "fact:0a1f8c7b532f4ecef362853118b1cf94",
+          "fact:0c7ae5840e3bc608311df1519b547f4e",
+          "fact:3dbcdd95d4d697e32c92b25cdaa56fc1"
+        ]
+      },
+      "answer_judge": "not_run",
+      "overall": "uncertain"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "question_id": "conv-26#q0026",
+  "category": "2",
+  "arms": {
+    "B": {
+      "correct": true,
+      "generated": "The week before June 27, 2023."
+    },
+    "L": {
+      "correct": true,
+      "generated": "The week before June 27, 2023."
+    },
+    "H": {
+      "correct": true,
+      "generated": "The week before June 27, 2023."
+    }
+  }
+}

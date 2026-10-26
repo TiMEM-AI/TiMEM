@@ -1,0 +1,56 @@
+{
+  "purpose": "handoff-only structural audit; no new evaluation",
+  "inputs_sha256": {
+    "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\hierarchy_plan.json": "39dbd6f8dad2b9b802b6266f536e2433a626743855662b2dc324ce2534bef437",
+    "F:\\codex数据库memory\\locomo_hierarchy_grounded_20261024\\store.json": "1f09619f73a3fb9b8cd7504938fdab9e9bf21d6ae4017d583e54af33ad8d0ae8"
+  },
+  "node_counts": {
+    "L1": {
+      "total": 399,
+      "single_child": 0
+    },
+    "L2": {
+      "total": 272,
+      "single_child": 149
+    },
+    "L3": {
+      "total": 272,
+      "single_child": 272
+    },
+    "L4": {
+      "total": 207,
+      "single_child": 149
+    },
+    "L5": {
+      "total": 86,
+      "single_child": 18
+    }
+  },
+  "route_units": 16950,
+  "route_links": 17687,
+  "facts_linked_by_number_of_upper_levels": {
+    "1": 534,
+    "2": 1502,
+    "3": 4695
+  },
+  "facts_with_any_upper_link": 6731,
+  "common_fixed": [
+    "conv-44#q0026",
+    "conv-48#q0054",
+    "conv-49#q0111"
+  ],
+  "common_regressed": [
+    "conv-41#q0076",
+    "conv-42#q0168",
+    "conv-47#q0065",
+    "conv-50#q0102"
+  ],
+  "fixed_to_regressed": [
+    "conv-43#q0085",
+    "conv-50#q0045"
+  ],
+  "regressed_to_fixed": [
+    "conv-43#q0109"
+  ],
+  "limits": "Structural overlap is not proof of causal ranking harm; shared outcome changes are not proof of retrieval errors."
+}

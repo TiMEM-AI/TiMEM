@@ -1,0 +1,131 @@
+{
+  "created_at": "2026-10-24T02:19:27.076160+00:00",
+  "questions": 40,
+  "scores": {
+    "budget_control": {
+      "completed": 40,
+      "total": 40,
+      "correct": 24,
+      "accuracy": 0.6,
+      "categories": {
+        "2": {
+          "name": "时间",
+          "completed": 10,
+          "correct": 6,
+          "total": 10,
+          "accuracy": 0.6
+        },
+        "4": {
+          "name": "单跳",
+          "completed": 10,
+          "correct": 8,
+          "total": 10,
+          "accuracy": 0.8
+        },
+        "1": {
+          "name": "多跳",
+          "completed": 10,
+          "correct": 3,
+          "total": 10,
+          "accuracy": 0.3
+        },
+        "3": {
+          "name": "推理",
+          "completed": 10,
+          "correct": 7,
+          "total": 10,
+          "accuracy": 0.7
+        }
+      },
+      "no_evidence": 0,
+      "actual_models": {
+        "deepseek-v4.1-flash": 80
+      },
+      "errors": {}
+    },
+    "upper_w0": {
+      "completed": 40,
+      "total": 40,
+      "correct": 25,
+      "accuracy": 0.625,
+      "categories": {
+        "2": {
+          "name": "时间",
+          "completed": 10,
+          "correct": 6,
+          "total": 10,
+          "accuracy": 0.6
+        },
+        "4": {
+          "name": "单跳",
+          "completed": 10,
+          "correct": 9,
+          "total": 10,
+          "accuracy": 0.9
+        },
+        "1": {
+          "name": "多跳",
+          "completed": 10,
+          "correct": 3,
+          "total": 10,
+          "accuracy": 0.3
+        },
+        "3": {
+          "name": "推理",
+          "completed": 10,
+          "correct": 7,
+          "total": 10,
+          "accuracy": 0.7
+        }
+      },
+      "no_evidence": 0,
+      "actual_models": {
+        "deepseek-v4.1-flash": 80
+      },
+      "errors": {}
+    }
+  },
+  "previous_8000_char_run": {
+    "completed": 40,
+    "total": 40,
+    "correct": 22,
+    "accuracy": 0.55,
+    "categories": {
+      "2": {
+        "name": "时间",
+        "completed": 10,
+        "correct": 8,
+        "total": 10,
+        "accuracy": 0.8
+      },
+      "4": {
+        "name": "单跳",
+        "completed": 10,
+        "correct": 7,
+        "total": 10,
+        "accuracy": 0.7
+      },
+      "1": {
+        "name": "多跳",
+        "completed": 10,
+        "correct": 0,
+        "total": 10,
+        "accuracy": 0.0
+      },
+      "3": {
+        "name": "推理",
+        "completed": 10,
+        "correct": 7,
+        "total": 10,
+        "accuracy": 0.7
+      }
+    },
+    "no_evidence": 0,
+    "actual_models": {
+      "deepseek-v4.1-flash": 80
+    }
+  },
+  "format_checks_passed": true,
+  "gate": "complete calls and structural format/provenance checks; no cherry-picking by score",
+  "passed": true
+}

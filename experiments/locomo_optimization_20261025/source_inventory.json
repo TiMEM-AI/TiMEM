@@ -1,0 +1,3146 @@
+{
+  "schema": "pr-source-inventory-v1",
+  "date": "2026-10-25",
+  "scope": "源代码/补丁/脚本只读盘点；不包含密钥配置；未调用模型或改动历史代码。",
+  "source_root": "F:\\codex数据库memory",
+  "file_count": 158,
+  "files": [
+    {
+      "source": "F:\\codex数据库memory\\locomo_full_20261022\\app.before.py",
+      "destination": "source/experiments/locomo_full_20261022/app.before.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_baseline",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 14918,
+      "sha256": "56620702f8ae72d86aa8e207768bc858f0712d825ece4358c50f7819ddb66747",
+      "imports": [
+        "from fastapi import FastAPI, HTTPException, Request",
+        "from fastapi.responses import FileResponse, JSONResponse",
+        "from fastapi.staticfiles import StaticFiles",
+        "from llm.base_llm import Message, MessageRole",
+        "from llm.xingliu_adapter import XingliuAdapter",
+        "from pathlib import Path",
+        "from pydantic import BaseModel, ConfigDict, Field",
+        "from server.idempotency import IdempotencyStore",
+        "from server.l2_backfill import schedule as schedule_l2_backfill",
+        "from server.model_settings import ModelSettingsStore",
+        "from server.ownership import filter_owned",
+        "from server.search_expand import search_with_expansion",
+        "from server.settings import ServerSettings",
+        "from server.time_anchor import stamp_messages, stamp_temporal",
+        "from timem.memory_graph.qa import GraphQueryError, run_qa",
+        "from timem.memory_graph.search import run_search",
+        "from typing import List, Optional",
+        "import asyncio",
+        "import logging"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_full_20261022\\app.staged.py",
+      "destination": "source/experiments/locomo_full_20261022/app.staged.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 14961,
+      "sha256": "6b4d82b9ac3019a17bdd743d4978fd0d5100e05131769b3627957aff9992492f",
+      "imports": [
+        "from fastapi import FastAPI, HTTPException, Request",
+        "from fastapi.responses import FileResponse, JSONResponse",
+        "from fastapi.staticfiles import StaticFiles",
+        "from llm.base_llm import Message, MessageRole",
+        "from llm.xingliu_adapter import XingliuAdapter",
+        "from pathlib import Path",
+        "from pydantic import BaseModel, ConfigDict, Field",
+        "from server.idempotency import IdempotencyStore",
+        "from server.l2_backfill import schedule as schedule_l2_backfill",
+        "from server.model_settings import ModelSettingsStore",
+        "from server.ownership import filter_owned",
+        "from server.search_expand import search_with_expansion",
+        "from server.settings import ServerSettings",
+        "from server.time_anchor import stamp_messages, stamp_temporal",
+        "from timem.memory_graph.qa import GraphQueryError, run_qa",
+        "from timem.memory_graph.search import run_search",
+        "from typing import List, Optional",
+        "import asyncio",
+        "import logging"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_full_20261022\\preflight.py",
+      "destination": "source/experiments/locomo_full_20261022/preflight.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1546,
+      "sha256": "73e607153bcc9b750b98cc94ec0b55d2e666780095c82029aa71f011e2d90d11",
+      "imports": [
+        "from dotenv import dotenv_values",
+        "from pathlib import Path",
+        "import httpx",
+        "import json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_full_20261022\\report_locomo.py",
+      "destination": "source/experiments/locomo_full_20261022/report_locomo.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 14435,
+      "sha256": "b91459ca5cb857681835f7a79e5bf34c45d2c8ae2d9b34680af256fd1782acd5",
+      "imports": [
+        "from datetime import datetime",
+        "from pathlib import Path",
+        "from zoneinfo import ZoneInfo",
+        "import argparse",
+        "import collections",
+        "import csv",
+        "import hashlib",
+        "import json",
+        "import statistics"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_full_20261022\\report_partial.py",
+      "destination": "source/experiments/locomo_full_20261022/report_partial.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 4508,
+      "sha256": "f80c24a485f92bb50853ff34f5fe52f398ee5e3de013364a58950daa85ab9215",
+      "imports": [
+        "from datetime import datetime",
+        "from report_locomo import BENCH, OUT, RUN, RUN_ID, CATEGORIES, read, group",
+        "from zoneinfo import ZoneInfo",
+        "import collections",
+        "import json",
+        "import statistics"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_full_20261022\\resume_final.ps1",
+      "destination": "source/experiments/locomo_full_20261022/resume_final.ps1",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1653,
+      "sha256": "f74c5b467ee75199ed17b34ac5cf5f52999b94ef391d928577af8171cded499a",
+      "imports": []
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_full_20261022\\runtime_fix.diff",
+      "destination": "source/experiments/locomo_full_20261022/runtime_fix.diff",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 639,
+      "sha256": "7db8149541dd929b059c0b5118bff9f4a506b36a0f3094f8e7a839a5b0a32e1f",
+      "imports": []
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_full_20261022\\start_final.ps1",
+      "destination": "source/experiments/locomo_full_20261022/start_final.ps1",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1787,
+      "sha256": "7cf125e16530bba5b9b0a270e9167af96a263e535f66e07b9614bdbc5ac9a595",
+      "imports": []
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_full_20261022\\switch_model.py",
+      "destination": "source/experiments/locomo_full_20261022/switch_model.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 5819,
+      "sha256": "3de5d9d35de4dc31af36aa5a366e4853479cb27edcf4b07962d7820c67c83ca9",
+      "imports": [
+        "from dotenv import dotenv_values, set_key",
+        "from evaluators.aml_score import complete_chat",
+        "from pathlib import Path",
+        "import argparse",
+        "import asyncio",
+        "import json",
+        "import os",
+        "import subprocess",
+        "import sys",
+        "import tempfile"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_full_20261022\\verify_configured_model.py",
+      "destination": "source/experiments/locomo_full_20261022/verify_configured_model.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2401,
+      "sha256": "03f270341be2b2954aca480ebde87ddc7507be029c1cba19e2521d87bce17a1f",
+      "imports": [
+        "from dotenv import dotenv_values",
+        "from pathlib import Path",
+        "from runners.aml_run import _score_endpoints, _score_question_row",
+        "import asyncio",
+        "import httpx",
+        "import json",
+        "import os",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_grounded_20261024\\evaluate.py",
+      "destination": "source/experiments/locomo_hierarchy_grounded_20261024/evaluate.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 7855,
+      "sha256": "e8e61d35ad0737e012ea02cef4f7d37a427b2356e80271968e56225d4097b03b",
+      "imports": [
+        "from evaluators.aml_score import _OPEN_ANSWER, _ACCURACY, parse_correct_label",
+        "from pathlib import Path",
+        "from run_eval import metrics",
+        "import argparse, asyncio, collections, hashlib, json, sys",
+        "import grounded as g",
+        "import httpx"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_grounded_20261024\\evaluate_confirm.py",
+      "destination": "source/experiments/locomo_hierarchy_grounded_20261024/evaluate_confirm.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 8456,
+      "sha256": "f8c8f373549ef2847248a28b2f2a4ac89432d8a62a1d24f5469e56f8b929c2db",
+      "imports": [
+        "from evaluators.aml_score import _OPEN_ANSWER, _ACCURACY, parse_correct_label",
+        "from pathlib import Path",
+        "from run_eval import metrics",
+        "import argparse, asyncio, collections, hashlib, json, sys",
+        "import grounded as g",
+        "import httpx"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_grounded_20261024\\grounded.py",
+      "destination": "source/experiments/locomo_hierarchy_grounded_20261024/grounded.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 19552,
+      "sha256": "00e8dff96aff3cdf94be1c8a993dc182ddb6a0d78570ef9351c92fc8a4b789b4",
+      "imports": [
+        "from pathlib import Path",
+        "from upper_w0 import read, write, now, sha, canonical, norm, a0, week, format_memories, MODEL, _score_endpoints, W0",
+        "import collections, dataclasses, functools, hashlib, json, math, re, sqlite3, sys",
+        "import upper_w0 as previous"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_grounded_20261024\\handoff_structure_audit.py",
+      "destination": "source/experiments/locomo_hierarchy_grounded_20261024/handoff_structure_audit.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2254,
+      "sha256": "2c6eab9ef2bab7221b30bafad63d82dda2afa8cc6f5a7e7242358ba4346945be",
+      "imports": [
+        "from pathlib import Path",
+        "import collections",
+        "import hashlib",
+        "import json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_grounded_20261024\\report.py",
+      "destination": "source/experiments/locomo_hierarchy_grounded_20261024/report.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 16478,
+      "sha256": "a8434268cd1d86023a749249ea2ba13ebd7548facb72311272ec9b8a0abe4445",
+      "imports": [
+        "from datetime import datetime, timezone, timedelta",
+        "from pathlib import Path",
+        "import collections, hashlib, json, math, statistics",
+        "import grounded as g"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_full_20261025\\cache_repair_20261025\\before\\full_answer.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_full_20261025/cache_repair_20261025/before/full_answer.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_before_cache_fix",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3908,
+      "sha256": "3c4edce911c04c5897d71cae6f73ca21aaa95b14307bad240be4444fad9fd8a1",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter, defaultdict",
+        "from pathlib import Path",
+        "from runners.aml_run import _score_endpoints, _score_question_row",
+        "import asyncio",
+        "import json",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_full_20261025\\finalize_results.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_full_20261025/finalize_results.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 8657,
+      "sha256": "60094a7bba7615dce4b8b81f42fa901057bcb5550c24a172d5a19b68dab6f4cd",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from full_answer import FULL",
+        "from pathlib import Path",
+        "import hashlib",
+        "import json",
+        "import math"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_full_20261025\\full_answer.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_full_20261025/full_answer.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 5795,
+      "sha256": "38ce40d68acdcd476db96b51f1d52edaa6ee836dc80be51b2e9c6d1d16b468a0",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter, defaultdict",
+        "from evaluators.aml_score import answer_prompt, judge_prompt",
+        "from pathlib import Path",
+        "from runners.aml_run import _question_from_row",
+        "from runners.aml_run import _score_endpoints, _score_question_row",
+        "import asyncio",
+        "import hashlib",
+        "import json",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_full_20261025\\full_prepare.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_full_20261025/full_prepare.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 6039,
+      "sha256": "01ed63d92af7e74d037868ad6040a8a73796564f0087732bd438141b14fff744",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from pathlib import Path",
+        "from r13b_prepare import H_LOW, H_UP, L_SLOTS, MAX_WINDOWS, PROTECTED, build_pools, serialize_window, sha",
+        "import grounded as g",
+        "import hashlib",
+        "import json",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_full_20261025\\full_run.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_full_20261025/full_run.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 7558,
+      "sha256": "d063903c70f57772db5e3c4e0edf25561de7df6e57469af7bcf080c29be05e70",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from full_prepare import build_prompt",
+        "from pathlib import Path",
+        "from r13b_fix import apply_plan_fixed",
+        "from r13b_prepare import PROTECTED, sha",
+        "from screen_client import ScreenClient",
+        "import grounded as g",
+        "import json",
+        "import os",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_full_20261025\\repair_cached_answers.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_full_20261025/repair_cached_answers.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 5917,
+      "sha256": "368ebd053abb9e2c5c77349979aac1243da52e8a7f4b5bd4a701f19ebbae8402",
+      "imports": [
+        "from __future__ import annotations",
+        "from datetime import datetime, timezone",
+        "from full_answer import FULL, QUESTIONS, question_item, score_cache_key, score_request, summarize",
+        "from pathlib import Path",
+        "import argparse",
+        "import asyncio",
+        "import hashlib",
+        "import json",
+        "import runners.aml_run as runner"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_full_20261025\\test_scoring_cache.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_full_20261025/test_scoring_cache.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2910,
+      "sha256": "5a19c07b0f50cca7de924e99890540aecfbe67ff3d901276b24f37cc7e6fe060",
+      "imports": [
+        "from full_answer import FULL, QUESTIONS, question_item, score_cache_key",
+        "import json",
+        "import unittest"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_1_20261024\\codex_handoff_audit.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_1_20261024/codex_handoff_audit.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 5240,
+      "sha256": "bf98e62cc8a547da587fefc9445eb2939e3ef92dc2f9d7014ff1d356d8643baf",
+      "imports": [
+        "from pathlib import Path",
+        "import ast",
+        "import collections",
+        "import hashlib",
+        "import json",
+        "import re",
+        "import statistics"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_1_20261024\\tools\\codex_replay_screen_inputs.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_1_20261024/tools/codex_replay_screen_inputs.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 4385,
+      "sha256": "4859e1a5aa19522590412f85519bbdf2cbb469a922f37687e260f22e18964fe5",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "import collections",
+        "import hashlib",
+        "import json",
+        "import p1_groups as p",
+        "import statistics"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_1_20261024\\tools\\p0_audit.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_1_20261024/tools/p0_audit.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 8804,
+      "sha256": "4d0c3445dc96be268487ccdea99b0f9191a67e30ff3a30c96c61783f03ab5cdc",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "import grounded as g",
+        "import hashlib",
+        "import json",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_1_20261024\\tools\\p1_fact_loss.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_1_20261024/tools/p1_fact_loss.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3599,
+      "sha256": "4fad189f71553b5995636f8cadd7302e83dd373975a259d1ba2fa631dbb193db",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from pathlib import Path",
+        "import json",
+        "import re",
+        "import sqlite3"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_1_20261024\\tools\\p1_groups.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_1_20261024/tools/p1_groups.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 14455,
+      "sha256": "59b72d8265123960a60d147c8d961c3f90609f897f672f8ee26cd85594d25982",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "import grounded as g",
+        "import json",
+        "import re",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_1_20261024\\tools\\p1_model_screen.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_1_20261024/tools/p1_model_screen.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 5818,
+      "sha256": "2570991d660425a78cbfb1cecbb0c8dd3194cf9728e4afdbdd80bd5e844afe26",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from p1_groups import atomic_window, lower_pool, upper_pool, select",
+        "from pathlib import Path",
+        "import asyncio",
+        "import grounded as g",
+        "import httpx",
+        "import json",
+        "import os",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_20261024\\review_dev_report.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_20261024/review_dev_report.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 7859,
+      "sha256": "6ecad494ed362780077059bfba199f22c9070b3027e01b9fe238e81244c78f8d",
+      "imports": [
+        "from pathlib import Path",
+        "import collections",
+        "import hashlib",
+        "import importlib.util",
+        "import json",
+        "import re",
+        "import sqlite3"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_20261024\\tools\\audit_structure.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_20261024/tools/audit_structure.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 4343,
+      "sha256": "0cf03aaef8d4341e3fd1680b40cd08ce4a3d6e326189b3cab6dffb0b28f0d9c3",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from pathlib import Path",
+        "import json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_20261024\\tools\\build_event_index.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_20261024/tools/build_event_index.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 6815,
+      "sha256": "ad20002b014e7152567d9b6aadee47e4ec358f41bc40f531b7977b8383772c95",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter, defaultdict",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "import hashlib",
+        "import json",
+        "import re"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_20261024\\tools\\build_routes.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_20261024/tools/build_routes.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 4522,
+      "sha256": "240f3008ec5113f1f2f849da4afbcf8bc026ffb307537731d3cc625bdd1badb6",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter, defaultdict",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "import hashlib",
+        "import json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_20261024\\tools\\r1_eval.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_20261024/tools/r1_eval.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 5367,
+      "sha256": "627123b66b65cc632f875ee7417cd467eb998e215ab12ab03557bafd0c034e8e",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_models import EvalQuestion",
+        "from collections import Counter, defaultdict",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "from runners.aml_run import _score_endpoints, _score_question_row",
+        "import argparse",
+        "import asyncio",
+        "import json",
+        "import math",
+        "import os",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_20261024\\tools\\r1_pipeline.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_20261024/tools/r1_pipeline.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 11534,
+      "sha256": "4fb04d833a38cbf3e7ce1cb5f9ec5c00b83bc3d70d2b4a81fc757e5eff5dbb40",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter, defaultdict",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "import argparse",
+        "import hashlib",
+        "import json",
+        "import math",
+        "import random",
+        "import re",
+        "import sqlite3",
+        "import sys",
+        "import tiktoken"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_20261024\\tools\\verify_inputs.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_20261024/tools/verify_inputs.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3389,
+      "sha256": "e299c91ed271e2a539e32d3c48010726f2c0cb34822bde02877d03ee9432e388",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "import hashlib",
+        "import json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_2_20261024\\controls.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_2_20261024/controls.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 4146,
+      "sha256": "39e8658a1fa901f9f556c0163b838237ff2bcf99d012ed8df4e38f9af7e1564d",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from support_atoms import build_atoms, select_with_support, support_set",
+        "import json",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_2_20261024\\R12_ATOM_REVIEW_REPRO_20261024.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_2_20261024/R12_ATOM_REVIEW_REPRO_20261024.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 5148,
+      "sha256": "df041c462b5f8783dfa66ec684932be338c5d27ee759407a931ceee11df1c33a",
+      "imports": [
+        "from pathlib import Path",
+        "from support_atoms import select_with_support, support_set",
+        "import ast",
+        "import collections",
+        "import controls",
+        "import json",
+        "import re",
+        "import sys",
+        "import types"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_2_20261024\\screen_client.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_2_20261024/screen_client.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 8047,
+      "sha256": "f701ac41dc18fd22c7caef5ba352e80a97667517222ba1602b6eb0defc776c0b",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from runners.aml_run import _score_endpoints",
+        "from typing import Any",
+        "import hashlib",
+        "import httpx",
+        "import json",
+        "import sys",
+        "import time"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_2_20261024\\support_atoms.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_2_20261024/support_atoms.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 5524,
+      "sha256": "d3410e735980fe67bef949f1ef1569cd1bd242cb61845032ace8a3ff7fc22c06",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass, field",
+        "import re"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_2_20261024\\tools\\candidate_audit_40.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_2_20261024/tools/candidate_audit_40.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 4577,
+      "sha256": "9d6e371553bfa9cfe234dda5f6afee8d7dc4a507af6a2a2490a7c3915491e2e4",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "import grounded as g",
+        "import json",
+        "import random",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_2_20261024\\tools\\run_manifest.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_2_20261024/tools/run_manifest.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2734,
+      "sha256": "067062fd1d6a6e1e667275f7d4444e8974d9b60d738fb38cf8e988c0a0b57c8a",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "import hashlib",
+        "import json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_2_20261024\\tools\\selfcheck.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_2_20261024/tools/selfcheck.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3479,
+      "sha256": "ef276dd12f7b400f0214c4695b563a12461bdd76c3a86cafd7f59d0c949567df",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from screen_client import ScreenClient",
+        "import json",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_2_20261024\\tools\\step4_run.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_2_20261024/tools/step4_run.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 6658,
+      "sha256": "b219c4931b8c30f10838b586c887abff4cb8dd71e4d2b3e1b1891966286e09bc",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from screen_client import ScreenClient",
+        "from support_atoms import select_with_support",
+        "import asyncio",
+        "import grounded as g",
+        "import hashlib",
+        "import json",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_2_20261024\\tools\\support_audit_20.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_2_20261024/tools/support_audit_20.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 4952,
+      "sha256": "dada866d2e439724a469986f04fc180de2415ce7bd9db966fd431a2f8ccf999e",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "import grounded as g",
+        "import json",
+        "import random",
+        "import sqlite3",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_3_20261024\\audit_assist.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_3_20261024/audit_assist.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3755,
+      "sha256": "21611200a74457d8a2e20de0bb1a4d01bf8fe8056d5aa80f16340f212d66e133",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "import grounded as g",
+        "import json",
+        "import sqlite3",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_3_20261024\\audit_fill.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_3_20261024/audit_fill.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 7848,
+      "sha256": "ec60b7d8446279e782ad058975b728d1363ad53ae5c9df10475063a301eeef86",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from pathlib import Path",
+        "import grounded as g",
+        "import json",
+        "import re",
+        "import sqlite3",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_3_20261024\\audit_stage_b_codex.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_3_20261024/audit_stage_b_codex.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 8796,
+      "sha256": "d71fdf65dc356d82ebf2fcbfac0c260243a528de42aff1076749c2f8ca63c307",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "import collections",
+        "import hashlib",
+        "import importlib.util",
+        "import json",
+        "import random"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_3_20261024\\controls_r13.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_3_20261024/controls_r13.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 10084,
+      "sha256": "fd12f2214cd5c6a02f2b06c4b5508e38931d89a16215b5dea728cb4397a4593f",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass",
+        "from pathlib import Path",
+        "from support_atoms import RELATIONS, build_atoms",
+        "import json",
+        "import re",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_3_20261024\\stage_b.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_3_20261024/stage_b.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 6869,
+      "sha256": "ee37ed4989f948173a8c0c140308ccd926d30b68e7e1bc35728ae5861f3c354b",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from pathlib import Path",
+        "from screen_client import ScreenClient",
+        "import grounded as g",
+        "import json",
+        "import random",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_3b_20261024\\fix_hseen.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_3b_20261024/fix_hseen.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2602,
+      "sha256": "1f90e4055ce41c410b058d673a235f86a570715377c15f73c437477a9d13df10",
+      "imports": [
+        "from pathlib import Path",
+        "import io",
+        "import re"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_3b_20261024\\r13b_answer.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_3b_20261024/r13b_answer.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3680,
+      "sha256": "5c10267d44658b7cb44a5b3a62fe8e1f624bc00b0b334dca0feb41b8735856fc",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import defaultdict",
+        "from pathlib import Path",
+        "from runners.aml_run import _score_endpoints, _score_question_row",
+        "import asyncio",
+        "import json",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_3b_20261024\\r13b_fix.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_3b_20261024/r13b_fix.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 7307,
+      "sha256": "efcc920ea23034ed37548f68d8fee6593610f68e92fcca1dbe4657777cf754a4",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from pathlib import Path",
+        "import grounded as g",
+        "import hashlib",
+        "import json",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_3b_20261024\\r13b_prepare.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_3b_20261024/r13b_prepare.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 11997,
+      "sha256": "c272499a84daaf5feaadb5a02d52f2c1e0c1aca45cf2e00cc203250f7d8be458",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from pathlib import Path",
+        "import grounded as g",
+        "import hashlib",
+        "import json",
+        "import random",
+        "import re",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_3b_20261024\\r13b_run.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_3b_20261024/r13b_run.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 5138,
+      "sha256": "be73efd43d902170893862bab4dd12a90c7c0cb2f2fc0f7dafe99d5010fd1cf8",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from r13b_prepare import apply_plan, sha, validate_plan",
+        "from screen_client import ScreenClient",
+        "import grounded as g",
+        "import json",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_3b_20261024\\readiness_v2.py",
+      "destination": "source/experiments/locomo_hierarchy_relevance_r1_3b_20261024/readiness_v2.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3333,
+      "sha256": "c5134e105000b1ae5e77fbfe8ef042fea0b07cbd7d7688b3674c158b04cbb086",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from pathlib import Path",
+        "from r13b_prepare import H_LOW, H_UP, L_SLOTS, build_pools, pick20",
+        "import grounded as g",
+        "import json",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\app.before.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/app.before.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_baseline",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 14961,
+      "sha256": "6b4d82b9ac3019a17bdd743d4978fd0d5100e05131769b3627957aff9992492f",
+      "imports": [
+        "from fastapi import FastAPI, HTTPException, Request",
+        "from fastapi.responses import FileResponse, JSONResponse",
+        "from fastapi.staticfiles import StaticFiles",
+        "from llm.base_llm import Message, MessageRole",
+        "from llm.xingliu_adapter import XingliuAdapter",
+        "from pathlib import Path",
+        "from pydantic import BaseModel, ConfigDict, Field",
+        "from server.idempotency import IdempotencyStore",
+        "from server.l2_backfill import schedule as schedule_l2_backfill",
+        "from server.model_settings import ModelSettingsStore",
+        "from server.ownership import filter_owned",
+        "from server.search_expand import search_with_expansion",
+        "from server.settings import ServerSettings",
+        "from server.time_anchor import stamp_messages, stamp_temporal",
+        "from timem.memory_graph.qa import GraphQueryError, run_qa",
+        "from timem.memory_graph.search import run_search",
+        "from typing import List, Optional",
+        "import asyncio",
+        "import logging"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\app.diff",
+      "destination": "source/experiments/locomo_smoke300_20261022/app.diff",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1558,
+      "sha256": "e6d6318011cd5b803964ec2d20694d8f4e90655bc962eb021e9ceb21d62a1284",
+      "imports": []
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\app.staged.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/app.staged.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 15270,
+      "sha256": "8f7bcc98324cddc9cf0f8ba6650c4f31335f474b4a8f8b6059ef994e8f90f33e",
+      "imports": [
+        "from fastapi import FastAPI, HTTPException, Request",
+        "from fastapi.responses import FileResponse, JSONResponse",
+        "from fastapi.staticfiles import StaticFiles",
+        "from llm.base_llm import Message, MessageRole",
+        "from llm.xingliu_adapter import XingliuAdapter",
+        "from pathlib import Path",
+        "from pydantic import BaseModel, ConfigDict, Field",
+        "from server.idempotency import IdempotencyStore",
+        "from server.l2_backfill import schedule as schedule_l2_backfill",
+        "from server.model_settings import ModelSettingsStore",
+        "from server.ownership import filter_owned",
+        "from server.search_expand import search_with_expansion",
+        "from server.settings import ServerSettings",
+        "from server.source_evidence import SourceEvidenceStore, ground_evidence",
+        "from server.time_anchor import stamp_messages, stamp_temporal",
+        "from timem.memory_graph.qa import GraphQueryError, run_qa",
+        "from timem.memory_graph.search import run_search",
+        "from typing import List, Optional",
+        "import asyncio",
+        "import logging"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\audit_evidence.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/audit_evidence.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1288,
+      "sha256": "91cd8e782f4f9d5921c39e416b5a90428663d1733ae5f6020d94aadcd6c187a7",
+      "imports": [
+        "from pathlib import Path",
+        "import json, sqlite3"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\audit_state.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/audit_state.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1506,
+      "sha256": "58c10465e00d839680e8443683f4f3fe526c891b584f462249fbd4db0c570d6f",
+      "imports": [
+        "from dotenv import dotenv_values",
+        "from pathlib import Path",
+        "import hashlib, json, sys",
+        "import psycopg2"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\backfill_sources.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/backfill_sources.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2147,
+      "sha256": "146c335202ec4ba43a920f9693cd9c1992397e4bc2b873e58a26ddb4492af4c1",
+      "imports": [
+        "from benchmark_data.aml_contract import add_body",
+        "from benchmark_data.aml_loaders import load_samples",
+        "from benchmark_data.chunking import chunk_messages",
+        "from pathlib import Path",
+        "from server.source_evidence import SourceEvidenceStore",
+        "import hashlib, json, sqlite3, sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\finish_report.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/finish_report.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 8091,
+      "sha256": "1edd38a2c112a17a5b89370b92a4d48e1e6195a43a8ac93c983eac65cf432782",
+      "imports": [
+        "from evaluators.aml_score import format_memories",
+        "from pathlib import Path",
+        "import collections, csv, hashlib, json, math, random, statistics",
+        "import sys",
+        "import tiktoken"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\install_api.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/install_api.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 753,
+      "sha256": "b3dfb3f74359bd34a3190ba6f23adf84a77e2207c368376ce53209d148d92ae2",
+      "imports": [
+        "from pathlib import Path",
+        "import hashlib, json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\prepare_change.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/prepare_change.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1862,
+      "sha256": "97f6c1f4ddb1e2f5ea3486630ba3d57f84805db04c747cdaeac71f8fecf9ad84",
+      "imports": [
+        "from pathlib import Path",
+        "import difflib, hashlib, json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\progress.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/progress.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 893,
+      "sha256": "2f3b9ec16d4cf339b422a0c3d87332219218366ae740322491bb9a073d7cac59",
+      "imports": [
+        "from pathlib import Path",
+        "import collections, json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\resume_baseline.ps1",
+      "destination": "source/experiments/locomo_smoke300_20261022/resume_baseline.ps1",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 864,
+      "sha256": "83477bd9fc8ec041b320d325ace684319e8375e1c371d5deaa5bf96110f36f00",
+      "imports": []
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\run_baseline.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/run_baseline.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1647,
+      "sha256": "99030c2d4ebd5a2d194e406d19a121f088813d77d9700020681d6b1cad23f4f7",
+      "imports": [
+        "from pathlib import Path",
+        "from runners import aml_run",
+        "from runners.aml_run import run_search_and_score",
+        "import asyncio, hashlib, json, logging, os, sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\run_variant.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/run_variant.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 4480,
+      "sha256": "82bed93258c1d5aefda472e6768b93cfb24b478166a6d37612156ac7d2a64e1b",
+      "imports": [
+        "from evaluators.aml_score import format_memories",
+        "from pathlib import Path",
+        "from runners.aml_run import _score_question_row, _score_endpoints",
+        "from server.source_evidence import SourceEvidenceStore, ground_evidence",
+        "import asyncio, hashlib, json, logging, os, sys, time"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\source_evidence.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/source_evidence.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 7341,
+      "sha256": "f9d9ca1532266d1302e28139433fd6ad2d5693693d072787375e28c10a6f4835",
+      "imports": [
+        "from __future__ import annotations",
+        "from contextlib import contextmanager",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "import hashlib",
+        "import json",
+        "import os",
+        "import re",
+        "import sqlite3"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\start_baseline.ps1",
+      "destination": "source/experiments/locomo_smoke300_20261022/start_baseline.ps1",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 609,
+      "sha256": "93db118bec1390bce123fe3a3ded9c09ddc4ad29f8601b5ecdff5e3d7749427f",
+      "imports": []
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\start_variant.ps1",
+      "destination": "source/experiments/locomo_smoke300_20261022/start_variant.ps1",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 604,
+      "sha256": "c627166ba9d8f68a819bb15b877c9b7f5f044d04ab9970df8fc5738ef4a4e14b",
+      "imports": []
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\test_source_api.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/test_source_api.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2819,
+      "sha256": "bb644aac41cf88d5c848afb0c24f130ff56a84745c89c4475e1399e8fdc3b1f8",
+      "imports": [
+        "from fastapi.testclient import TestClient",
+        "from pathlib import Path",
+        "from server.idempotency import IdempotencyStore",
+        "from server.model_settings import ModelSettingsStore",
+        "from server.settings import ServerSettings",
+        "from unittest.mock import patch",
+        "import importlib.util, os, sys, tempfile, unittest"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_smoke300_20261022\\test_source_evidence.py",
+      "destination": "source/experiments/locomo_smoke300_20261022/test_source_evidence.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3604,
+      "sha256": "755015a69ad4a50cfb13f91dc66a8b46f5843c0c953ba13e03f572d9372bb573",
+      "imports": [
+        "from pathlib import Path",
+        "import importlib.util",
+        "import os",
+        "import tempfile",
+        "import unittest"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\audit_hierarchy.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/audit_hierarchy.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2746,
+      "sha256": "cee0007d0b22ce07134ccccb0464a6134e650a526fad5f6502ff4c730cce9675",
+      "imports": [
+        "from build_hierarchy import ROOT, SOURCE, read, write, source_hash, now",
+        "import collections, hashlib, json, sqlite3"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\build_hierarchy.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/build_hierarchy.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 10363,
+      "sha256": "bba89aeaccff755c7e0c6a7c5146af39890907c5f9548356d05d7a60dc2ec097",
+      "imports": [
+        "from __future__ import annotations",
+        "from datetime import datetime, timedelta, timezone",
+        "from pathlib import Path",
+        "from runners.aml_run import _score_endpoints",
+        "import argparse, asyncio, ast, collections, hashlib, json, math, sqlite3, sys, uuid",
+        "import httpx"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\check_import.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/check_import.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 718,
+      "sha256": "877bc72919ab3e3c648ffe758096381044777008725547456d83071e2be3bc72",
+      "imports": [
+        "from build_hierarchy import *",
+        "import httpx, json, re"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\cloud_pipeline.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/cloud_pipeline.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 5525,
+      "sha256": "3dee731b1c8c6c386d2867752a9895cf3b41be7063fd2cbc4ce4ecd7985ee0d8",
+      "imports": [
+        "from build_hierarchy import ROOT, RUN, read, write, space_config, now",
+        "import argparse, collections, csv, hashlib, io, json, re",
+        "import httpx"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\configure_models.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/configure_models.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 628,
+      "sha256": "8513fa352a3f95ff1a2400f5814758d52c2f71362343b5b4b7737c865680ead7",
+      "imports": [
+        "from pathlib import Path",
+        "import re, json, hashlib"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\discover_space.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/discover_space.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1179,
+      "sha256": "81a1cbab612f48a58769e4e4c0d95dff41d0241a4197f67590fd1be12a40ad9a",
+      "imports": [
+        "from pathlib import Path",
+        "import ast, json",
+        "import httpx"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\import_pilot.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/import_pilot.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1218,
+      "sha256": "6134300c4d9a6fdda1292199eb5992fd5320a9f988bb2d6dfe0d0f7d7f0bbbbc",
+      "imports": [
+        "from build_hierarchy import *",
+        "import httpx, csv, io, json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\inspect_local.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/inspect_local.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1750,
+      "sha256": "87096a5d52ae5a76f519c356a9c857d7324a700cf4d3ae7b2ebe5786e6701874",
+      "imports": [
+        "from dotenv import dotenv_values",
+        "from pathlib import Path",
+        "import json, collections",
+        "import psycopg2"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\inspect_space.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/inspect_space.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1426,
+      "sha256": "472a442724b273ed3a852fe7d08edcdbf74b67d5ec25dea4575071078b977130",
+      "imports": [
+        "from pathlib import Path",
+        "import ast, json, collections",
+        "import httpx"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\list_space.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/list_space.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2029,
+      "sha256": "f7b15842b286a423a55695bfaad0ab50d60b0a15a580b9f0aaf834c9d2f0534a",
+      "imports": [
+        "from pathlib import Path",
+        "import ast, json, csv, collections, re, hashlib",
+        "import httpx"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\make_report.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/make_report.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 7308,
+      "sha256": "6b0795d53d80892eb537fa057e58928382aee8317ead7a9b4a3bd2feb03a97ae",
+      "imports": [
+        "from build_hierarchy import ROOT, RUN, MODEL, read, write, now",
+        "from run_full import EXPECTED, BASELINE, NAMES",
+        "import collections, hashlib, json, statistics"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\probe_import.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/probe_import.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 598,
+      "sha256": "64c7f3c664341998408d0346b0cede1b95b4d4ab3b2ce98b190126476c4989ea",
+      "imports": [
+        "from build_hierarchy import *",
+        "import httpx, json, csv, io"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\probe_structured.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/probe_structured.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 864,
+      "sha256": "0a270b80414c048fc65cd4183b4468c681c2501b367c991751261c0a94af285e",
+      "imports": [
+        "from build_hierarchy import *",
+        "import httpx, json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\probe_structured_read.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/probe_structured_read.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 915,
+      "sha256": "1d8b33dab233c7917b40a2dc959e35c4e6f7f0a2edcd0823fc998fc4532b6669",
+      "imports": [
+        "from build_hierarchy import *",
+        "import httpx, json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\probe_verify.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/probe_verify.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 606,
+      "sha256": "7e8c72c28ca57cdf6648a77a46bb1593fb7941017124825bf5c9965db0e478e0",
+      "imports": [
+        "from build_hierarchy import *",
+        "import httpx, json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\run_full.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/run_full.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 12012,
+      "sha256": "4b71cecc9b68512ad33b1975dc38214e8d0dafd94f68df7425348e9a11ba57ef",
+      "imports": [
+        "from build_hierarchy import ROOT, RUN, MODEL, BENCH, read, write, space_config, now, _score_endpoints",
+        "from cloud_pipeline import unwrap, normalized",
+        "from evaluators.aml_score import _OPEN_ANSWER, _ACCURACY, parse_correct_label",
+        "from pathlib import Path",
+        "import argparse, asyncio, collections, hashlib, json, math, re, uuid",
+        "import httpx"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\run_when_ready.py",
+      "destination": "source/experiments/locomo_space_l1_l5_20261024/run_when_ready.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 897,
+      "sha256": "7dd48cc6e69ec5f2aa96580f8686eb5190030bb0a63a9b16b7a4aaced6d9b88f",
+      "imports": [
+        "from audit_hierarchy import main as audit",
+        "from build_hierarchy import ROOT, read",
+        "from run_full import main as evaluate",
+        "import argparse, asyncio, time"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\arms\\arm_c1.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/arms/arm_c1.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1975,
+      "sha256": "cf334690944ea46bdab5f2dadf4b2dc4bada237a78fd916c42967f8678cdb0a6",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from typing import Dict, List, Sequence, Tuple",
+        "import importlib.util",
+        "import sys as _sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\arms\\arm_c2.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/arms/arm_c2.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3841,
+      "sha256": "1637071feb015a7449b3f3a36d267a367656b2aaa95618d619e187ffd80ba7ab",
+      "imports": [
+        "from __future__ import annotations",
+        "from arm_c1 import a0",
+        "from pathlib import Path",
+        "from typing import Dict, List, Sequence, Tuple",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\arms\\arm_c3.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/arms/arm_c3.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 17160,
+      "sha256": "8f96c0d9ecae28dbfab712aa2ddc9568737d3022653f3544641e92985dac2774",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass, field",
+        "from datetime import date, datetime, timedelta",
+        "from typing import Dict, List, Optional, Sequence, Tuple",
+        "import json",
+        "import re"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\frozen\\a0_temporal_evidence.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/frozen/a0_temporal_evidence.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 15109,
+      "sha256": "a3cc21b988046114a6038d5d3a2b86b4199ac79991859373296c22141cbd2473",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass, field",
+        "from datetime import date, datetime, timedelta",
+        "from typing import Dict, Iterable, List, Optional, Sequence, Tuple",
+        "import re"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\frozen\\arm_c1.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/frozen/arm_c1.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1975,
+      "sha256": "cf334690944ea46bdab5f2dadf4b2dc4bada237a78fd916c42967f8678cdb0a6",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from typing import Dict, List, Sequence, Tuple",
+        "import importlib.util",
+        "import sys as _sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\frozen\\arm_c2.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/frozen/arm_c2.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3841,
+      "sha256": "1637071feb015a7449b3f3a36d267a367656b2aaa95618d619e187ffd80ba7ab",
+      "imports": [
+        "from __future__ import annotations",
+        "from arm_c1 import a0",
+        "from pathlib import Path",
+        "from typing import Dict, List, Sequence, Tuple",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\frozen\\arm_c3.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/frozen/arm_c3.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 17160,
+      "sha256": "8f96c0d9ecae28dbfab712aa2ddc9568737d3022653f3544641e92985dac2774",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass, field",
+        "from datetime import date, datetime, timedelta",
+        "from typing import Dict, List, Optional, Sequence, Tuple",
+        "import json",
+        "import re"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\frozen\\v1_source_evidence.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/frozen/v1_source_evidence.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 7341,
+      "sha256": "f9d9ca1532266d1302e28139433fd6ad2d5693693d072787375e28c10a6f4835",
+      "imports": [
+        "from __future__ import annotations",
+        "from contextlib import contextmanager",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "import hashlib",
+        "import json",
+        "import os",
+        "import re",
+        "import sqlite3"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\modes_evaluate.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/modes_evaluate.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 11270,
+      "sha256": "ef99cb88db48da7eeb382ad68b56027b71bfb68b141e933ef4104b6b96089a27",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_models import EvalQuestion",
+        "from collections import defaultdict",
+        "from datetime import datetime, timezone",
+        "from evaluators.aml_score import answer_prompt, complete_chat, format_memories, judge_prompt, score_mcq",
+        "from modes_offline import ReadOnlyIndex, load_module, make_v1_store, read_turns",
+        "from pathlib import Path",
+        "from runners.aml_run import _question_from_row, _score_endpoints, verdict_correct_wrong",
+        "import asyncio",
+        "import hashlib",
+        "import json",
+        "import math",
+        "import os",
+        "import random",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\modes_offline.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/modes_offline.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 14043,
+      "sha256": "e53757ef9979c6a5e7d2642d34009a442ee012ee497310ccbac0de797c71897b",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_models import EvalQuestion",
+        "from contextlib import contextmanager",
+        "from datetime import datetime, timezone",
+        "from evaluators.aml_score import ANSWER_INPUT_TOKEN_BUDGET",
+        "from evaluators.aml_score import answer_prompt, format_memories",
+        "from pathlib import Path",
+        "import argparse",
+        "import asyncio",
+        "import hashlib",
+        "import importlib.util",
+        "import json",
+        "import os",
+        "import random",
+        "import sqlite3",
+        "import sys",
+        "import tiktoken"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\modes_report.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/modes_report.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 7199,
+      "sha256": "21f0d288ea43fb0ea8ae342e0f61b6f981a43aa3507d382229f5a117444fb84c",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import defaultdict",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "import json",
+        "import math",
+        "import random"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\run_annotation_full.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/run_annotation_full.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 9578,
+      "sha256": "bf909b59e368bfdcd9e18e975d960ab5f6c63a8051ad301d73108f481c63499d",
+      "imports": [
+        "from __future__ import annotations",
+        "from contextlib import contextmanager",
+        "from datetime import datetime, timezone",
+        "from modes_evaluate import run_evaluate",
+        "from modes_offline import run_offline",
+        "from modes_report import run_report",
+        "from pathlib import Path",
+        "from utils_paths import bench_model_config",
+        "import argparse",
+        "import asyncio",
+        "import hashlib",
+        "import importlib.util",
+        "import json",
+        "import os",
+        "import random",
+        "import sqlite3",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\tests\\test_annotation_v2.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/tests/test_annotation_v2.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 8401,
+      "sha256": "79b39b8b63c2352718baa7a75c315b49203640a69a2f066ceb91277ef6851e16",
+      "imports": [
+        "from __future__ import annotations",
+        "from arm_c3 import MARKER, SourceTurn, annotate, parse_mentions, plan_date_query",
+        "from pathlib import Path",
+        "import sys",
+        "import unittest"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_annotation_full_20261023\\utils_paths.py",
+      "destination": "source/experiments/locomo_temporal_annotation_full_20261023/utils_paths.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 682,
+      "sha256": "f5a6a58c49535dc5e2803142facc8bee62d8996bca99fb2b7de252248ffa2bb2",
+      "imports": [
+        "from __future__ import annotations",
+        "from runners.aml_run import _score_endpoints",
+        "from urllib.parse import urlparse",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_v2_20261023\\patch\\source_evidence.diff",
+      "destination": "source/experiments/locomo_temporal_v2_20261023/patch/source_evidence.diff",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 5161,
+      "sha256": "b382b683c8fb1cf6e83449a7723d2e506b0d0b70e9e15d79800a893c8e719e5c",
+      "imports": []
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_v2_20261023\\patch\\source_evidence.v2.py",
+      "destination": "source/experiments/locomo_temporal_v2_20261023/patch/source_evidence.v2.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 10412,
+      "sha256": "2b971cc464f4a4b08ba7440ce53a0c8f45034e2821f9ce4f259666a2bb62ebf4",
+      "imports": [
+        "from __future__ import annotations",
+        "from contextlib import contextmanager",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "from server.temporal_evidence import DEFAULT_BUDGET_CHARS, plan_date_query, render_date_evidence",
+        "from server.temporal_evidence import SourceTurn",
+        "import hashlib",
+        "import json",
+        "import logging",
+        "import os",
+        "import re",
+        "import sqlite3"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_v2_20261023\\patch\\temporal_evidence.py",
+      "destination": "source/experiments/locomo_temporal_v2_20261023/patch/temporal_evidence.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 15109,
+      "sha256": "a3cc21b988046114a6038d5d3a2b86b4199ac79991859373296c22141cbd2473",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass, field",
+        "from datetime import date, datetime, timedelta",
+        "from typing import Dict, Iterable, List, Optional, Sequence, Tuple",
+        "import re"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_v2_20261023\\patch\\test_temporal_evidence.py",
+      "destination": "source/experiments/locomo_temporal_v2_20261023/patch/test_temporal_evidence.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 10679,
+      "sha256": "e0378198099d8e2a2966cc5f4f664ee6404acc4331ae798022aec5e47a84e0de",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from server import source_evidence as se",
+        "from server.source_evidence import ReadOnlySourceIndex, read_source_turns",
+        "from server.temporal_evidence import ANNOTATION_HEADER, SourceTurn, parse_time_mentions, plan_date_query, render_date_evidence",
+        "import os",
+        "import sqlite3",
+        "import sys",
+        "import tempfile",
+        "import unittest"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_v2_20261023\\tools\\fresh_mode.py",
+      "destination": "source/experiments/locomo_temporal_v2_20261023/tools/fresh_mode.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 7558,
+      "sha256": "1c6ba9c58cec915c54806a4e2fa40edb171fc73e0105126aca18607b3204313e",
+      "imports": [
+        "from __future__ import annotations",
+        "from datetime import datetime, timezone",
+        "from evaluators.aml_score import format_memories",
+        "from offline_mode import load_module, make_readonly_store",
+        "from pathlib import Path",
+        "from runners.aml_run import _score_endpoints, _score_question_row",
+        "import asyncio",
+        "import hashlib",
+        "import json",
+        "import os",
+        "import sys",
+        "import time"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_v2_20261023\\tools\\offline_mode.py",
+      "destination": "source/experiments/locomo_temporal_v2_20261023/tools/offline_mode.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 10165,
+      "sha256": "66ca056c9bda880d7c6752accddaf252c2486d129e9a73364e23d93f21fdae0b",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_models import EvalQuestion",
+        "from contextlib import contextmanager",
+        "from datetime import datetime, timezone",
+        "from evaluators.aml_score import ANSWER_INPUT_TOKEN_BUDGET",
+        "from evaluators.aml_score import answer_prompt",
+        "from evaluators.aml_score import format_memories",
+        "from pathlib import Path",
+        "import hashlib",
+        "import importlib.util",
+        "import json",
+        "import os",
+        "import sqlite3",
+        "import sys",
+        "import tiktoken"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_v2_20261023\\tools\\report_temporal_ablation.py",
+      "destination": "source/experiments/locomo_temporal_v2_20261023/tools/report_temporal_ablation.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 6150,
+      "sha256": "b5c267cab6d21634dbf1a695f401f396a9ebf912b0fa90641c59d462979567e6",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "import json"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_v2_20261023\\tools\\run_temporal_ablation.py",
+      "destination": "source/experiments/locomo_temporal_v2_20261023/tools/run_temporal_ablation.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 8885,
+      "sha256": "8c17dec6733f1f27319fad09ef1ad905805310440c32305f9ed0aaa0e560d216",
+      "imports": [
+        "from __future__ import annotations",
+        "from datetime import datetime, timezone",
+        "from fresh_mode import run_fresh",
+        "from offline_mode import run_offline",
+        "from pathlib import Path",
+        "from urllib.parse import urlparse",
+        "from utils.config import get_settings",
+        "import argparse",
+        "import asyncio",
+        "import hashlib",
+        "import json",
+        "import os",
+        "import sqlite3",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\arms\\arm_b.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/arms/arm_b.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1583,
+      "sha256": "1f03a08a2c28611b46e869c4be946334d6c259e72789f07d954af4ecd1b0a734",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from typing import Dict, List, Sequence, Tuple",
+        "import importlib.util",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\arms\\arm_w0.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/arms/arm_w0.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 883,
+      "sha256": "eeecd60d0e1e9991b9d861c63079de0cdfd9ce233f1d46da5f199311a87970a1",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from typing import Dict, List, Sequence, Tuple",
+        "import arm_b",
+        "import sys",
+        "import week_ext"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\arms\\arm_w1.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/arms/arm_w1.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 868,
+      "sha256": "088a82646e30bff297b8d3bf11d65b325f9bd7ad015313250080e2dd59e91231",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from typing import Dict, List, Sequence, Tuple",
+        "import arm_b",
+        "import sys",
+        "import week_ext"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\arms\\week_ext.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/arms/week_ext.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 8640,
+      "sha256": "d6172dba939f778ae731a554f9b049a906d97aae1b406fccebdf66c54f60fd74",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass",
+        "from datetime import date, datetime, timedelta",
+        "from typing import Dict, List, Optional, Sequence, Tuple",
+        "import json",
+        "import re"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\frozen\\a0_temporal_evidence.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/frozen/a0_temporal_evidence.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 15109,
+      "sha256": "a3cc21b988046114a6038d5d3a2b86b4199ac79991859373296c22141cbd2473",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass, field",
+        "from datetime import date, datetime, timedelta",
+        "from typing import Dict, Iterable, List, Optional, Sequence, Tuple",
+        "import re"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\frozen\\arm_b.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/frozen/arm_b.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1583,
+      "sha256": "1f03a08a2c28611b46e869c4be946334d6c259e72789f07d954af4ecd1b0a734",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from typing import Dict, List, Sequence, Tuple",
+        "import importlib.util",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\frozen\\arm_w0.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/frozen/arm_w0.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 883,
+      "sha256": "eeecd60d0e1e9991b9d861c63079de0cdfd9ce233f1d46da5f199311a87970a1",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from typing import Dict, List, Sequence, Tuple",
+        "import arm_b",
+        "import sys",
+        "import week_ext"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\frozen\\arm_w1.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/frozen/arm_w1.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 868,
+      "sha256": "088a82646e30bff297b8d3bf11d65b325f9bd7ad015313250080e2dd59e91231",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from typing import Dict, List, Sequence, Tuple",
+        "import arm_b",
+        "import sys",
+        "import week_ext"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\frozen\\v1_source_evidence.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/frozen/v1_source_evidence.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 7341,
+      "sha256": "f9d9ca1532266d1302e28139433fd6ad2d5693693d072787375e28c10a6f4835",
+      "imports": [
+        "from __future__ import annotations",
+        "from contextlib import contextmanager",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "import hashlib",
+        "import json",
+        "import os",
+        "import re",
+        "import sqlite3"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\frozen\\week_ext.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/frozen/week_ext.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 8640,
+      "sha256": "d6172dba939f778ae731a554f9b049a906d97aae1b406fccebdf66c54f60fd74",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass",
+        "from datetime import date, datetime, timedelta",
+        "from typing import Dict, List, Optional, Sequence, Tuple",
+        "import json",
+        "import re"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\run_week_full.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/run_week_full.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 14486,
+      "sha256": "f64820f4bb6692f9f842bacc625f0b289794d8e3e2731b5dd0dfcc5a59e36486",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_models import EvalQuestion",
+        "from collections import defaultdict",
+        "from contextlib import contextmanager",
+        "from datetime import datetime, timezone",
+        "from evaluators.aml_score import answer_prompt, format_memories",
+        "from pathlib import Path",
+        "from runners.aml_run import _score_endpoints",
+        "from week_evaluate import run_evaluate",
+        "from week_report import run_report",
+        "import argparse",
+        "import asyncio",
+        "import hashlib",
+        "import importlib",
+        "import importlib.util",
+        "import json",
+        "import os",
+        "import random",
+        "import sqlite3",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\tests\\test_week_arms.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/tests/test_week_arms.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 5470,
+      "sha256": "e71a01288408ba59290afba124b5ddb84d6081b169da2e80b0e662e5542c08c6",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from week_ext import add_week_anchors, parse_week_mentions",
+        "import sys",
+        "import unittest"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\week_evaluate.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/week_evaluate.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 10605,
+      "sha256": "ed08f732ed7e036846882dc96393398bbc42ac60c81c61e6b7fab611ff68c3a1",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_models import EvalQuestion",
+        "from collections import defaultdict",
+        "from datetime import datetime, timezone",
+        "from evaluators.aml_score import answer_prompt, complete_chat, format_memories, judge_prompt, score_mcq",
+        "from pathlib import Path",
+        "from run_week_full import canonical, load_module, read_json, read_turns, sha, write_json",
+        "from run_week_full import ro_db",
+        "from runners.aml_run import _question_from_row, _score_endpoints, verdict_correct_wrong",
+        "import asyncio",
+        "import hashlib",
+        "import json",
+        "import os",
+        "import random",
+        "import sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\week_report.py",
+      "destination": "source/experiments/locomo_temporal_week_20261023/week_report.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3999,
+      "sha256": "c15a578173b16881d234f94b10924e72093d8417568ab0efbb362f9d2aa8a027",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import defaultdict",
+        "from pathlib import Path",
+        "import json",
+        "import math"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_upper_w0_20261024\\make_report.py",
+      "destination": "source/experiments/locomo_upper_w0_20261024/make_report.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 9763,
+      "sha256": "463c4a4c3d57369943b80e02eab7fb7be50e63b0d7b057a80546b7d3093ae248",
+      "imports": [
+        "from datetime import datetime, timezone, timedelta",
+        "from evaluators.aml_score import format_memories",
+        "from pathlib import Path",
+        "from run_eval import metrics",
+        "from upper_w0 import ROOT, PREVIOUS, W0, BENCH, MODEL, UPPER, read, write, now, canonical, sha",
+        "import collections, hashlib, inspect, json, statistics"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_upper_w0_20261024\\run_eval.py",
+      "destination": "source/experiments/locomo_upper_w0_20261024/run_eval.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 8681,
+      "sha256": "d9caad3077eb4e4d6ad3ed9c14a85d47f41ebcf0cabaa0a482c76d35cc2dbbac",
+      "imports": [
+        "from evaluators.aml_score import _OPEN_ANSWER, _ACCURACY, parse_correct_label",
+        "from upper_w0 import ROOT, PREVIOUS, W0, MODEL, EXPECTED, NAMES, BASELINE, read, write, now, sha, canonical, _score_endpoints",
+        "import argparse, asyncio, collections, hashlib, json, random",
+        "import httpx"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_upper_w0_20261024\\upper_w0.py",
+      "destination": "source/experiments/locomo_upper_w0_20261024/upper_w0.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "final_core_or_import_dependency",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 14314,
+      "sha256": "3830cd0ddfaafba706622c212c3802d220f6417b83e485732a0e3b9352a136f5",
+      "imports": [
+        "from build_hierarchy import read, write, now, BENCH, MODEL, _score_endpoints",
+        "from evaluators.aml_score import format_memories, _OPEN_ANSWER, _ACCURACY, ANSWER_INPUT_TOKEN_BUDGET",
+        "from pathlib import Path",
+        "from run_full import LocalBM25, pack as old_pack, EXPECTED, NAMES, BASELINE",
+        "import arm_w0",
+        "import collections, dataclasses, functools, hashlib, importlib.util, json, re, sqlite3, sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_w0_glm_judge_20261023\\aml_score.frozen.py",
+      "destination": "source/experiments/locomo_w0_glm_judge_20261023/aml_score.frozen.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 9608,
+      "sha256": "1c8e03ad40bd92b9e997ae48331c1f9c7a9bf251692221870d5860c04c8e0e4e",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_models import EvalQuestion",
+        "from typing import Any",
+        "import httpx",
+        "import json",
+        "import re",
+        "import tiktoken"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_w0_glm_judge_20261023\\configure_judge.py",
+      "destination": "source/experiments/locomo_w0_glm_judge_20261023/configure_judge.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "administration_not_algorithm",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1031,
+      "sha256": "cb09e165fe4cc60d4acadc20588e0519e8684396b434bc6db2478b3d704c8c4a",
+      "imports": [
+        "from dotenv import dotenv_values",
+        "from pathlib import Path",
+        "import json, re, sys"
+      ]
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_w0_glm_judge_20261023\\run_rejudge.py",
+      "destination": "source/experiments/locomo_w0_glm_judge_20261023/run_rejudge.py",
+      "kind": "experiment_code_or_patch",
+      "stage": "historical_experiment",
+      "recommended_include": true,
+      "note": "原路径快照；迁移运行需调整绝对路径。",
+      "secret_pattern_detected": false,
+      "size_bytes": 9521,
+      "sha256": "7f1d25157015d0cc7998839671dcde47b5db87d46c9d4598535c418c6c5f16f5",
+      "imports": [
+        "from __future__ import annotations",
+        "from collections import Counter",
+        "from datetime import datetime, timezone",
+        "from evaluators.aml_score import judge_prompt, parse_correct_label",
+        "from pathlib import Path",
+        "from runners.aml_run import _score_endpoints, _question_from_row",
+        "import argparse, asyncio, hashlib, json, os, sys, time",
+        "import httpx"
+      ]
+    },
+    {
+      "source": "F:\\worktable\\research\\timem-aml\\server\\source_evidence.py",
+      "destination": "source/timem_aml/server/source_evidence.py",
+      "kind": "product_reference",
+      "stage": "module_and_staged_api_reference",
+      "recommended_include": true,
+      "note": "app.py仅接入运行阻塞修复；原文/时间API接线见实验app.staged.py与app.diff。",
+      "secret_pattern_detected": false,
+      "size_bytes": 10412,
+      "sha256": "2b971cc464f4a4b08ba7440ce53a0c8f45034e2821f9ce4f259666a2bb62ebf4",
+      "imports": [
+        "from __future__ import annotations",
+        "from contextlib import contextmanager",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "from server.temporal_evidence import DEFAULT_BUDGET_CHARS, plan_date_query, render_date_evidence",
+        "from server.temporal_evidence import SourceTurn",
+        "import hashlib",
+        "import json",
+        "import logging",
+        "import os",
+        "import re",
+        "import sqlite3"
+      ],
+      "inventory_recommended_destination": "source/aml_reference/server/source_evidence.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\timem-aml\\server\\temporal_evidence.py",
+      "destination": "source/timem_aml/server/temporal_evidence.py",
+      "kind": "product_reference",
+      "stage": "module_and_staged_api_reference",
+      "recommended_include": true,
+      "note": "app.py仅接入运行阻塞修复；原文/时间API接线见实验app.staged.py与app.diff。",
+      "secret_pattern_detected": false,
+      "size_bytes": 15109,
+      "sha256": "a3cc21b988046114a6038d5d3a2b86b4199ac79991859373296c22141cbd2473",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass, field",
+        "from datetime import date, datetime, timedelta",
+        "from typing import Dict, Iterable, List, Optional, Sequence, Tuple",
+        "import re"
+      ],
+      "inventory_recommended_destination": "source/aml_reference/server/temporal_evidence.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\timem-aml\\tests\\test_temporal_evidence.py",
+      "destination": "source/timem_aml/tests/test_temporal_evidence.py",
+      "kind": "product_reference",
+      "stage": "module_and_staged_api_reference",
+      "recommended_include": true,
+      "note": "app.py仅接入运行阻塞修复；原文/时间API接线见实验app.staged.py与app.diff。",
+      "secret_pattern_detected": false,
+      "size_bytes": 10679,
+      "sha256": "e0378198099d8e2a2966cc5f4f664ee6404acc4331ae798022aec5e47a84e0de",
+      "imports": [
+        "from __future__ import annotations",
+        "from pathlib import Path",
+        "from server import source_evidence as se",
+        "from server.source_evidence import ReadOnlySourceIndex, read_source_turns",
+        "from server.temporal_evidence import ANNOTATION_HEADER, SourceTurn, parse_time_mentions, plan_date_query, render_date_evidence",
+        "import os",
+        "import sqlite3",
+        "import sys",
+        "import tempfile",
+        "import unittest"
+      ],
+      "inventory_recommended_destination": "source/aml_reference/tests/test_temporal_evidence.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\timem-aml\\server\\app.py",
+      "destination": "source/timem_aml/server/app.py",
+      "kind": "product_reference",
+      "stage": "module_and_staged_api_reference",
+      "recommended_include": true,
+      "note": "app.py仅接入运行阻塞修复；原文/时间API接线见实验app.staged.py与app.diff。",
+      "secret_pattern_detected": false,
+      "size_bytes": 14961,
+      "sha256": "6b4d82b9ac3019a17bdd743d4978fd0d5100e05131769b3627957aff9992492f",
+      "imports": [
+        "from fastapi import FastAPI, HTTPException, Request",
+        "from fastapi.responses import FileResponse, JSONResponse",
+        "from fastapi.staticfiles import StaticFiles",
+        "from llm.base_llm import Message, MessageRole",
+        "from llm.xingliu_adapter import XingliuAdapter",
+        "from pathlib import Path",
+        "from pydantic import BaseModel, ConfigDict, Field",
+        "from server.idempotency import IdempotencyStore",
+        "from server.l2_backfill import schedule as schedule_l2_backfill",
+        "from server.model_settings import ModelSettingsStore",
+        "from server.ownership import filter_owned",
+        "from server.search_expand import search_with_expansion",
+        "from server.settings import ServerSettings",
+        "from server.time_anchor import stamp_messages, stamp_temporal",
+        "from timem.memory_graph.qa import GraphQueryError, run_qa",
+        "from timem.memory_graph.search import run_search",
+        "from typing import List, Optional",
+        "import asyncio",
+        "import logging"
+      ],
+      "inventory_recommended_destination": "source/aml_reference/server/app.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\adapters\\__init__.py",
+      "destination": "source/bench/adapters/__init__.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 494,
+      "sha256": "33fcb28e875db458704c866c2fc2c834a600099a935f6859dac2ae2d9781ae32",
+      "imports": [
+        "from adapters.base import MemoryAdapter",
+        "from adapters.mem0_platform_adapter import Mem0PlatformAdapter",
+        "from adapters.memos_cloud_adapter import MemOSCloudAdapter",
+        "from adapters.registry import SUPPORTED_SYSTEMS, close_adapters, get_adapters",
+        "from adapters.timem_adapter import TiMEMAdapter"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/adapters/__init__.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\adapters\\aml_client.py",
+      "destination": "source/bench/adapters/aml_client.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2443,
+      "sha256": "6bf069a7103affabe3f69c9dcf29fdb6ec0e9ac728ae180c44a833622772b5d1",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_contract import AML_HTTP_TIMEOUT_SEC, auth_headers, check_add_response, check_search_response",
+        "from typing import Any",
+        "import httpx"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/adapters/aml_client.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\benchmark_data\\__init__.py",
+      "destination": "source/bench/benchmark_data/__init__.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 98,
+      "sha256": "0dd8f4c43b92ec7badc741f1e00d56dbab42738537dcf5d1fb3292801bfd1bf3",
+      "imports": [
+        "from benchmark_data.locomo_loader import load_locomo_personas"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/benchmark_data/__init__.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\benchmark_data\\aml_beam.py",
+      "destination": "source/bench/benchmark_data/aml_beam.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2856,
+      "sha256": "594b63b68a56e7ad82033f29451a4c1ff38322e16c0af4b43e36c28ace65480d",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_loaders import _loose_time_to_ms",
+        "from benchmark_data.aml_models import EvalMessage, EvalQuestion, EvalSample",
+        "from typing import Any",
+        "import ast"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/benchmark_data/aml_beam.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\benchmark_data\\aml_clbench.py",
+      "destination": "source/bench/benchmark_data/aml_clbench.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2771,
+      "sha256": "430135d173276682faeb117366359dca9374dc6b60a8dc7a2beb4613feb25ab6",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_models import EvalMessage, EvalQuestion, EvalSample",
+        "from typing import Any"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/benchmark_data/aml_clbench.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\benchmark_data\\aml_contract.py",
+      "destination": "source/bench/benchmark_data/aml_contract.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3433,
+      "sha256": "0976ba02df4f39fe19bf7aa173b634fba742b64e6c12791f0913d4588f220125",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_models import EvalMessage, EvalQuestion",
+        "from typing import Any"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/benchmark_data/aml_contract.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\benchmark_data\\aml_loaders.py",
+      "destination": "source/bench/benchmark_data/aml_loaders.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 15158,
+      "sha256": "d784986c0cb2c533c3124da1e69c902d41df7efff146998abb87f0092b6d7e73",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_beam import BEAM_SPLITS, beam_row_to_sample",
+        "from benchmark_data.aml_clbench import clbench_row_to_sample",
+        "from benchmark_data.aml_models import EvalMessage, EvalQuestion, EvalSample",
+        "from benchmark_data.aml_papers import apply_paper",
+        "from benchmark_data.catalog import get_dataset",
+        "from datasets import load_dataset",
+        "from datetime import datetime",
+        "from pathlib import Path",
+        "from typing import Any",
+        "from utils.config import PROJECT_ROOT",
+        "from utils.locomo_dates import parse_locomo_datetime",
+        "import ast",
+        "import csv",
+        "import hashlib",
+        "import httpx",
+        "import json",
+        "import logging",
+        "import random",
+        "import re"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/benchmark_data/aml_loaders.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\benchmark_data\\aml_models.py",
+      "destination": "source/bench/benchmark_data/aml_models.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 848,
+      "sha256": "2d51f7873e44c48d6bfcfa21035cfd5206c1a42b72a4ee0052ced3007c1f4b99",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass, field",
+        "from typing import Any"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/benchmark_data/aml_models.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\benchmark_data\\aml_papers.py",
+      "destination": "source/bench/benchmark_data/aml_papers.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 3312,
+      "sha256": "886c7e25d95bdcbc54401dfcc644ca5e68400d773f26880111670ed593933861",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_models import EvalQuestion, EvalSample",
+        "from benchmark_data.catalog import get_dataset",
+        "from pathlib import Path",
+        "from typing import Any",
+        "from utils.config import PROJECT_ROOT",
+        "import json"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/benchmark_data/aml_papers.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\benchmark_data\\catalog.py",
+      "destination": "source/bench/benchmark_data/catalog.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2707,
+      "sha256": "8097c9df98ea3e0ef7253529ff90e4e5e575658ccb31103cefc486029b299016",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/benchmark_data/catalog.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\benchmark_data\\chunking.py",
+      "destination": "source/bench/benchmark_data/chunking.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1515,
+      "sha256": "2fd3b9d8ee830999929396cfadda8737dc6d6d39428ce0d446f2033d82a922b4",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_models import EvalMessage",
+        "import re"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/benchmark_data/chunking.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\evaluators\\__init__.py",
+      "destination": "source/bench/evaluators/__init__.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 597,
+      "sha256": "f122d694f63c029861630cb03ffd9b4376579570f0386ad16edd9c5ba0e3395c",
+      "imports": [
+        "from evaluators.ark_judge import ARKJudge, LLMJudge",
+        "from evaluators.category_metrics import aggregate_by_category, build_category_summary",
+        "from evaluators.latency import summarize_latencies",
+        "from evaluators.recall import batch_recall, recall_at_k",
+        "from evaluators.tokens import attach_search_metrics, count_tokens, recalled_tokens_from_records"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/evaluators/__init__.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\evaluators\\aml_score.py",
+      "destination": "source/bench/evaluators/aml_score.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 9608,
+      "sha256": "1c8e03ad40bd92b9e997ae48331c1f9c7a9bf251692221870d5860c04c8e0e4e",
+      "imports": [
+        "from __future__ import annotations",
+        "from benchmark_data.aml_models import EvalQuestion",
+        "from typing import Any",
+        "import httpx",
+        "import json",
+        "import re",
+        "import tiktoken"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/evaluators/aml_score.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\runners\\__init__.py",
+      "destination": "source/bench/runners/__init__.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "imports": [],
+      "inventory_recommended_destination": "source/bench_reference/runners/__init__.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\runners\\aml_run.py",
+      "destination": "source/bench/runners/aml_run.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 38467,
+      "sha256": "47c2f6196af076437f2b1547dbdbeca6e8f67744a3a050fd7144443bbcf99853",
+      "imports": [
+        "from __future__ import annotations",
+        "from adapters.aml_client import AmlClient",
+        "from benchmark_data.aml_clbench import all_rubrics_passed, rubric_prompt",
+        "from benchmark_data.aml_contract import AML_HTTP_TIMEOUT_SEC, add_body, search_body",
+        "from benchmark_data.aml_loaders import load_samples",
+        "from benchmark_data.aml_models import EvalQuestion, EvalSample",
+        "from benchmark_data.aml_papers import ensure_runnable_dataset",
+        "from benchmark_data.chunking import chunk_messages",
+        "from evaluators.aml_score import answer_prompt, complete_chat, format_memories, judge_prompt, parse_boxed_score, parse_correct_label, score_mcq",
+        "from pathlib import Path",
+        "from typing import Any, Awaitable, Callable",
+        "from utils.config import PROJECT_ROOT, get_settings",
+        "from utils.run_meta import collect_run_meta",
+        "import asyncio",
+        "import json",
+        "import logging",
+        "import re",
+        "import time"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/runners/aml_run.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\utils\\__init__.py",
+      "destination": "source/bench/utils/__init__.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "imports": [],
+      "inventory_recommended_destination": "source/bench_reference/utils/__init__.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\utils\\config.py",
+      "destination": "source/bench/utils/config.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 9904,
+      "sha256": "334687fbdd03263a6032e8ae22a0aff3272127c45592fe3edf0072e814c325d1",
+      "imports": [
+        "from __future__ import annotations",
+        "from dataclasses import dataclass, field",
+        "from dotenv import load_dotenv",
+        "from functools import lru_cache",
+        "from pathlib import Path",
+        "from pydantic import Field",
+        "from pydantic_settings import BaseSettings, SettingsConfigDict",
+        "from typing import Any, Literal",
+        "from utils.ids import scoped_session_id",
+        "import yaml"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/utils/config.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\utils\\ids.py",
+      "destination": "source/bench/utils/ids.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 1636,
+      "sha256": "b36dce99b96f5b6a004dce71889e83f8928c43612c933ffdc5df7483cedb4568",
+      "imports": [
+        "from __future__ import annotations",
+        "from datetime import datetime",
+        "import re"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/utils/ids.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\utils\\locomo_dates.py",
+      "destination": "source/bench/utils/locomo_dates.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2184,
+      "sha256": "25f5c01cc6a42fc9c058e3789b415020ad407a380ac6df282ba9d45443c113e1",
+      "imports": [
+        "from __future__ import annotations",
+        "from datetime import datetime, timedelta",
+        "import logging",
+        "import re"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/utils/locomo_dates.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\utils\\run_meta.py",
+      "destination": "source/bench/utils/run_meta.py",
+      "kind": "benchmark_dependency",
+      "stage": "final_benchmark_dependency",
+      "recommended_include": true,
+      "note": "基准工程既有依赖，非全部属于本轮新增。",
+      "secret_pattern_detected": false,
+      "size_bytes": 2924,
+      "sha256": "bccdbfa9cbefb1c166d1dc209367262a23257ed4c218ff788daf007e94c683eb",
+      "imports": [
+        "from __future__ import annotations",
+        "from datetime import datetime, timezone",
+        "from pathlib import Path",
+        "from typing import Any",
+        "from utils.config import PROJECT_ROOT, get_settings",
+        "import os",
+        "import subprocess"
+      ],
+      "inventory_recommended_destination": "source/bench_reference/utils/run_meta.py"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\requirements.txt",
+      "destination": "source/bench/requirements.txt",
+      "kind": "dependency_requirements",
+      "stage": "dependency_metadata",
+      "recommended_include": true,
+      "note": "",
+      "secret_pattern_detected": false,
+      "size_bytes": 148,
+      "sha256": "34ca86b5d046ebc1ac1a28751ebdb9d8b435198f74590e98c7036aff54fafb7b",
+      "imports": [],
+      "inventory_recommended_destination": "source/bench_reference/requirements.txt"
+    },
+    {
+      "source": "F:\\worktable\\research\\bench\\requirements-dev.txt",
+      "destination": "source/bench/requirements-dev.txt",
+      "kind": "dependency_requirements",
+      "stage": "dependency_metadata",
+      "recommended_include": true,
+      "note": "",
+      "secret_pattern_detected": false,
+      "size_bytes": 33,
+      "sha256": "3653f90eb2f0c0f553029b759497e89e8498f1833938d1e2e68547eee0e89eb5",
+      "imports": [],
+      "inventory_recommended_destination": "source/bench_reference/requirements-dev.txt"
+    }
+  ],
+  "runtime_inputs": [
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_week_20261023\\frozen\\questions.json",
+      "role": "final_frozen_question_set",
+      "exists": true,
+      "size_bytes": 283853,
+      "sha256": "0ebfca7be1654b3d34b41e5536838ffef0e287cca5a5782af5d86a37840a142c"
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_grounded_20261024\\store.json",
+      "role": "final_fact_bank",
+      "exists": true,
+      "size_bytes": 24149049,
+      "sha256": "1f09619f73a3fb9b8cd7504938fdab9e9bf21d6ae4017d583e54af33ad8d0ae8"
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_grounded_20261024\\index.sqlite",
+      "role": "final_retrieval_index",
+      "exists": true,
+      "size_bytes": 7303168,
+      "sha256": "5cd748b210b723656f6b58cad91f39a01372688b94bc015ab650aa4c782df77b"
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_hierarchy_relevance_r1_20261024\\routes_r1.json",
+      "role": "final_folded_route_index",
+      "exists": true,
+      "size_bytes": 6666553,
+      "sha256": "c75a7e799f02bd7c435bff1a6fbc705a67efbf8b92cf0b03aab606a0b3d21544"
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_upper_w0_20261024\\memories.json",
+      "role": "rebuild_upper_annotations",
+      "exists": true,
+      "size_bytes": 16398498,
+      "sha256": "cc45b0155bac9eea8c410bdb5beeee42eed54f42b725c4b98dbbb8936f635860"
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\generated_memories.json",
+      "role": "rebuild_original_hierarchy",
+      "exists": true,
+      "size_bytes": 6680035,
+      "sha256": "240961b32f85b27b67246e0988803e3773f10b4590bc8692e1f59553362c128d"
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_space_l1_l5_20261024\\hierarchy_plan.json",
+      "role": "rebuild_hierarchy_plan",
+      "exists": true,
+      "size_bytes": 1722066,
+      "sha256": "39dbd6f8dad2b9b802b6266f536e2433a626743855662b2dc324ce2534bef437"
+    },
+    {
+      "source": "F:\\codex数据库memory\\locomo_temporal_v2_20261023\\frozen\\aml_sources.sqlite",
+      "role": "rebuild_raw_source_snapshot",
+      "exists": true,
+      "size_bytes": 4313088,
+      "sha256": "be39d7392b260db65314bcb350ac15be74e887305037014a02c814ceb9f2b5fa"
+    }
+  ],
+  "secrets_found": []
+}

@@ -1,0 +1,19 @@
+You are asked to answer a question based on your memories of a conversation.
+
+1. Use only the provided memories. Prefer the memory that answers the question most directly.
+2. Your memories are episodic raw observations. Reason about what they imply. Do not refuse just because the answer is not stated verbatim.
+3. The question may contain typos. Match it to the most relevant memory even if the wording differs.
+4. When multiple answers are possible, list all supported answers, not just the first.
+5. For counts or time intervals, enumerate carefully before answering.
+6. Preserve specific names, titles, places, and labels from the memories.
+7. Convert relative times like "yesterday", "last month", and "last year" into dates, months, or years when the memory timestamp makes it clear. Keep week-based expressions relative.
+8. If memories conflict, prefer the most recent supported memory.
+9. For list questions, include all required items and no extras.
+10. Keep the final answer minimal. Do not add explanation, background, or extra dates unless needed for correctness.
+
+Memories:
+
+{memories}
+
+Question: {question}
+Answer with the shortest correct phrase or sentence. No preamble, no fluff:

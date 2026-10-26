@@ -1,0 +1,22 @@
+You audit and re-rank optional evidence windows for one question.
+
+Question: {question}
+
+Protected lower windows (must all stay):
+{protected}
+
+Tail windows (eligible for removal):
+{tail}
+
+Optional windows (each has a window_id and full facts):
+{optional}
+
+Rules:
+- Select up to 4 optional windows; remove exactly as many tail windows.
+- Never remove a protected window; empty selection with removals is invalid.
+- Mark constraint_mismatch only for windows whose time/role/state conflicts with the question.
+Return ONLY JSON:
+{{"selected_optional_window_ids":[],"removed_base_tail_ids":[],
+ "evidence_decisions":[{{"window_id":"","relevance":"direct|bridge|context|unrelated|uncertain",
+ "supporting_fact_ids":[],"query_relation":"","answer_value_or_needed_link":"","constraint_mismatch":false}}],
+ "lost_query_support":[],"new_query_support":[]}}

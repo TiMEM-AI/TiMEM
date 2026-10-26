@@ -1,0 +1,3008 @@
+{
+  "run_id": "f1022b",
+  "dataset_id": "locomo_refined",
+  "paper_id": null,
+  "paper_path": null,
+  "questions": [
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0000",
+      "question": "When did Caroline go to the LGBTQ support group?",
+      "gold": "7 May 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0002",
+      "question": "What fields would Caroline be likely to pursue in her education?",
+      "gold": "Counseling or mental health",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0003",
+      "question": "What did Caroline research?",
+      "gold": "Adoption agencies",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0006",
+      "question": "When is Melanie planning on going camping?",
+      "gold": "June 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0007",
+      "question": "What is Caroline's relationship status?",
+      "gold": "Single",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0008",
+      "question": "When did Caroline give a speech at a school?",
+      "gold": "The week before 9 June 2023 / From May 29, 2023 to June 4, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0010",
+      "question": "How long has Caroline had her current group of friends for?",
+      "gold": "4 years",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0011",
+      "question": "Where did Caroline move from 4 years ago?",
+      "gold": "Sweden",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0013",
+      "question": "What career path has Caroline decided to persue?",
+      "gold": "counseling or mental health for Transgender people",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0019",
+      "question": "Would Caroline likely have Dr. Seuss books on her bookshelf?",
+      "gold": "Yes, since she collects classic children's books",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0020",
+      "question": "When did Caroline go to the LGBTQ conference?",
+      "gold": "10 July 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0021",
+      "question": "Would Caroline pursue writing as a career option?",
+      "gold": "LIkely no; though she likes reading, she wants to be a counselor",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0022",
+      "question": "When did Caroline go to the adoption meeting?",
+      "gold": "The friday before 15 July 2023 / July 14, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0026",
+      "question": "When did Melanie go camping in July?",
+      "gold": "two weekends before 17 July 2023 / From July 8, 2023 to July 9, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0028",
+      "question": "What did Melanie paint recently?",
+      "gold": "sunset",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0029",
+      "question": "In what ways is Caroline participating in the LGBTQ community?",
+      "gold": "Joining activist group, going to pride parades, participating in an art show, mentoring program",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0031",
+      "question": "When did Caroline join a new activist group?",
+      "gold": "The Tuesday before 20 July 2023 / July 18, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0044",
+      "question": "When did Melanie make a plate in pottery class?",
+      "gold": "24 August 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0045",
+      "question": "What instruments does Melanie play?",
+      "gold": "clarinet and violin",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0046",
+      "question": "What musical artists/bands has Melanie seen?",
+      "gold": "Summer Sounds, Matt Patterson",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0048",
+      "question": "When is Caroline's youth center putting on a talent show?",
+      "gold": "September 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0049",
+      "question": "Would Melanie likely enjoy the song \"The Four Seasons\" by Vivaldi?",
+      "gold": "Yes; it's classical music",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0050",
+      "question": "What are some changes Caroline has faced during her transition journey?",
+      "gold": "Changes to her body / Changes to her body, losing unsupportive friends",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0060",
+      "question": "When did Melanie go on a hike after the roadtrip?",
+      "gold": "19 October 2023",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0063",
+      "question": "When did Caroline pass the adoption interview?",
+      "gold": "The Friday before 22 October 2023 / October 20, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0065",
+      "question": "Would Caroline want to move back to her home country soon?",
+      "gold": "No; she's in the process of adopting children. / No. / No evidence of relocation intentions",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0066",
+      "question": "What did the charity race raise awareness for?",
+      "gold": "mental health",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0076",
+      "question": "What country is Caroline's grandma from?",
+      "gold": "Sweden",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0080",
+      "question": "What kind of counseling and mental health services is Caroline interested in pursuing?",
+      "gold": "working with trans people, helping them accept themselves and supporting their mental health",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0089",
+      "question": "What did Caroline take away from the book \"Becoming Nicole\"?",
+      "gold": "Lessons on self-acceptance and finding support",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0099",
+      "question": "How often does Melanie go to the beach with her kids?",
+      "gold": "once or twice a year",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0105",
+      "question": "What pet does Caroline have?",
+      "gold": "guinea pig",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0119",
+      "question": "What does Caroline's drawing symbolize for her?",
+      "gold": "Freedom and being true to herself.",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-26",
+      "question_id": "conv-26#q0122",
+      "question": "How did Melanie's kids handle the accident?",
+      "gold": "They were scared but reassured by their family. / They were scared but reassured that their brother would be OK.",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0000",
+      "question": "When Jon has lost his job as a banker?",
+      "gold": "19 January, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0003",
+      "question": "What do Jon and Gina both have in common?",
+      "gold": "They lost their jobs and decided to start their own businesses. / They lost their jobs, decided to start their own businesses, and share a strong passion for dance. / They lost their jobs, decided to start their own businesses, and are pursuing entrepreneurial ventures driven by their shared passion for dance.",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0009",
+      "question": "Which city have both Jean and John visited?",
+      "gold": "Rome",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0010",
+      "question": "When did Gina get her tattoo?",
+      "gold": "A few years ago",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0011",
+      "question": "When did Jon start to go to the gym?",
+      "gold": "March, 2023 / the week before 16 March, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0013",
+      "question": "When did Jon host a dance competition?",
+      "gold": "May, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0015",
+      "question": "Do Jon and Gina start businesses out of what they love?",
+      "gold": "Yes",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0017",
+      "question": "When did Gina get accepted for the design internship?",
+      "gold": "27 May, 2023 / May, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0019",
+      "question": "What does Jon's dance studio offer?",
+      "gold": "one-on-one metoring and training to dancers, workshops and classes to local schools and centers",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0020",
+      "question": "When did Jon receive mentorship to promote his venture?",
+      "gold": "15 June, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0022",
+      "question": "When was Jon in Rome?",
+      "gold": "June 2023 / the week before 19 June, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0025",
+      "question": "How long did it take for Jon to open his studio?",
+      "gold": "five months",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0027",
+      "question": "When did Jon visit networking events for his store?",
+      "gold": "20 June, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0028",
+      "question": "When did Gina start being recognized by fashion editors?",
+      "gold": "July 2023 / the week before 9 July, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0030",
+      "question": "When did Jon and Gina decide to collaborate to create dance content?",
+      "gold": "21 July 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0036",
+      "question": "What kind of dance piece did Gina's team perform to win first place?",
+      "gold": "\"Finding Freedom\"",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0039",
+      "question": "What kind of flooring is Jon looking for in his dance studio?",
+      "gold": "Marley flooring",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0041",
+      "question": "What did Gina want her customers to feel in her store?",
+      "gold": "cozy and comfortable / cozy and inviting / cozy / cozy, inviting and comfortable",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0055",
+      "question": "What book is Jon currently reading?",
+      "gold": "The Lean Startup",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0058",
+      "question": "What does Jon tell Gina he won't do?",
+      "gold": "quit",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0068",
+      "question": "What offer does Gina make to Jon regarding social media?",
+      "gold": "Helping with making content and managing his social media accounts.",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-30",
+      "question_id": "conv-30#q0070",
+      "question": "What does Jon compare facing the same challenges to?",
+      "gold": "having a partner to dance with / a partner to dance with / like having a partner to dance with",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0001",
+      "question": "When did Maria donate her car?",
+      "gold": "21 December 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0002",
+      "question": "What martial arts has John done?",
+      "gold": "Kickboxing, Taekwondo",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0003",
+      "question": "What type of volunteering have John and Maria both done?",
+      "gold": "Volunteering at a homeless shelter",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0005",
+      "question": "When did Maria go to the beach?",
+      "gold": "December 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0006",
+      "question": "Where has Maria made friends?",
+      "gold": "homeless shelter, gym, church",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0007",
+      "question": "What items does John mention having as a child?",
+      "gold": "A doll, a film camera",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0008",
+      "question": "Who gave Maria's family money when she was younger and her family was going through tough times?",
+      "gold": "Her aunt",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0009",
+      "question": "What test has John taken multiple times?",
+      "gold": "The military aptitude test",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0010",
+      "question": "When did Maria's grandmother pass away?",
+      "gold": "The week before 6 March 2023 / From February 27, 2023 to March 5, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0012",
+      "question": "What writing classes has Maria taken?",
+      "gold": "Poetry, creative writing",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0014",
+      "question": "Who did John go to yoga with?",
+      "gold": "Rob",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0017",
+      "question": "What areas of the U.S. has John been to or is planning to go to?",
+      "gold": "Pacific northwest, east coast",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0018",
+      "question": "When did John go to a convention with colleagues?",
+      "gold": "March 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0021",
+      "question": "What has Maria done to feel closer to her faith?",
+      "gold": "Join a local church, buy a cross necklace",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0024",
+      "question": "What shelters does Maria volunteer at?",
+      "gold": "The homeless shelter, the dog shelter",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0025",
+      "question": "When did John get his dog Max?",
+      "gold": "In 2013",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0027",
+      "question": "What types of yoga has Maria practiced?",
+      "gold": "Aerial, kundalini",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0030",
+      "question": "What music events has John attended?",
+      "gold": "Live music event, violin concert",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0032",
+      "question": "What are the names of John's children?",
+      "gold": "Kyle, Sara",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0034",
+      "question": "What area was hit by a flood?",
+      "gold": "West County",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0037",
+      "question": "What food item did Maria drop off at the homeless shelter?",
+      "gold": "Cakes / bake stuff",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0038",
+      "question": "When did Maria start volunteering at the homeless shelter?",
+      "gold": "Around August 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0039",
+      "question": "Who have written notes of gratitude to Maria?",
+      "gold": "Cindy, Laura",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0049",
+      "question": "What is John's main focus in local politics?",
+      "gold": "Improving education and infrastructure",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0059",
+      "question": "What did Jean go through before meeting Maria?",
+      "gold": "divorce, job loss, homelessness",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0068",
+      "question": "What did John do that put a strain on his wallet?",
+      "gold": "His car broke down",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0073",
+      "question": "What did John attend with his colleagues in March 2023?",
+      "gold": "a convention",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0076",
+      "question": "What kind of food did Maria have on her dinner spread iwth her mother?",
+      "gold": "Salads, sandwiches, homemade desserts",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0102",
+      "question": "How did the flood impact the homes in John's old area?",
+      "gold": "Lots of homes were ruined.",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0106",
+      "question": "What does John appreciate about the veteran's hospital visit?",
+      "gold": "the resilience of the veterans and their inspiring stories / Samuel's resilience and the hope it gave him.",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0107",
+      "question": "What did John take away from visiting the veteran's hospital?",
+      "gold": "appreciation for giving back",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0111",
+      "question": "What community service did Maria mention that she was involved in on 31 July, 2023?",
+      "gold": "volunteered at a homeless shelter",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0117",
+      "question": "What happened to John's job in August 2023?",
+      "gold": "John lost his job at the mechanical engineering company.",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-41",
+      "question_id": "conv-41#q0119",
+      "question": "What did John do to help his community last year in his hometown?",
+      "gold": "Helped renovate a rundown community center.",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0000",
+      "question": "Is it likely that Nate has friends besides Joanna?",
+      "gold": "Yes. / Yes, teammates on hisvideo game team.",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0003",
+      "question": "How long has Nate had his first two turtles?",
+      "gold": "three years",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0007",
+      "question": "What emotions is Joanna feeling about  the screenplay she submitted?",
+      "gold": "Relief, excitement,worry(anxiety) and hope",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0008",
+      "question": "What is Joanna allergic to?",
+      "gold": "Most reptiles, animals with fur, cockroaches, and dairy. / Most reptiles, animals with fur, cockroaches, dairy",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0009",
+      "question": "When did Joanna have an audition for a writing gig?",
+      "gold": "23 March, 2022.",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0013",
+      "question": "Which outdoor spot did Joanna visit in May?",
+      "gold": "Whispering Falls waterfall",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0014",
+      "question": "How many times has Joanna found new hiking trails?",
+      "gold": "twice",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0017",
+      "question": "When did Joanna start writing her third screenplay?",
+      "gold": "May 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0018",
+      "question": "When is Nate hosting a gaming party?",
+      "gold": "Two weekend after 3 June, 2022. / From June 18, 2022 to June 19, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0019",
+      "question": "When did Joanna hike with her buddies?",
+      "gold": "The weekend after 3 June, 2022. / June, 2022 / From June 4, 2022 to June 5, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0020",
+      "question": "When did Nate win his third tourney?",
+      "gold": "The week before 3 June, 2022 / May 2022 / The end of May 2022 / From May 23, 2022 to May 29, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0021",
+      "question": "What places has Joanna submitted her work to?",
+      "gold": "film contest, film festival.",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0027",
+      "question": "What book recommendations has Joanna given to Nate?",
+      "gold": "\\\"Little Women\\\",'A Court of Thorns and Roses'. / \\\"Little Women\\\" and a fantasy book series to Nate.",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0032",
+      "question": "When did Nate attend a cooking show?",
+      "gold": "The Monday of the week before 14 September, 2022 / 5 September, 2022 / The beginning of September, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0035",
+      "question": "What movies have both Joanna and Nate seen?",
+      "gold": "\"Little Women\", \"Lord of the Rings\"",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0038",
+      "question": "When did Joanna finish up the writing for her book?",
+      "gold": "The week before 6October, 2022 / From September 26, 2022 to October 2, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0042",
+      "question": "How many times has Joanna's scripts been rejected?",
+      "gold": "Twice",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0045",
+      "question": "How many of Joanna's writing have made it to the big screen?",
+      "gold": "two",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0048",
+      "question": "When did Joanna plan to go over to Nate's and share recipes?",
+      "gold": "5 November, 2022.",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0052",
+      "question": "Which torunament did Nate win in the beginning of November 2022?",
+      "gold": "Valorant",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0057",
+      "question": "When did Joanna plan on going to Nate's to watch him play with his turtles?",
+      "gold": "10 November, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0058",
+      "question": "What state did Joanna visit in summer 2021?",
+      "gold": "Indiana",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0061",
+      "question": "When did Nate win his second tournament?",
+      "gold": "The week before 2 May, 2022. / From April 25, 2022 to May 1, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0067",
+      "question": "When did Nate take his turtles to the beach?",
+      "gold": "10 November, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0068",
+      "question": "What state did Nate visit?",
+      "gold": "Florida",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0070",
+      "question": "What game was the second tournament that Nate won based on?",
+      "gold": "Street Fighter",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0080",
+      "question": "What did Joanna recently watch and recommend to Nate on February 7, 2022?",
+      "gold": "\"Little Women\"",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0086",
+      "question": "What was Joanna's audition for?",
+      "gold": "writing gig",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0101",
+      "question": "Who did Nate plan to invite to his gaming party in June 2022?",
+      "gold": "Tournament friends, and some old friends and teammates from other tournaments.",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0140",
+      "question": "What does Joanna recommend to make a living room comfy like hers?",
+      "gold": "fluffy couch for multiple people, weighted blanket, lights that can be dimmed",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0146",
+      "question": "What encouragement does Nate give to Joanna after her setback?",
+      "gold": "rejections don't define her, keep grinding and she'll find the perfect opportunity",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-42",
+      "question_id": "conv-42#q0165",
+      "question": "What did Joanna take a picture of near Fort Wayne last summer?",
+      "gold": "Sunset",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0001",
+      "question": "What are John's goals for his career that are not related to his basketball skills?",
+      "gold": "get endorsements, build his brand, do charity work",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0007",
+      "question": "What year did John start surfing?",
+      "gold": "2018",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0009",
+      "question": "What kind of writing does Tim do?",
+      "gold": "articles on fantasy novels, studying characters, themes, and making book recommendations, writing a fantasy novel",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0014",
+      "question": "When is Tim attending a book conference?",
+      "gold": "September 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0015",
+      "question": "Where was John between August 11 and August 15 2023?",
+      "gold": "Chicago",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0017",
+      "question": "Which TV series does Tim mention watching?",
+      "gold": "Wheel of Time",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0018",
+      "question": "Which popular time management technique does Tim use to prepare for exams?",
+      "gold": "Pomodoro technique",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0019",
+      "question": "What month did Tim plan on going to Universal Studios?",
+      "gold": "September, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0022",
+      "question": "What outdoor activities does John enjoy?",
+      "gold": "Hiking, surfing",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0023",
+      "question": "Who is Tim and John's favorite basketball player?",
+      "gold": "LeBron James",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0024",
+      "question": "Which week did Tim visit the UK for the Harry Potter Conference?",
+      "gold": "The week before October 13th, 2023.",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0028",
+      "question": "What kind of fiction stories does Tim write?",
+      "gold": "Fantasy stories with plot twists",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0030",
+      "question": "What does John like about Lebron James?",
+      "gold": "His heart, determination, skills, and leadership.",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0031",
+      "question": "When did John and his wife go on a European vacation?",
+      "gold": "November, 2023.",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0045",
+      "question": "When did John organize a basketball camp for kids?",
+      "gold": "summer 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0046",
+      "question": "Which month was John in Italy?",
+      "gold": "December, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0048",
+      "question": "What day did Tim get into his study abroad program?",
+      "gold": "Januarty 5, 2024 / The Friday before Januarty 7, 2024",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0053",
+      "question": "What aspects of the Harry Potter universe will be discussed in John's fan project collaborations?",
+      "gold": "characters, spells, magical creatures",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0067",
+      "question": "How did John get introduced to basketball?",
+      "gold": "He watched NBA games with his dad as a child and was later signed up for a local league by his dad when he was ten.",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0072",
+      "question": "Why did John's teammates sign the basketball they gave him?",
+      "gold": "to show their friendship and appreciation",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0088",
+      "question": "What type of venue did John and his girlfriend choose for their wedding ceremony?",
+      "gold": "Greenhouse",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0097",
+      "question": "How does John feel about being seen as a mentor by some of the younger players?",
+      "gold": "It feels great",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0100",
+      "question": "What genre is the novel that Tim is writing?",
+      "gold": "Fantasy",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0106",
+      "question": "How will John share the honey garlic chicken recipe with the other person?",
+      "gold": "write it down and mail it",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0112",
+      "question": "How does Tim stay motivated during difficult study sessions?",
+      "gold": "Visualizing goals and success",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0133",
+      "question": "Where was the photoshoot done for John's gear deal?",
+      "gold": "In a gorgeous forest",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0140",
+      "question": "What language does Tim know besides German?",
+      "gold": "Spanish",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0141",
+      "question": "What book did John get in Italy that inspired him to cook?",
+      "gold": "a cooking book",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0148",
+      "question": "Where will Tim be going for a semester abroad?",
+      "gold": "Ireland",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0152",
+      "question": "What was Johns's reaction to sealing the deal with the beverage company?",
+      "gold": "crazy feeling, sense of accomplishment",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0158",
+      "question": "Which movie's theme does Tim enjoy playing on the piano?",
+      "gold": "Harry Potter and the Philosopher's Stone",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-43",
+      "question_id": "conv-43#q0159",
+      "question": "What could John do after his basketball career?",
+      "gold": "He wants to use his platform to make a positive difference and inspire others, possibly by starting a foundation and doing charity work.",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0001",
+      "question": "When did Andrew start his new job as a financial analyst?",
+      "gold": "The week before March 27, 2023 / From March 20, 2023 to March 26, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0006",
+      "question": "Did Andrew have a pet dog during March 2023?",
+      "gold": "No",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0009",
+      "question": "When did Andrew go rock climbing?",
+      "gold": "June 11, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0011",
+      "question": "What is something that Andrew really misses while working in the city?",
+      "gold": "being in nature",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0018",
+      "question": "What are some problems that Andrew faces before he adopted Toby?",
+      "gold": "Finding the right dog and pet-friendly apartments close to open spaces",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0026",
+      "question": "What has Andrew done with his dogs?",
+      "gold": "Taking walks and hiking",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0032",
+      "question": "When did Andrew and his girlfriend go on a wine tasting trip?",
+      "gold": "the weekend before October 24, 2023 / From October 21, 2023 to October 22, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0036",
+      "question": "What technique is Audrey using to discipline her dogs?",
+      "gold": "Positive reinforcement",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0042",
+      "question": "What is a skill that Audrey learned to take care of her dogs?",
+      "gold": "Grooming",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0045",
+      "question": "Has Andrew moved into a new apartment for his dogs?",
+      "gold": "No",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0047",
+      "question": "What did Audrey eat for dinner on October 24, 2023?",
+      "gold": "sushi",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0077",
+      "question": "What advice did Audrey give to Andrew regarding grooming Toby?",
+      "gold": "Grooming slowly and gently, paying attention to sensitive areas like ears and paws. And remember to stay patient and positive throughout the grooming process.",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0085",
+      "question": "What did Andrew learn from reading books about ecological systems?",
+      "gold": "about animals, plants, and ecosystems and how they work together",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-44",
+      "question_id": "conv-44#q0098",
+      "question": "What activity do Andrew and Buddy enjoy doing together?",
+      "gold": "Walking",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0000",
+      "question": "Which recreational activity was James pursuing on March 16, 2022?",
+      "gold": "bowling",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0008",
+      "question": "When did James visit Italy?",
+      "gold": "In 2021",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0010",
+      "question": "What is the game with different colored cards that was John talking about with James?",
+      "gold": "UNO",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0011",
+      "question": "Which books has John recommended to James?",
+      "gold": "The Name of the Wind, Stormlight Archive, Kingkiller Chronicles, Expanse",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0014",
+      "question": "Who or which organizations have been the beneficiaries of John's charity tournaments?",
+      "gold": "animal shelter, homeless, children's hospital",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0015",
+      "question": "Are John and James fans of the same football team?",
+      "gold": "No, James is a Liverpool fan and John is a Manchester City fan.",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0016",
+      "question": "Which countries has James visited?",
+      "gold": "Italy, Mexico, Turkey, Canada, Greenland",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0018",
+      "question": "When did James depart for his trip to Canada?",
+      "gold": "July 11, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0019",
+      "question": "Which country did James book tickets for in July 2022?",
+      "gold": "Canada",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0021",
+      "question": "Where was James at on July 12, 2022?",
+      "gold": "Toronto, Canada",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0022",
+      "question": "Which countries did James visit in July 2022?",
+      "gold": "Canada, Greenland",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0024",
+      "question": "Who is Jill?",
+      "gold": "Most likely John's partner.",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0026",
+      "question": "What happened to John's job situation in 2022?",
+      "gold": "quit his IT Job, secured his dream job, aspires to become an eSports competition organizer",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0028",
+      "question": "When did James meet Samantha?",
+      "gold": "August 9, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0030",
+      "question": "When did John plan his next meeting with his siblings?",
+      "gold": "In September, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0031",
+      "question": "Why didn't John want to go to Starbucks?",
+      "gold": "Possibly because he likes to drink beer on his days off.",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0032",
+      "question": "What kind of beer does McGee's bar serve?",
+      "gold": "Stout, light beers, and lager",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0034",
+      "question": "When did James ask Samantha to be his girlfriend?",
+      "gold": "September 3, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0035",
+      "question": "When did James, Samantha and John go to the baseball game together?",
+      "gold": "September 11, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0037",
+      "question": "When did James start taking cooking classes?",
+      "gold": "September 2, 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0046",
+      "question": "What games has John played with his friends at charity tournaments?",
+      "gold": "CS:GO, Fortnite, Overwatch and Apex Legends",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0052",
+      "question": "What type of mobile application does James plan to build with John?",
+      "gold": "An app for dog walking and pet care",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0054",
+      "question": "What has John mostly found with the metal detector so far?",
+      "gold": "bottle caps / bottle caps, coins, a gold ring",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0079",
+      "question": "Who does James support in football matches?",
+      "gold": "Liverpool",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0085",
+      "question": "What did James enjoy doing on cold winter days?",
+      "gold": "Reading while snuggled under the covers",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0086",
+      "question": "What new hobby did James become interested in on 9 July, 2022?",
+      "gold": "Extreme sports",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0098",
+      "question": "What is John organizing with his siblings?",
+      "gold": "a gaming night",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0111",
+      "question": "What kind of dream did James have recently?",
+      "gold": "a dream with a medieval castle full of puzzles and traps",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0112",
+      "question": "What kind of music does John like?",
+      "gold": "electronic and rock music",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0113",
+      "question": "What instrument did James used to play when he was younger?",
+      "gold": "guitar",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0118",
+      "question": "What kind of gig was John offered at the game dev non-profit organization?",
+      "gold": "programming mentor for game developers",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-47",
+      "question_id": "conv-47#q0124",
+      "question": "What games were played at the gaming tournament organized by John on 31 October, 2022?",
+      "gold": "Fortnite, Overwatch, Apex Legends",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0000",
+      "question": "What kind of project was Jolene working on in the beginning of January 2023?",
+      "gold": "electricity engineering project",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0015",
+      "question": "When did Jolene buy her pet Seraphim?",
+      "gold": "in 2022",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0016",
+      "question": "In what country did Jolene buy snake Seraphim?",
+      "gold": "In France",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0019",
+      "question": "When do Jolene and her partner plan to complete the game \"Walking Dead\"?",
+      "gold": "Saturday after 27 January, 2023 / January 28, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0021",
+      "question": "Why did Jolene sometimes put off doing yoga?",
+      "gold": "She's more interested in playing video games",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0023",
+      "question": "What are Jolene's favorite books?",
+      "gold": "Sapiens, Avalanche by Neal Stephenson",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0024",
+      "question": "Which book did Jolene read in January 2023?",
+      "gold": "Avalanche by Neal Stephenson",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0032",
+      "question": "Which year did Jolene and her partner start dating?",
+      "gold": "2020",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0033",
+      "question": "When did Deborah go for her first morning jog in a nearby park?",
+      "gold": "24 February, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0040",
+      "question": "When did Deborah go for a bicycle ride with Anna?",
+      "gold": "first week of April, 2023 / From April 3, 2023 to April 9, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0045",
+      "question": "How long has Jolene been doing yoga and meditation?",
+      "gold": "about 3 years",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0048",
+      "question": "When did Jolene lose a lot of progress in her work?",
+      "gold": "last week of July 2023 / From July 24, 2023 to July 30, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0050",
+      "question": "Which pet did Jolene adopt first - Susie or Seraphim?",
+      "gold": "Susie",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0051",
+      "question": "Which pet did Jolene adopt more recently - Susie or Seraphim?",
+      "gold": "Seraphim",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0058",
+      "question": "Where did Deborah get her cats?",
+      "gold": "Luna is from the shelter and Max is her mother's cat",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0066",
+      "question": "Is the friend who wrote Deborah the motivational quote no longer alive?",
+      "gold": "likely yes",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0070",
+      "question": "What card game is Deborah talking about?",
+      "gold": "Exploding Kittens",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0071",
+      "question": "When did Jolene and her partner try scuba diving lessons?",
+      "gold": "Friday before 17 September, 2023 / September 15, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0074",
+      "question": "Has Jolene tried surfing?",
+      "gold": "no",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0075",
+      "question": "When did the Deboran and Jolene agree to go surfing?",
+      "gold": "in October 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0083",
+      "question": "What activity did Jolene and her partner plan to do together instead of resuming yoga?",
+      "gold": "play the console",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0084",
+      "question": "What milestone did Jolene achieve recently on 4 February, 2023?",
+      "gold": "Design and build a sustainable water purifier for a rural community",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0088",
+      "question": "What cool stuff did Jolene accomplish at the retreat on 9 February, 2023?",
+      "gold": "Came up with neat solutions for her engineering project",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0090",
+      "question": "How does Jolene plan to involve local engineers in her idea of teaching STEM to underprivileged kids?",
+      "gold": "As guest speakers for workshops",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0104",
+      "question": "Who are the musicians mentioned by Jolene that she enjoys listening to during her yoga practice?",
+      "gold": "Nils Frahm and Olafur Arnalds",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0117",
+      "question": "What is the favorite game Jolene plays with her partner?",
+      "gold": "It takes two",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0118",
+      "question": "What activity does Deborah do with her cats?",
+      "gold": "take them out for a run in the park every morning and evening",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0121",
+      "question": "How did Jolene come to have her pet, Susie?",
+      "gold": "She adopted her two years ago when feeling lonely.",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0124",
+      "question": "What journal has Jolene been using to help track tasks and stay organized?",
+      "gold": "bullet journal",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0127",
+      "question": "What did Deborah and her husband use to play to bond and make memories?",
+      "gold": "video games",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0135",
+      "question": "What kind of event did Jolene present at recently?",
+      "gold": "virtual conference",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0144",
+      "question": "What has Jolene been focusing on lately besides studying?",
+      "gold": "relationship with her partner",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0150",
+      "question": "Where did Jolene and her partner travel for a few weeks in September 2023?",
+      "gold": "Phuket",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0151",
+      "question": "What was the main focus of the session that stood out to Jolene during the retreat?",
+      "gold": "releasing expectations and judgments and savoring the present",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0152",
+      "question": "How did Jolene feel about her progress in practicing mindfulness and gratitude?",
+      "gold": "experiencing a new level of joy and happiness",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0157",
+      "question": "What does yoga on the beach provide for Deborah?",
+      "gold": "a peaceful atmosphere",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0158",
+      "question": "How does Jolene describe their home room?",
+      "gold": "little haven for peace and rest",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0162",
+      "question": "What outdoor activity did Deborah suggest doing together with Jolene?",
+      "gold": "Surfing",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-48",
+      "question_id": "conv-48#q0164",
+      "question": "What did Deborah find freeing at the music festival?",
+      "gold": "Dancing and bopping around",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0011",
+      "question": "When did Sam first go to the doctor and find out he had a weight problem?",
+      "gold": "A few days before May 24, 2023.",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0013",
+      "question": "What kind of unhealthy snacks does Sam enjoy eating?",
+      "gold": "soda, candy",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0014",
+      "question": "What recurring issue frustrates Sam at the grocery store?",
+      "gold": "Malfunctioning self-checkout machines.",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0015",
+      "question": "When did Sam's friends mock him for being overweight?",
+      "gold": "Friday before 27 July 2023 / July 21, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0020",
+      "question": "When did Sam start working out at the gym?",
+      "gold": "July 28, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0026",
+      "question": "What recurring frustration does Evan experience?",
+      "gold": "Evan consistently misplaces his keys every week.",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0027",
+      "question": "What is the recurring dream that Sam keeps having?",
+      "gold": "he's flying over a cityscape.",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0030",
+      "question": "What role does nature and the outdoors play in Evan and Sam's mental well-being?",
+      "gold": "Nature and outdoor activities seem to be significant stress relievers and sources of joy for both Evan and Sam. These activities likely contribute positively to their mental well-being.",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0031",
+      "question": "How many months lapsed between Sam's first and second doctor's appointment?",
+      "gold": "three months",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0041",
+      "question": "When did Evan and Sam decide to paint together?",
+      "gold": "Saturday of the week after 11 September, 2023 / 23 September, 2023 / September, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0042",
+      "question": "What recurring adventure does Evan have with strangers?",
+      "gold": "Helping lost tourists and experiencing unexpected adventures in the city.",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0043",
+      "question": "What is Sam's persistent problem with his phone?",
+      "gold": "His new phone malfunctioning, particularly with the navigation app.",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0044",
+      "question": "Which US state(s) was Sam travelling in during October 2023?",
+      "gold": "California and Nevada / California / Nevada / California and Nevada (Lake Tahoe)",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0045",
+      "question": "When did Sam and his friend decide to try kayaking?",
+      "gold": "October 14, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0046",
+      "question": "Which new activity does Sam take up in October 2023?",
+      "gold": "kayaking",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0047",
+      "question": "What kind of stress was Sam dealing with in October 2023?",
+      "gold": "work-related stress",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0048",
+      "question": "When was Sam in the ER?",
+      "gold": "weekend before 17 October, 2023. / October, 2023. / From October 14, 2023 to October 15, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0049",
+      "question": "Which ailment does Sam have to face due to his weight?",
+      "gold": "gastritis",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0051",
+      "question": "When did Evan lose his job?",
+      "gold": "October 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0052",
+      "question": "When did Evan and Sam planned a trip to the beach together?",
+      "gold": "December, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0064",
+      "question": "When did Evan have a drunken night with his friends?",
+      "gold": "2024-01-09 00:00:00",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0082",
+      "question": "What did Evan mention he had been searching for fruitlessly for half an hour?",
+      "gold": "his keys",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0091",
+      "question": "What suggestion did Sam give to Evan to help with his knee issue?",
+      "gold": "Consider low-impact exercises or physical therapy",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0101",
+      "question": "What digestive issue did Sam experience lately?",
+      "gold": "Gastritis",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0108",
+      "question": "What was the main reason for Evan's frustration with his new Prius breaking down?",
+      "gold": "He relied on it for his active lifestyle and road trips",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0114",
+      "question": "According to Evan, what is important for Sam to believe in concerning his weight?",
+      "gold": "Your worth is not defined by your weight",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0116",
+      "question": "What did Sam recently start enjoying to clear his head?",
+      "gold": "running in the mornings",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0120",
+      "question": "How did Evan describe the process of creating the painting with the bird flying over it?",
+      "gold": "embracing the creative process without restraint",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0125",
+      "question": "What advice did Evan suggest Sam seek from a doctor?",
+      "gold": "diet and exercise tips",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0126",
+      "question": "What suggestions did Evan give for low-impact exercises?",
+      "gold": "swimming, yoga, walking",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0128",
+      "question": "What activity helped Evan with stress and flexibility?",
+      "gold": "Yoga",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-49",
+      "question_id": "conv-49#q0133",
+      "question": "How many times does Sam mention having had a health checkup or doctor's appointment?",
+      "gold": "three times",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0000",
+      "question": "When did Calvin first travel to Tokyo?",
+      "gold": "between 26 March and 20 April 2023 / April, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0005",
+      "question": "What are Dave's dreams?",
+      "gold": "open a car maintenance shop, work on classic cars, build a custom car from scratch",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0008",
+      "question": "When did a mishap occur with Calvin's musical gear and favorite mic?",
+      "gold": "On a week before 16 May, 2023 / May 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0009",
+      "question": "When did Calvin's place get flooded in Tokyo?",
+      "gold": "On a week before 16 May, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0011",
+      "question": "When was Calvin's concert in Tokyo?",
+      "gold": "May 2023 / last week of 31 May, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0012",
+      "question": "Would Calvin enjoy performing at the Hollywood Bowl?",
+      "gold": "Yes; because he enjoys the rush of performing onstage to large crowds / Yes",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0013",
+      "question": "When did Calvin meet with the creative team for his new album?",
+      "gold": "8 June, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0019",
+      "question": "Who inspired Dave's passion for car engineering?",
+      "gold": "His Dad",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0028",
+      "question": "Where did Dave return from with new knowledge of different techniques of car restoration?",
+      "gold": "San Francisco",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0029",
+      "question": "What was Dave doing in San Francisco?",
+      "gold": "attending a car modification workshop",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0030",
+      "question": "When did Dave return from San Francisco?",
+      "gold": "September 1, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0035",
+      "question": "What was the artists Calvin used to listen to when he was a kid?",
+      "gold": "Tupac and Dr. Dre",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0036",
+      "question": "Which of their family member do Calvin and Dave have nostalgic memories about?",
+      "gold": "Dad",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0037",
+      "question": "Based on the conversation, did Calvin and Dave have a meeting in Boston between August and November 2023? Answer in yes or no.",
+      "gold": "yes",
+      "category": "3",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0039",
+      "question": "When did Calvin met with local artists in Boston?",
+      "gold": "October 3, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0041",
+      "question": "When Dave was a child, what did he and his father do in the garage?",
+      "gold": "tinkering with car engines, restoration and refurbishing cars",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0045",
+      "question": "What does help Calvin stay connected to the creative process?",
+      "gold": "watch music videos, concerts, and documentaries about artists and their creative process",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0046",
+      "question": "When did Calvin visit some of the sights in Boston with a former high school friend?",
+      "gold": "October 24, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0047",
+      "question": "Which cities did Dave travel to in 2023?",
+      "gold": "San Francsico, Detroit",
+      "category": "1",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0048",
+      "question": "Which hobby did Dave pick up in October 2023?",
+      "gold": "photography",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0054",
+      "question": "When did Dave buy a vintage camera?",
+      "gold": "November 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0055",
+      "question": "When did Calvin attend a gala in Boston?",
+      "gold": "November 16, 2023",
+      "category": "2",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0062",
+      "question": "What did Calvin receive as a gift from another artist?",
+      "gold": "a gold necklace with a diamond pendant",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0070",
+      "question": "What is Dave doing to relax on weekends?",
+      "gold": "exploring parks",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0074",
+      "question": "What kind of music has Calvin been creating lately?",
+      "gold": "experimenting with different genres, adding electronic elements to his songs. / adding electronic elements to his songs.",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0099",
+      "question": "What car did Dave work on in the junkyard?",
+      "gold": "Ford Mustang",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0102",
+      "question": "What does working on cars represent for Dave?",
+      "gold": "Therapy and a way to get away from everyday stress",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0118",
+      "question": "When did Dave first get interested in cars?",
+      "gold": "at age 10",
+      "category": "4",
+      "options": null,
+      "preference": null
+    },
+    {
+      "dataset_id": "locomo_refined",
+      "sample_id": "conv-50",
+      "question_id": "conv-50#q0126",
+      "question": "What type of music has Dave been getting into lately?",
+      "gold": "Classic rock",
+      "category": "4",
+      "options": null,
+      "preference": null
+    }
+  ]
+}

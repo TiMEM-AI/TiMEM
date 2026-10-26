@@ -1,0 +1,42 @@
+{
+  "changed_answer_files": [
+    "conv-26_q0026.json",
+    "conv-47_q0066.json"
+  ],
+  "unchanged_answer_files": 859,
+  "paired_analysis": {
+    "L-B": {
+      "same": 853,
+      "loss": 4,
+      "win": 4,
+      "net": 0,
+      "mcnemar_exact_p": 1.0
+    },
+    "H-L": {
+      "same": 848,
+      "win": 9,
+      "loss": 4,
+      "net": 5,
+      "mcnemar_exact_p": 0.266845703125
+    },
+    "H-B": {
+      "same": 846,
+      "loss": 5,
+      "win": 10,
+      "net": 5,
+      "mcnemar_exact_p": 0.3017578125
+    }
+  },
+  "evidence_analysis": {
+    "H_changed_questions": 150,
+    "H_selected_upper_questions": 78,
+    "H_selected_upper_items": 101,
+    "L_changed_questions": 134,
+    "L_changed_loss": 4,
+    "H_changed_loss": 5,
+    "H_changed_win": 10,
+    "L_changed_win": 4,
+    "H_upper_win": 6,
+    "H_upper_loss": 1
+  }
+}
