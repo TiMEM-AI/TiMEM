@@ -1,0 +1,182 @@
+name: Deploy AML to server
+
+# Same pattern as timem-platform-backend: branch name drives Secret/Variable keys.
+on:
+  push:
+    branches: [AML]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
+    env:
+      PROJECT_NAME_tmp: ${{ github.event.repository.name }}_${{ github.ref_name }}
+      DEPLOY_HOST: ${{ github.ref_name }}_HOST
+      DEPLOY_USERNAME: ${{ github.ref_name }}_USERNAME
+      DEPLOY_ENV_FILE: ${{ github.ref_name }}_ENV_FILE
+      DEPLOY_APP_PORT: ${{ github.ref_name }}_APP_PORT
+      DEPLOY_DEPEND_SERVICES: ${{ github.ref_name }}_DEPEND_SERVICES
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up SSH
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.TEST_SSH_KEY }}
+        run: |
+          source .github/scripts/deploy-diagnostics.sh
+          deploy_stage setup-ssh
+          printf 'run=%s attempt=%s commit=%s ref=%s runner=%s\n' \
+            "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$GITHUB_SHA" "$GITHUB_REF_NAME" "$RUNNER_NAME"
+          # Docker image names must be lowercase
+          printf 'PROJECT_NAME=%s\n' "$(printf '%s' "$PROJECT_NAME_tmp" | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_ENV"
+          umask 077
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: Copy files to server
+        shell: bash
+        env:
+          SSH_HOST: ${{ secrets[env.DEPLOY_HOST] }}
+          SSH_USERNAME: ${{ secrets[env.DEPLOY_USERNAME] }}
+        run: |
+          source .github/scripts/deploy-diagnostics.sh
+          deploy_stage remote-mkdir
+          ssh "${SSH_OPTIONS[@]}" "$SSH_USERNAME@$SSH_HOST" "mkdir -p /www/wwwroot/${PROJECT_NAME}"
+          deploy_stage rsync-files
+          printf -v ssh_transport '%q ' ssh "${SSH_OPTIONS[@]}"
+          rsync -avz -e "$ssh_transport" --delete --exclude-from=.dockerignore ./ \
+            "$SSH_USERNAME@$SSH_HOST:/www/wwwroot/${PROJECT_NAME}/"
+
+      - name: Copy .env to server
+        shell: bash
+        env:
+          SSH_HOST: ${{ secrets[env.DEPLOY_HOST] }}
+          SSH_USERNAME: ${{ secrets[env.DEPLOY_USERNAME] }}
+          DEPLOY_ENV_CONTENT: ${{ secrets[env.DEPLOY_ENV_FILE] }}
+        run: |
+          source .github/scripts/deploy-diagnostics.sh
+          deploy_stage prepare-env
+          umask 077
+          DEPLOY_TEMP_ENV_FILE=$(mktemp "$RUNNER_TEMP/timem-aml-deploy-env.XXXXXX")
+          printf '%s\n' "$DEPLOY_ENV_CONTENT" > "$DEPLOY_TEMP_ENV_FILE"
+          deploy_stage scp-env
+          scp "${SSH_OPTIONS[@]}" "$DEPLOY_TEMP_ENV_FILE" \
+            "$SSH_USERNAME@$SSH_HOST:/www/wwwroot/${PROJECT_NAME}/.env"
+
+      - name: Deploy with Docker Compose
+        shell: bash
+        env:
+          SSH_HOST: ${{ secrets[env.DEPLOY_HOST] }}
+          SSH_USERNAME: ${{ secrets[env.DEPLOY_USERNAME] }}
+          APP_PORT: ${{ vars[env.DEPLOY_APP_PORT] }}
+          DEPEND_SERVICES: ${{ vars[env.DEPLOY_DEPEND_SERVICES] }}
+        run: |
+          source .github/scripts/deploy-diagnostics.sh
+          deploy_stage ssh-deploy
+          ssh "${SSH_OPTIONS[@]}" "$SSH_USERNAME@$SSH_HOST" \
+            "PROJECT_NAME='${PROJECT_NAME}' APP_PORT='${APP_PORT}' DEPEND_SERVICES='${DEPEND_SERVICES}' COMMIT='${GITHUB_SHA:0:7}' ACTOR='${GITHUB_ACTOR}' bash -s" <<'EOF'
+          set +x
+          set -Eeuo pipefail
+          remote_stage=entry
+          remote_failure_line=unknown
+          remote_exit() {
+            local exit_code=$1
+            local exit_line=$2
+            trap - EXIT
+            if (( exit_code == 0 )); then
+              printf '[%s] [remote] stage=%s status=success exit=0\n' "$(date -u +%FT%TZ)" "$remote_stage"
+            else
+              printf '[%s] [remote] stage=%s status=failed exit=%s line=%s\n' "$(date -u +%FT%TZ)" "$remote_stage" "$exit_code" "${remote_failure_line/unknown/$exit_line}" >&2
+            fi
+            exit "$exit_code"
+          }
+          remote_begin() {
+            printf '[%s] [remote] stage=%s status=success exit=0\n' "$(date -u +%FT%TZ)" "$remote_stage"
+            remote_stage=$1
+            printf '[%s] [remote] stage=%s status=start\n' "$(date -u +%FT%TZ)" "$remote_stage"
+          }
+          trap 'remote_failure_line=$LINENO' ERR
+          trap 'remote_exit "$?" "$LINENO"' EXIT
+          printf '[%s] [remote] stage=entry status=start\n' "$(date -u +%FT%TZ)"
+
+          remote_begin enter-directory
+          cd /www/wwwroot/${PROJECT_NAME}
+
+          remote_begin prepare-compose
+          compose_file="docker-compose.yml"
+          export COMMIT="${COMMIT:-latest}"
+          export APP_PORT="${APP_PORT:-8000}"
+
+          # Inject depends_on under app: (same awk indent probe as Platform)
+          dep_key_indent=$(
+            awk '
+              function indent_len(line) {
+                match(line, /^[ ]*/)
+                return RLENGTH
+              }
+              BEGIN { in_app = 0; app_indent = -1 }
+              /^[[:space:]]*app:[[:space:]]*$/ {
+                in_app = 1
+                app_indent = indent_len($0)
+                next
+              }
+              in_app {
+                cur_indent = indent_len($0)
+                if (cur_indent <= app_indent && $0 ~ /^[[:space:]]*[A-Za-z0-9_-]+:[[:space:]]*$/) {
+                  in_app = 0
+                }
+              }
+              in_app && /^[[:space:]]*image:[[:space:]]/ {
+                print indent_len($0)
+                exit
+              }
+            ' "$compose_file" 2>/dev/null || true
+          )
+          if [[ -z "${dep_key_indent:-}" ]]; then
+            dep_key_indent=4
+          fi
+          dep_item_indent=$((dep_key_indent + 2))
+          dep_cond_indent=$((dep_key_indent + 4))
+          dep_item_prefix="$(printf '%*s' "$dep_item_indent" '')"
+          dep_cond_prefix="$(printf '%*s' "$dep_cond_indent" '')"
+          real_depends=$(echo "$DEPEND_SERVICES" | sed 's/\bapp\b//g; s/[[:space:]]\+/ /g; s/^ //; s/ $//')
+          if [[ -n "$real_depends" ]]; then
+            dep_key_prefix="$(printf '%*s' "$dep_key_indent" '')"
+            printf '%sdepends_on:\n' "$dep_key_prefix" >> "$compose_file"
+          fi
+          for svc in $real_depends; do
+            printf '%s%s:\n' "$dep_item_prefix" "$svc" >> "$compose_file"
+            printf '%scondition: service_healthy\n' "$dep_cond_prefix" >> "$compose_file"
+          done
+
+          real_depends_3p=$(echo "$DEPEND_SERVICES" | sed 's/\bapp\b//g; s/[[:space:]]\+/ /g; s/^ //; s/ $//')
+          if [[ -n "$real_depends_3p" ]]; then
+            remote_begin start-dependencies
+            docker compose -f "$compose_file" up -d $real_depends_3p
+          fi
+
+          if echo "$DEPEND_SERVICES" | grep -iw "app"; then
+            remote_begin build-app
+            COMPOSE_BAKE=true DOCKER_BUILDKIT=1 docker compose -f "$compose_file" build app
+            remote_begin start-app
+            docker compose -f "$compose_file" up -d app autoheal
+          fi
+
+          remote_begin cleanup-images
+          docker images --filter=reference="${PROJECT_NAME}_app" -q | tail -n +9 | xargs -r docker rmi -f || true
+
+          remote_begin notify
+          json_data='{"msg_type":"text","content":{"text":"'"${PROJECT_NAME}:${COMMIT} AML 部署完成 (${ACTOR})"'"}}'
+          notify_response=$(curl -sS -X POST -H "Content-Type: application/json" \
+            -d "$json_data" \
+            https://open.feishu.cn/open-apis/bot/v2/hook/d681a6de-5feb-432d-8c74-7b0d1cc87f24 || true)
+          if echo "$notify_response" | grep -iq 'success'; then
+            echo "feishu notify ok"
+          else
+            echo "feishu notify skipped or failed: ${notify_response}"
+          fi
+          EOF

@@ -1,0 +1,177 @@
+# TiMEM AML self-hosted stack
+# Aligns with timem-platform-backend deploy template (rsync + .env + compose).
+# Server path: /www/wwwroot/timem_aml  (repo_name_lower + branch)
+# GitHub Variable AML_DEPEND_SERVICES=postgres qdrant neo4j app
+
+volumes:
+  postgres_data:
+    name: "${PROJECT_NAME}_postgres_data"
+  qdrant_data:
+    name: "${PROJECT_NAME}_qdrant_data"
+  neo4j_data:
+    name: "${PROJECT_NAME}_neo4j_data"
+  neo4j_logs:
+    name: "${PROJECT_NAME}_neo4j_logs"
+  app_logs:
+    name: "${PROJECT_NAME}_app_logs"
+  app_data:
+    name: "${PROJECT_NAME}_app_data"
+
+networks:
+  project-network:
+    name: "${PROJECT_NAME}_network"
+    driver: bridge
+
+services:
+  # Autoheal - restart unhealthy containers (same as Platform)
+  autoheal:
+    image: willfarrell/autoheal:1.2.0
+    container_name: "${PROJECT_NAME}_autoheal"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - AUTOHEAL_CONTAINER_LABEL=autoheal_${PROJECT_NAME}
+      - AUTOHEAL_START_PERIOD=60
+      - AUTOHEAL_INTERVAL=10
+      - AUTOHEAL_DEFAULT_TIMEOUT=30
+    networks:
+      - project-network
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: "${PROJECT_NAME}_postgres"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE:-timem_db}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
+      TZ: Asia/Shanghai
+    networks:
+      - project-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "pg_isready",
+          "-h",
+          "localhost",
+          "-U",
+          "${POSTGRES_USER}",
+          "-d",
+          "${POSTGRES_DATABASE:-timem_db}",
+        ]
+      timeout: 5s
+      retries: 3
+      interval: 15s
+      start_period: 20s
+    restart: unless-stopped
+    labels:
+      - autoheal_${PROJECT_NAME}=true
+
+  qdrant:
+    image: qdrant/qdrant:v1.13.4
+    container_name: "${PROJECT_NAME}_qdrant"
+    networks:
+      - project-network
+    volumes:
+      - qdrant_data:/qdrant/storage
+      - ./docker/qdrant/config.yaml:/qdrant/config/config.yaml:ro
+    ulimits:
+      nofile:
+        soft: 1048576
+        hard: 1048576
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "timeout 3 bash -c 'exec 3<>/dev/tcp/127.0.0.1/6333' || exit 1",
+        ]
+      timeout: 5s
+      retries: 3
+      interval: 10s
+      start_period: 15s
+    restart: unless-stopped
+    labels:
+      - autoheal_${PROJECT_NAME}=true
+
+  neo4j:
+    image: neo4j:5.26-community
+    container_name: "${PROJECT_NAME}_neo4j"
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD}
+      NEO4J_server_memory_pagecache_size: 512M
+      NEO4J_server_memory_heap_initial__size: 512M
+      NEO4J_server_memory_heap_max__size: 512M
+      NEO4J_server_http_advertised__address: neo4j:7474
+      NEO4J_server_bolt_advertised__address: neo4j:7687
+    networks:
+      - project-network
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "cypher-shell",
+          "-u",
+          "neo4j",
+          "-p",
+          "${NEO4J_PASSWORD}",
+          "RETURN 1",
+        ]
+      timeout: 10s
+      retries: 3
+      interval: 15s
+      start_period: 50s
+    restart: unless-stopped
+    labels:
+      - autoheal_${PROJECT_NAME}=true
+
+  # Service name must stay "app" — deploy.yml injects depends_on under this key
+  app:
+    pull_policy: never
+    build:
+      context: .
+      args:
+        BUILDKIT_INLINE_CACHE: 1
+    image: "${PROJECT_NAME}_app:${COMMIT:-latest}"
+    container_name: "${PROJECT_NAME}_app"
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Shanghai
+      - TIMEM_DEPLOY_MODE=${TIMEM_DEPLOY_MODE:-server}
+      - TIMEM_HOST=0.0.0.0
+      - TIMEM_PORT=8000
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - QDRANT_URL=http://qdrant:6333
+      - QDRANT_VECTOR_SIZE=${QDRANT_VECTOR_SIZE:-2048}
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - TIMEM_IDEMPOTENCY_PATH=/app/data/aml_adds.sqlite
+      - TIMEM_MODEL_SETTINGS_PATH=/app/data/model_settings.json
+    networks:
+      - project-network
+    volumes:
+      - app_logs:/app/logs
+      - app_data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)\"",
+        ]
+      timeout: 5s
+      retries: 3
+      interval: 15s
+      start_period: 90s
+    labels:
+      - autoheal_${PROJECT_NAME}=true

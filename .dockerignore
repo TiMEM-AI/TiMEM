@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Secrets / local env (CI injects .env via Secret after rsync)
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.vs
+.DS_Store
+Thumbs.db
+
+# Git / CI (runner only; not needed on server)
+.git/
+.gitignore
+.github/
+
+# Docker meta
+.dockerignore
+
+# Docs / tests / heavy trees (keep rsync + build context small)
+docs/
+tests/
+experiments/
+migration/
+eval/
+*.log
+logs/
+data/
+.pytest_cache/
+htmlcov/
+.coverage
+*.tmp
+*.bak
+*.cache
+
+# Frontend build artifacts (image rebuilds them)
+frontend/node_modules/
+frontend/dist/
+
+.claude/
+.cursor/
+_deploy_patch/

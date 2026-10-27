@@ -1,0 +1,16 @@
+# Qdrant config for AML compose (mirrors Platform layout; standalone node)
+service:
+  host: 0.0.0.0
+  http_port: 6333
+  grpc_port: 6334
+
+storage:
+  storage_path: /qdrant/storage
+  performance:
+    max_search_requests: 100
+    max_optimization_threads: 2
+
+log_level: INFO
+
+cluster:
+  enabled: false

@@ -1,6 +1,8 @@
-# One stack for a laptop or a server.
+# Local / laptop stack only.
+# Production CI/CD uses repo-root docker-compose.yml (Platform-aligned AML deploy).
+#
 # Laptop: TIMEM_DEPLOY_MODE=local and publish 127.0.0.1:8000 only.
-# Server: put HTTPS in front of port 8000. Database ports stay on the compose network.
+# Optional graph: docker compose --profile graph -f deploy/docker-compose.yml up -d
 
 services:
   postgres:
@@ -9,10 +11,13 @@ services:
       POSTGRES_DB: timem_db
       POSTGRES_USER: ${POSTGRES_USER:-timem_user}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-timem_password}
+      TZ: Asia/Shanghai
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:15432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U timem_user -d timem_db"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-timem_user} -d timem_db"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -21,9 +26,11 @@ services:
     image: qdrant/qdrant:v1.13.4
     volumes:
       - qdrant_data:/qdrant/storage
+    ports:
+      - "127.0.0.1:16333:6333"
 
   neo4j:
-    image: neo4j:5
+    image: neo4j:5.26-community
     profiles: ["graph"]
     environment:
       NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-neo4j_password}
@@ -33,23 +40,26 @@ services:
     volumes:
       - neo4j_data:/data
 
-  api:
+  # Named "app" to match root compose / Platform convention (was "api")
+  app:
     build:
       context: ..
     env_file:
       - ../.env
     environment:
-      TIMEM_DEPLOY_MODE: ${TIMEM_DEPLOY_MODE:-server}
+      TIMEM_DEPLOY_MODE: ${TIMEM_DEPLOY_MODE:-local}
       TIMEM_HOST: 0.0.0.0
       POSTGRES_HOST: postgres
       POSTGRES_PORT: 5432
       POSTGRES_USER: ${POSTGRES_USER:-timem_user}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-timem_password}
-      POSTGRES_DB: timem_db
+      POSTGRES_DATABASE: timem_db
       QDRANT_URL: http://qdrant:6333
       QDRANT_VECTOR_SIZE: "2048"
+      NEO4J_URI: bolt://neo4j:7687
+      NEO4J_USER: neo4j
     ports:
-      - "${TIMEM_BIND:-0.0.0.0}:8000:8000"
+      - "${TIMEM_BIND:-127.0.0.1}:8000:8000"
     depends_on:
       postgres:
         condition: service_healthy
