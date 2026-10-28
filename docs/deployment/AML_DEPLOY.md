@@ -2,7 +2,7 @@
 
 与 `timem-platform-backend` 使用同一套 GitHub Actions 部署模板：**rsync → 写入 `.env` → Docker Compose**。
 
-生产栈文件在**仓库根目录** `docker-compose.yml`（服务名 `frontend` / `app` / `postgres` / `qdrant` / `neo4j` / `autoheal`；前后端为**两个镜像**，对齐 Space）。  
+生产栈文件在**仓库根目录** `docker-compose.yml`（服务名 `app` / `postgres` / `qdrant` / `neo4j` / `autoheal`）。  
 `deploy/docker-compose.yml` 仅用于本机/笔记本联调，不走 CI。
 
 ## 1. 你需要和运维对齐的（业务侧）
@@ -10,7 +10,7 @@
 | 项 | 说明 |
 |----|------|
 | 部署对象 | 本仓库 **`AML` 分支**，自托管 `python -m server`（含 `/aml/add`、`/aml/search`、`/health`） |
-| 对外访问 | 域名 + HTTPS：可反代到 **`FRONTEND_PORT`（容器 3000，nginx，推荐公开入口）**，或直连 **`APP_PORT`（容器 8000，仅 API）**；评测 URL 仍为 `/aml/add`、`/aml/search` |
+| 对外访问 | 域名 + HTTPS 反代到 **`APP_PORT`（容器 8000）** |
 | 图谱 | 默认栈含 **Neo4j**；暂不需要则 Variable 去掉 `neo4j`，并从 compose 中移除该服务 |
 | 模型 | 由 `.env` / Secret 配置；开源榜需按官网指定模型（见下方占位注释） |
 
@@ -31,9 +31,8 @@
 
 | 名称 | 建议值 |
 |------|--------|
-| `AML_APP_PORT` | 后端宿主机映射端口，如 `8000` 或 `18000` |
-| `AML_FRONTEND_PORT` | 前端宿主机映射端口，默认 `3000`（未设时 CI 回落 3000）；**公网反代优先打到该端口** |
-| `AML_DEPEND_SERVICES` | 建议：`postgres qdrant neo4j app frontend`（含 `frontend` 才会 build/up 前端镜像） |
+| `AML_APP_PORT` | 宿主机映射端口，如 `8000` 或 `18000`（由 Nginx 反代） |
+| `AML_DEPEND_SERVICES` | `postgres qdrant neo4j app` |
 | `RUNNER_LABEL` | （可选）自托管 runner；默认 `ubuntu-latest` |
 
 服务器目录：`/www/wwwroot/timem_aml`（仓库名小写 + `_` + 分支名）。
@@ -76,7 +75,7 @@ XINGLIU_EMBED_DIM=2048
 - Docker + Docker Compose v2
 - 开放 SSH（Actions runner 能连上）
 - 建议 **4 核 / 16GB+** 内存（含 Neo4j）
-- 宝塔/Nginx：推荐反代到 `127.0.0.1:${FRONTEND_PORT:-3000}`（前端 nginx 会再把 `/aml` `/health` `/v1` 转到 app）；也可只反代 API 到 `127.0.0.1:${AML_APP_PORT}`，配置 TLS
+- 宝塔/Nginx：反代到 `127.0.0.1:${AML_APP_PORT}`，配置 TLS
 - 对外报名 URL 示例：`https://<域名>/aml/add`、`/aml/search`、`/health`
 
 ## 5. 发布方式
@@ -89,8 +88,7 @@ XINGLIU_EMBED_DIM=2048
 ## 6. 验收
 
 ```bash
-curl -sS "http://127.0.0.1:${FRONTEND_PORT:-3000}/health"
-# 或直连后端: curl -sS "http://127.0.0.1:${APP_PORT:-8000}/health"
+curl -sS "http://127.0.0.1:${APP_PORT}/health"
 # 带 Memory System Key 调 /aml/add、/aml/search；或浏览器打开 /
 ```
 
@@ -98,33 +96,7 @@ curl -sS "http://127.0.0.1:${FRONTEND_PORT:-3000}/health"
 
 | | Platform backend | 本仓库 AML |
 |--|------------------|------------|
-| 应用 | FastAPI + Celery + 独立 frontend | 拆镜像：`frontend`（nginx SPA）+ `app`（`python -m server`）；本地有 `frontend/dist` 时后端仍可条件挂载静态 |
+| 应用 | FastAPI + Celery + 独立 frontend | 单进程 `python -m server`（内置前端静态） |
 | 依赖 | MySQL/Redis/RabbitMQ/Chroma 等 | Postgres + Qdrant + Neo4j |
 | 分支 Secret 前缀 | `test_` / `main_` … | `AML_` |
 | 路径 | `/www/wwwroot/<repo>_<branch>` | 同左 → `timem_aml` |
-
-## 8. 本地构建（拆分后）
-
-```bash
-# 在仓库根目录
-export PROJECT_NAME=timem_aml
-export COMMIT=dev
-export FRONTEND_PORT=3000
-export APP_PORT=8000
-DOCKER_BUILDKIT=1 docker compose build frontend app
-docker compose up -d postgres qdrant neo4j app frontend autoheal
-```
-
-- 前端 Dockerfile：`frontend/Dockerfile`（context `./frontend`）
-- 后端 Dockerfile：`server/Dockerfile`（context 必须为仓库根 `.`，以便拷贝 `timem/` / `server/` 等）
-- 旧单体多阶段文件备份为根目录 `Dockerfile.monolith.bak`
-
-## 9. CI 已支持前后端拆分
-
-`.github/workflows/deploy.yml` 已按 Platform/Space 模式：
-
-1. Variable `AML_FRONTEND_PORT` → 远程 `FRONTEND_PORT`（默认 3000）
-2. Variable `AML_APP_PORT` → 远程 `APP_PORT`（默认 8000）
-3. `AML_DEPEND_SERVICES` 含 `app` / `frontend` 时分别 build，再 `up` 两者 + `autoheal`
-4. 公网反代请优先指向 `127.0.0.1:${AML_FRONTEND_PORT}`（前端 nginx 再反代 `/aml` `/health` `/v1` 到 app）
-5. 传输仍为 **rsync**（与 Platform 一致，不用 Space 的 SFTP）

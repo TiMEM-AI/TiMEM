@@ -1,8 +1,7 @@
-# TiMEM AML self-hosted stack (Space-style: separate frontend + app images)
-# Aligns with TiMEM-Space layout for FE/BE Docker; middleware stays Postgres + Qdrant + Neo4j.
+# TiMEM AML self-hosted stack
+# Aligns with timem-platform-backend deploy template (rsync + .env + compose).
 # Server path: /www/wwwroot/timem_aml  (repo_name_lower + branch)
-# GitHub Variable AML_DEPEND_SERVICES=postgres qdrant neo4j app frontend
-# Ports: AML_APP_PORT -> APP_PORT (default 8000); AML_FRONTEND_PORT -> FRONTEND_PORT (default 3000)
+# GitHub Variable AML_DEPEND_SERVICES=postgres qdrant neo4j app
 
 volumes:
   postgres_data:
@@ -24,7 +23,7 @@ networks:
     driver: bridge
 
 services:
-  # Autoheal - restart unhealthy containers (same as Platform / Space)
+  # Autoheal - restart unhealthy containers (same as Platform)
   autoheal:
     image: willfarrell/autoheal:1.2.0
     container_name: "${PROJECT_NAME}_autoheal"
@@ -132,36 +131,11 @@ services:
     labels:
       - autoheal_${PROJECT_NAME}=true
 
-  # Frontend (nginx SPA + reverse proxy to app) — Space-style
-  frontend:
-    pull_policy: never
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    image: "${PROJECT_NAME}_frontend:${COMMIT:-latest}"
-    container_name: "${PROJECT_NAME}_frontend"
-    ports:
-      - "${FRONTEND_PORT:-3000}:3000"
-    networks:
-      - project-network
-    depends_on:
-      - app
-    healthcheck:
-      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:3000/"]
-      timeout: 5s
-      retries: 3
-      interval: 30s
-      start_period: 10s
-    restart: unless-stopped
-    labels:
-      - autoheal_${PROJECT_NAME}=true
-
-  # Backend API — service name must stay "app" (deploy.yml injects depends_on here)
+  # Service name must stay "app" — deploy.yml injects depends_on under this key
   app:
     pull_policy: never
     build:
       context: .
-      dockerfile: server/Dockerfile
       args:
         BUILDKIT_INLINE_CACHE: 1
     image: "${PROJECT_NAME}_app:${COMMIT:-latest}"

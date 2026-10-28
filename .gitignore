@@ -102,10 +102,3 @@ D:/LLM/
 D:\LLM\
 *.bin
 *.safetensors
-
-# Local AML Memory System Key (never commit)
-.aml_memory_system_key.txt
-
-
-# AML ops handoff env (do not commit)
-.env.aml.for-ops

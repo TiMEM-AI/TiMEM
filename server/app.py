@@ -12,8 +12,6 @@ from server.idempotency import IdempotencyStore
 from server.model_settings import ModelSettingsStore
 from server.settings import ServerSettings
 
-# Optional local/monolith static UI. In Space-style compose the SPA is served by
-# frontend (nginx); backend image does not ship frontend/dist, so this stays inactive.
 DIST_DIR = Path(__file__).resolve().parents[1] / "frontend" / "dist"
 AML_FORBIDDEN = {"metadata", "app_id", "agent_id", "async_mode", "filters", "rerank", "keyword_search"}
 
@@ -375,8 +373,6 @@ def create_app(
         except GraphQueryError as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
 
-    # Conditional: only when frontend/dist exists (local monorepo / monolith).
-    # Split deploy: omit dist so /aml, /v1, /health are unaffected and nginx serves UI.
     if DIST_DIR.is_dir():
         app.mount("/", StaticFiles(directory=DIST_DIR, html=True), name="frontend")
 
