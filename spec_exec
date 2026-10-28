@@ -1,0 +1,8 @@
+#!/bin/sh
+# 构建期系统依赖脚本，由 Dockerfile 的 spec_exec 钩子执行。
+# 仅放置 pip wheel 缺失时需要编译/运行的系统包，避免污染 Dockerfile 主体。
+set -e
+
+apt-get update
+apt-get install -y --no-install-recommends libpq5
+rm -rf /var/lib/apt/lists/*
