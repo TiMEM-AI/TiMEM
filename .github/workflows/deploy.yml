@@ -1,20 +1,21 @@
-name: Deploy AML to server
+name: Deploy to server
 
-# Same pattern as timem-platform-backend: branch name drives Secret/Variable keys.
 on:
   push:
-    branches: [AML]
+    branches: [test, main, pre, AML]
   workflow_dispatch:
 
 jobs:
   deploy:
+    # 运行jobs的服务器，因gzlh_main分支的服务器限制端口22入站，因此使用自托管 runner，其他分支使用GitHub托管 Ubuntu 最新版本
     runs-on: ${{ vars.RUNNER_LABEL || 'ubuntu-latest' }}
     env:
-      PROJECT_NAME_tmp: ${{ github.event.repository.name }}_${{ github.ref_name }}
+      # 根据分支选择不同的部署目标主机和用户，在 Actions 环境变量中拼接出完整的 Secret / Variable 名称
       DEPLOY_HOST: ${{ github.ref_name }}_HOST
       DEPLOY_USERNAME: ${{ github.ref_name }}_USERNAME
       DEPLOY_ENV_FILE: ${{ github.ref_name }}_ENV_FILE
       DEPLOY_APP_PORT: ${{ github.ref_name }}_APP_PORT
+      DEPLOY_FRONTEND_PORT: ${{ github.ref_name }}_FRONTEND_PORT
       DEPLOY_DEPEND_SERVICES: ${{ github.ref_name }}_DEPEND_SERVICES
 
     steps:
@@ -22,161 +23,43 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Set up SSH
-        shell: bash
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.TEST_SSH_KEY }}
         run: |
-          source .github/scripts/deploy-diagnostics.sh
-          deploy_stage setup-ssh
-          printf 'run=%s attempt=%s commit=%s ref=%s runner=%s\n' \
-            "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$GITHUB_SHA" "$GITHUB_REF_NAME" "$RUNNER_NAME"
-          # Docker image names must be lowercase
-          printf 'PROJECT_NAME=%s\n' "$(printf '%s' "$PROJECT_NAME_tmp" | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_ENV"
-          umask 077
-          mkdir -p ~/.ssh
-          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          # 因Docker镜像名必须用小写字母，将仓库名转换为小写，导出为环境变量，供后续步骤使用（本步骤无法使用此环境变量PROJECT_NAME和BRANCH_NAME）
+          tmp_name=${{ github.event.repository.name }}
+          echo "PROJECT_NAME=${tmp_name,,}" >> $GITHUB_ENV
+          tmp_name=${{ github.ref_name }}
+          echo "BRANCH_NAME=${tmp_name,,}" >> $GITHUB_ENV
+
+          # 设置 SSH 密钥对，用于后续步骤的 SSH/SFTP 操作（放在 $RUNNER_TEMP，避免被打进 deploy.tgz 和镜像）
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > "$RUNNER_TEMP/deploy.key"
+          chmod 600 "$RUNNER_TEMP/deploy.key"
+          echo "${{ secrets.DEPLOY_SFTP_KEY }}" > "$RUNNER_TEMP/sftp.key"
+          chmod 600 "$RUNNER_TEMP/sftp.key"
 
       - name: Copy files to server
-        shell: bash
-        env:
-          SSH_HOST: ${{ secrets[env.DEPLOY_HOST] }}
-          SSH_USERNAME: ${{ secrets[env.DEPLOY_USERNAME] }}
         run: |
-          source .github/scripts/deploy-diagnostics.sh
-          deploy_stage remote-mkdir
-          ssh "${SSH_OPTIONS[@]}" "$SSH_USERNAME@$SSH_HOST" "mkdir -p /www/wwwroot/${PROJECT_NAME}"
-          deploy_stage rsync-files
-          printf -v ssh_transport '%q ' ssh "${SSH_OPTIONS[@]}"
-          rsync -avz -e "$ssh_transport" --delete --exclude-from=.dockerignore ./ \
-            "$SSH_USERNAME@$SSH_HOST:/www/wwwroot/${PROJECT_NAME}/"
+          # 从本地复制文件到临时目录并压缩，忽略 .dockerignore 文件指定的文件
+          rsync -a --delete --exclude-from=.dockerignore ./ "$RUNNER_TEMP/deploy-staging/"
+          tar -C "$RUNNER_TEMP/deploy-staging" -czf "$RUNNER_TEMP/deploy.tgz" .
 
-      - name: Copy .env to server
-        shell: bash
-        env:
-          SSH_HOST: ${{ secrets[env.DEPLOY_HOST] }}
-          SSH_USERNAME: ${{ secrets[env.DEPLOY_USERNAME] }}
-          DEPLOY_ENV_CONTENT: ${{ secrets[env.DEPLOY_ENV_FILE] }}
-        run: |
-          source .github/scripts/deploy-diagnostics.sh
-          deploy_stage prepare-env
-          umask 077
-          DEPLOY_TEMP_ENV_FILE=$(mktemp "$RUNNER_TEMP/timem-aml-deploy-env.XXXXXX")
-          printf '%s\n' "$DEPLOY_ENV_CONTENT" > "$DEPLOY_TEMP_ENV_FILE"
-          deploy_stage scp-env
-          scp "${SSH_OPTIONS[@]}" "$DEPLOY_TEMP_ENV_FILE" \
-            "$SSH_USERNAME@$SSH_HOST:/www/wwwroot/${PROJECT_NAME}/.env"
+          # 从 GitHub Secrets 生成线上部署的 .env 文件（<<'EOF' 带引号，防止 secret 内容中的 $ / 反引号被 shell 二次展开，也就是.env原样照搬，此形式也可防止注入攻击）
+          cat > "$RUNNER_TEMP/deploy.env" <<'EOF'
+          ${{ secrets[env.DEPLOY_ENV_FILE] }}
+          EOF
+
+          # sftp 固定使用 send 该账号已 chroot 到 /www/wwwroot，路径以 jail 根为基准（/cicd/...），不带 /www/wwwroot 前缀
+          # 定界符 EOF 不能带引号：体内 $RUNNER_TEMP/${PROJECT_NAME} 等变量需要 bash 展开
+          sftp -i "$RUNNER_TEMP/sftp.key" -o StrictHostKeyChecking=accept-new -b - "send@${{ secrets[env.DEPLOY_HOST] }}" <<EOF
+          -mkdir /cicd/${PROJECT_NAME}_${BRANCH_NAME}
+          put "$RUNNER_TEMP/deploy.tgz" /cicd/${PROJECT_NAME}_${BRANCH_NAME}/
+          put "$RUNNER_TEMP/deploy.env" /cicd/${PROJECT_NAME}_${BRANCH_NAME}/
+          chmod 600 /cicd/${PROJECT_NAME}_${BRANCH_NAME}/deploy.env
+          EOF
 
       - name: Deploy with Docker Compose
-        shell: bash
-        env:
-          SSH_HOST: ${{ secrets[env.DEPLOY_HOST] }}
-          SSH_USERNAME: ${{ secrets[env.DEPLOY_USERNAME] }}
-          APP_PORT: ${{ vars[env.DEPLOY_APP_PORT] }}
-          DEPEND_SERVICES: ${{ vars[env.DEPLOY_DEPEND_SERVICES] }}
         run: |
-          source .github/scripts/deploy-diagnostics.sh
-          deploy_stage ssh-deploy
-          ssh "${SSH_OPTIONS[@]}" "$SSH_USERNAME@$SSH_HOST" \
-            "PROJECT_NAME='${PROJECT_NAME}' APP_PORT='${APP_PORT}' DEPEND_SERVICES='${DEPEND_SERVICES}' COMMIT='${GITHUB_SHA:0:7}' ACTOR='${GITHUB_ACTOR}' bash -s" <<'EOF'
-          set +x
-          set -Eeuo pipefail
-          remote_stage=entry
-          remote_failure_line=unknown
-          remote_exit() {
-            local exit_code=$1
-            local exit_line=$2
-            trap - EXIT
-            if (( exit_code == 0 )); then
-              printf '[%s] [remote] stage=%s status=success exit=0\n' "$(date -u +%FT%TZ)" "$remote_stage"
-            else
-              printf '[%s] [remote] stage=%s status=failed exit=%s line=%s\n' "$(date -u +%FT%TZ)" "$remote_stage" "$exit_code" "${remote_failure_line/unknown/$exit_line}" >&2
-            fi
-            exit "$exit_code"
-          }
-          remote_begin() {
-            printf '[%s] [remote] stage=%s status=success exit=0\n' "$(date -u +%FT%TZ)" "$remote_stage"
-            remote_stage=$1
-            printf '[%s] [remote] stage=%s status=start\n' "$(date -u +%FT%TZ)" "$remote_stage"
-          }
-          trap 'remote_failure_line=$LINENO' ERR
-          trap 'remote_exit "$?" "$LINENO"' EXIT
-          printf '[%s] [remote] stage=entry status=start\n' "$(date -u +%FT%TZ)"
-
-          remote_begin enter-directory
-          cd /www/wwwroot/${PROJECT_NAME}
-
-          remote_begin prepare-compose
-          compose_file="docker-compose.yml"
-          export COMMIT="${COMMIT:-latest}"
-          export APP_PORT="${APP_PORT:-8000}"
-
-          # Inject depends_on under app: (same awk indent probe as Platform)
-          dep_key_indent=$(
-            awk '
-              function indent_len(line) {
-                match(line, /^[ ]*/)
-                return RLENGTH
-              }
-              BEGIN { in_app = 0; app_indent = -1 }
-              /^[[:space:]]*app:[[:space:]]*$/ {
-                in_app = 1
-                app_indent = indent_len($0)
-                next
-              }
-              in_app {
-                cur_indent = indent_len($0)
-                if (cur_indent <= app_indent && $0 ~ /^[[:space:]]*[A-Za-z0-9_-]+:[[:space:]]*$/) {
-                  in_app = 0
-                }
-              }
-              in_app && /^[[:space:]]*image:[[:space:]]/ {
-                print indent_len($0)
-                exit
-              }
-            ' "$compose_file" 2>/dev/null || true
-          )
-          if [[ -z "${dep_key_indent:-}" ]]; then
-            dep_key_indent=4
-          fi
-          dep_item_indent=$((dep_key_indent + 2))
-          dep_cond_indent=$((dep_key_indent + 4))
-          dep_item_prefix="$(printf '%*s' "$dep_item_indent" '')"
-          dep_cond_prefix="$(printf '%*s' "$dep_cond_indent" '')"
-          real_depends=$(echo "$DEPEND_SERVICES" | sed 's/\bapp\b//g; s/[[:space:]]\+/ /g; s/^ //; s/ $//')
-          if [[ -n "$real_depends" ]]; then
-            dep_key_prefix="$(printf '%*s' "$dep_key_indent" '')"
-            printf '%sdepends_on:\n' "$dep_key_prefix" >> "$compose_file"
-          fi
-          for svc in $real_depends; do
-            printf '%s%s:\n' "$dep_item_prefix" "$svc" >> "$compose_file"
-            printf '%scondition: service_healthy\n' "$dep_cond_prefix" >> "$compose_file"
-          done
-
-          real_depends_3p=$(echo "$DEPEND_SERVICES" | sed 's/\bapp\b//g; s/[[:space:]]\+/ /g; s/^ //; s/ $//')
-          if [[ -n "$real_depends_3p" ]]; then
-            remote_begin start-dependencies
-            docker compose -f "$compose_file" up -d $real_depends_3p
-          fi
-
-          if echo "$DEPEND_SERVICES" | grep -iw "app"; then
-            remote_begin build-app
-            COMPOSE_BAKE=true DOCKER_BUILDKIT=1 docker compose -f "$compose_file" build app
-            remote_begin start-app
-            docker compose -f "$compose_file" up -d app autoheal
-          fi
-
-          remote_begin cleanup-images
-          docker images --filter=reference="${PROJECT_NAME}_app" -q | tail -n +9 | xargs -r docker rmi -f || true
-
-          remote_begin notify
-          json_data='{"msg_type":"text","content":{"text":"'"${PROJECT_NAME}:${COMMIT} AML 部署完成 (${ACTOR})"'"}}'
-          notify_response=$(curl -sS -X POST -H "Content-Type: application/json" \
-            -d "$json_data" \
-            https://open.feishu.cn/open-apis/bot/v2/hook/d681a6de-5feb-432d-8c74-7b0d1cc87f24 || true)
-          if echo "$notify_response" | grep -iq 'success'; then
-            echo "feishu notify ok"
-          else
-            echo "feishu notify skipped or failed: ${notify_response}"
-          fi
-          EOF
+          # 远程脚本将执行以下操作：
+          # - docker-compose.yml 文件中动态添加 app.depends_on 配置，确保 app 服务在依赖服务启动后启动
+          # - 如果缺失，自动拉取并启动 mysql/redis/chroma 等依赖服务
+          # - 总是构建并启动 app 服务，确保应用服务正常运行
+          ssh -i "$RUNNER_TEMP/deploy.key" -o ServerAliveInterval=30 -o ServerAliveCountMax=5 "root@${{ secrets[env.DEPLOY_HOST] }}" "PROJECT_NAME='${PROJECT_NAME}' APP_PORT='${{ vars[env.DEPLOY_APP_PORT] || '8000' }}' DEPEND_SERVICES='${{ vars[env.DEPLOY_DEPEND_SERVICES] }}' COMMIT='${GITHUB_SHA:0:7}' ACTOR='${{ github.actor }}' FRONTEND_PORT='${{ vars[env.DEPLOY_FRONTEND_PORT] || '3000' }}' BRANCH_NAME='${BRANCH_NAME}' ./deploy_run.sh"
