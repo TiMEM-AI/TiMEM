@@ -473,6 +473,8 @@ class MemoryGenerator:
             previous_summary=previous_content or "",
             new_dialogue=new_dialogue
         )
+        from timem.memory.l1_optimization import apply_l1_policy
+        formatted_prompt = apply_l1_policy(formatted_prompt, getattr(prompt_template, "template", None))
         
         # Record final prompt for testing
         self._last_prompt = formatted_prompt
@@ -1292,6 +1294,8 @@ Session Summary:""".format(fragment_summaries=child_contents)
             previous_summary=previous_content or "",
             new_dialogue=new_dialogue
         )
+        from timem.memory.l1_optimization import apply_l1_policy
+        formatted_prompt = apply_l1_policy(formatted_prompt, getattr(prompt_template, "template", None))
         
         self._last_prompt = formatted_prompt
         self._append_prompt_log("L1", formatted_prompt, input_excerpt=str(new_dialogue)[:120])
