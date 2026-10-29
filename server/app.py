@@ -1,5 +1,6 @@
 """Product API and AML Add/Search on one process."""
 
+import logging
 from pathlib import Path
 from typing import List, Optional
 
@@ -313,9 +314,18 @@ def create_app(
                 return existing
         if not body.messages or not any((item.get("content") or "").strip() for item in body.messages):
             raise HTTPException(status_code=422, detail="messages are required")
-        await service.add(
-            body.user_id, body.session_id, body.messages, memory_model=models.aml_memory_model()
-        )
+        try:
+            await service.add(
+                body.user_id, body.session_id, body.messages, memory_model=models.aml_memory_model()
+            )
+        except HTTPException:
+            raise
+        except Exception as exc:
+            logging.getLogger("timem.server").exception("unhandled error on /aml/add")
+            return JSONResponse(
+                status_code=500,
+                content={"success": False, "detail": f"{type(exc).__name__}: {exc}"[:500]},
+            )
         payload = {
             "success": True,
             "request_id": body.request_id,
@@ -329,9 +339,18 @@ def create_app(
     @app.post("/aml/search")
     async def aml_search(body: SearchBody, request: Request):
         require_key(request)
-        rows = await service.search(
-            body.user_id, body.query, body.top_k, memory_model=models.aml_memory_model()
-        )
+        try:
+            rows = await service.search(
+                body.user_id, body.query, body.top_k, memory_model=models.aml_memory_model()
+            )
+        except HTTPException:
+            raise
+        except Exception as exc:
+            logging.getLogger("timem.server").exception("unhandled error on /aml/search")
+            return JSONResponse(
+                status_code=500,
+                content={"success": False, "detail": f"{type(exc).__name__}: {exc}"[:500]},
+            )
         data = []
         for row in rows[: body.top_k]:
             item = _public_memory(row, include_level=False)

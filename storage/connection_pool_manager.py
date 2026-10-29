@@ -72,17 +72,9 @@ class ConnectionPoolManager:
                 config = storage_config.get('sql', {}).get('postgres', {})
             
             self._config = config
-            import os
-            if os.getenv("POSTGRES_HOST"):
-                config["host"] = os.getenv("POSTGRES_HOST")
-            if os.getenv("POSTGRES_PORT"):
-                config["port"] = int(os.getenv("POSTGRES_PORT"))
-            if os.getenv("POSTGRES_USER"):
-                config["user"] = os.getenv("POSTGRES_USER")
-            if os.getenv("POSTGRES_PASSWORD"):
-                config["password"] = os.getenv("POSTGRES_PASSWORD")
-            if os.getenv("POSTGRES_DB") or os.getenv("POSTGRES_DATABASE"):
-                config["database"] = os.getenv("POSTGRES_DB") or os.getenv("POSTGRES_DATABASE")
+            from storage.postgres_env import apply_postgres_env
+
+            apply_postgres_env(config)
             
             # Build connection URL
             db_url = f"postgresql+asyncpg://{config['user']}:{config['password']}@{config['host']}:{config['port']}/{config['database']}"

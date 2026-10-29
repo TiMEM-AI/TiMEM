@@ -400,16 +400,15 @@ class VectorStore:
                 query_filter = self._build_filter(filter_conditions)
                 self.logger.info(f"Built query filter: {query_filter}")
             
-            # Execute search
+            # Execute search (query_points since qdrant-client 1.10; search removed in 1.16)
             search_results = await asyncio.to_thread(
-                self.client.search,
-                collection_name=collection_name,
-                query_vector=query_vector,
-                limit=limit,
-                score_threshold=score_threshold,
-                query_filter=query_filter,
-                with_payload=True,
-                with_vectors=True  # Add this parameter to get vector data
+                _query_points_compat,
+                self.client,
+                collection_name,
+                query_vector,
+                limit,
+                score_threshold,
+                query_filter,
             )
             
             # Convert results
@@ -814,3 +813,28 @@ class VectorStore:
 # Factory method
 def get_vector_store() -> VectorStore:
     return VectorStore()
+
+
+
+def _query_points_compat(client, collection_name, query_vector, limit, score_threshold, query_filter):
+    """Nearest neighbours on any qdrant-client: search was removed in 1.16 (query_points since 1.10)."""
+    if hasattr(client, "query_points"):
+        response = client.query_points(
+            collection_name=collection_name,
+            query=query_vector,
+            limit=limit,
+            score_threshold=score_threshold,
+            query_filter=query_filter,
+            with_payload=True,
+            with_vectors=True,
+        )
+        return response.points
+    return client.search(
+        collection_name=collection_name,
+        query_vector=query_vector,
+        limit=limit,
+        score_threshold=score_threshold,
+        query_filter=query_filter,
+        with_payload=True,
+        with_vectors=True,
+    )
