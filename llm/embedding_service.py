@@ -12,7 +12,6 @@ import json
 
 from typing import TYPE_CHECKING
 from llm.base_llm import BaseEmbeddingService, ModelConfig
-from llm.qwen_embedding_adapter import Qwen3EmbeddingService
 from timem.utils.logging import get_logger
 from timem.utils.config_manager import get_config
 
@@ -321,6 +320,9 @@ class UnifiedEmbeddingService:
                 self.logger.info("Using SentenceBERT embedding service")
                 
             elif self.provider_name == 'qwen_local':
+                # Local Qwen requires optional torch/transformers dependencies.
+                from llm.qwen_embedding_adapter import Qwen3EmbeddingService
+
                 # Qwen3 local embedding service
                 self.default_service = Qwen3EmbeddingService(embedding_config)
                 self.logger.info(f"Using local Qwen3 Embedding service: {embedding_config.get('model', 'not specified')}")
@@ -394,7 +396,7 @@ class UnifiedEmbeddingService:
                 "max_length": self.default_service.max_length,
                 "provider": "sentence_bert"
             }
-        elif isinstance(self.default_service, Qwen3EmbeddingService):
+        elif self.provider_name == 'qwen_local':
             return {
                 "model_name": self.default_service.model_name,
                 "dimension": self.default_service.get_dimension(),
