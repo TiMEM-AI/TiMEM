@@ -1,0 +1,189 @@
+{
+  "note": "Synthetic pilots, not proof of real-world improvement; no candidate passed the strict validation-loss gate. Judge outputs are estimated proxy metrics.",
+  "runs": [
+    {
+      "run": "dense_20261029",
+      "data_sha256": "0614209f17a667eff1020a66435ac4764c400ffd84cb3dadda9c8ea07238e784",
+      "base_template_sha256": "ae864514c1395c8866300e138ff1d6e35ea41202015113d761b3ae5a14631c48",
+      "models": {
+        "generator": "deepseek-v4.1-flash",
+        "judge": "glm-5.3-flash",
+        "judge_reasoning_effort": "low",
+        "optimizer": "deepseek-v4.1-flash"
+      },
+      "candidates": [
+        {
+          "id": "baseline",
+          "policy": ""
+        },
+        {
+          "id": "candidate_1",
+          "policy": "Record every stated fact with its exact time reference, speaker attribution, and polarity, keeping negations and uncertainty markers intact; when a later turn revises an earlier statement, note both the original and the revision rather than merging them, and add no detail that was not explicitly said."
+        },
+        {
+          "id": "candidate_2",
+          "policy": "Preserve all factual content, including who said what, when it was said, whether it was affirmed or denied, and any hedging or correction; treat each revision as an additional fact to retain alongside the prior version, and never supply missing specifics or infer unstated conclusions."
+        }
+      ],
+      "train_means": {
+        "baseline": {
+          "loss": 0.0,
+          "omission": 0.0,
+          "contradiction": 0.0,
+          "hallucination": 0.0,
+          "length_ratio": 1.0090684971219475,
+          "reward": 0.9495465751439026
+        },
+        "candidate_1": {
+          "loss": 0.08333333333333333,
+          "omission": 0.08333333333333333,
+          "contradiction": 0.08333333333333333,
+          "hallucination": 0.08333333333333333,
+          "length_ratio": 1.0078152712707578,
+          "reward": 0.8662759031031287
+        },
+        "candidate_2": {
+          "loss": 0.08333333333333333,
+          "omission": 0.08333333333333333,
+          "contradiction": 0.08333333333333333,
+          "hallucination": 0.08333333333333333,
+          "length_ratio": 1.0149638569809147,
+          "reward": 0.8659184738176209
+        }
+      },
+      "validation_means": {
+        "baseline": {
+          "loss": 0.0,
+          "omission": 0.0,
+          "contradiction": 0.0,
+          "hallucination": 0.0,
+          "length_ratio": 1.0602328080775125,
+          "reward": 0.9469883595961243
+        },
+        "candidate_1": {
+          "loss": 0.0,
+          "omission": 0.0,
+          "contradiction": 0.0,
+          "hallucination": 0.0,
+          "length_ratio": 1.0268366343587583,
+          "reward": 0.9486581682820621
+        }
+      },
+      "test_means": {
+        "baseline": {
+          "loss": 0.0,
+          "omission": 0.0,
+          "contradiction": 0.0,
+          "hallucination": 0.0,
+          "length_ratio": 1.0234843185082463,
+          "reward": 0.9488257840745877
+        }
+      },
+      "controller_probabilities": [
+        0.45203509176596995,
+        0.27427624206286594,
+        0.27368866617116405
+      ],
+      "winner": {
+        "id": "baseline",
+        "policy": ""
+      },
+      "limitations": [
+        "synthetic small examples; LLM judge proxy; not measured information-theoretic loss",
+        "no automatic production deployment; no claim of real-data generalization"
+      ]
+    },
+    {
+      "run": "stress_20261029",
+      "data_sha256": "fab6f00fb160d01702b17b413f8fcf7df0789498e1eebfac4c90d5cf3922209f",
+      "base_template_sha256": "ae864514c1395c8866300e138ff1d6e35ea41202015113d761b3ae5a14631c48",
+      "models": {
+        "generator": "deepseek-v4.1-flash",
+        "judge": "glm-5.3-flash",
+        "judge_reasoning_effort": "low",
+        "optimizer": "deepseek-v4.1-flash"
+      },
+      "candidates": [
+        {
+          "id": "baseline",
+          "policy": ""
+        },
+        {
+          "id": "candidate_1",
+          "policy": "Record each memory as a faithful restatement of what was said, keeping every stated fact, date, time, speaker, and attribution intact; when a statement is denied, uncertain, or later revised, preserve that denial, uncertainty, or revision explicitly rather than resolving it into a settled fact."
+        },
+        {
+          "id": "candidate_2",
+          "policy": "Summarize only information explicitly present in the dialogue, and when details are missing, unclear, or conflicting, state that limitation instead of filling gaps; do not add events, causes, motives, or specifics that were not stated."
+        }
+      ],
+      "train_means": {
+        "baseline": {
+          "loss": 0.0,
+          "omission": 0.0,
+          "contradiction": 0.0,
+          "hallucination": 0.0,
+          "length_ratio": 0.7756451247637051,
+          "reward": 0.9612177437618147
+        },
+        "candidate_1": {
+          "loss": 0.0,
+          "omission": 0.0,
+          "contradiction": 0.0,
+          "hallucination": 0.0,
+          "length_ratio": 0.7803086478982435,
+          "reward": 0.9609845676050878
+        },
+        "candidate_2": {
+          "loss": 0.0,
+          "omission": 0.0,
+          "contradiction": 0.0,
+          "hallucination": 0.0,
+          "length_ratio": 0.7745349236387649,
+          "reward": 0.9612732538180617
+        }
+      },
+      "validation_means": {
+        "baseline": {
+          "loss": 0.0,
+          "omission": 0.0,
+          "contradiction": 0.0,
+          "hallucination": 0.0,
+          "length_ratio": 0.7415950180854987,
+          "reward": 0.962920249095725
+        },
+        "candidate_2": {
+          "loss": 0.0,
+          "omission": 0.0,
+          "contradiction": 0.0,
+          "hallucination": 0.0,
+          "length_ratio": 0.7363770223111239,
+          "reward": 0.9631811488844437
+        }
+      },
+      "test_means": {
+        "baseline": {
+          "loss": 0.0,
+          "omission": 0.0,
+          "contradiction": 0.0,
+          "hallucination": 0.0,
+          "length_ratio": 0.7785409035409036,
+          "reward": 0.9610729548229549
+        }
+      },
+      "controller_probabilities": [
+        0.33338267238469466,
+        0.3331883867929909,
+        0.3334289408223145
+      ],
+      "winner": {
+        "id": "baseline",
+        "policy": ""
+      },
+      "limitations": [
+        "synthetic small examples; LLM judge proxy; not measured information-theoretic loss",
+        "no automatic production deployment; no claim of real-data generalization"
+      ]
+    }
+  ]
+}
