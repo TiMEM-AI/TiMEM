@@ -100,3 +100,25 @@ curl -sS "http://127.0.0.1:${APP_PORT}/health"
 | 依赖 | MySQL/Redis/RabbitMQ/Chroma 等 | Postgres + Qdrant + Neo4j |
 | 分支 Secret 前缀 | `test_` / `main_` … | `AML_` |
 | 路径 | `/www/wwwroot/<repo>_<branch>` | 同左 → `timem_aml` |
+
+## 8. 热切换记忆模型（无需重新部署）
+
+比赛接口 `/aml/add`、`/aml/search` 解析记忆模型的顺序：**`data/runtime_overrides.json` > 环境变量 `XINGLIU_CHAT_MODEL`**。进程用内存缓存 + 文件 mtime 刷新，改完下一请求即生效，一般不必重启容器。
+
+| 项 | 说明 |
+|----|------|
+| 管理口令 | `TIMEM_ADMIN_PASSWORD`（或同义 `TIMEM_ADMIN_KEY`），与报名 `TIMEM_API_KEY` **分开**；勿发给参赛方、勿提交 Git |
+| 前端 | 打开站点 →「模型」→ 管理员登录 → 改比赛记忆模型 →「应用到比赛接口」 |
+| 管理 API | `POST /v1/admin/login`；`GET/PUT /v1/admin/runtime-models`（Header：`X-Admin-Key`） |
+| 禁止热切 | embedding / 向量维度（改了要重建 Qdrant 集合） |
+| 方法榜锁模 | 设 `TIMEM_AML_LOCK_MODELS=1` 后管理写接口返回 403；可先清除 override |
+
+`AML_ENV_FILE` 模板请增加（示例值请自行换成强随机）：
+
+```bash
+TIMEM_ADMIN_PASSWORD=请生成强随机字符串
+TIMEM_RUNTIME_OVERRIDES_PATH=data/runtime_overrides.json
+# TIMEM_AML_LOCK_MODELS=1
+```
+
+报名 Memory System Key **不能**改比赛模型；只有管理员口令可以。

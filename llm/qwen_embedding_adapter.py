@@ -6,8 +6,6 @@ import os
 import time
 import asyncio
 from typing import List, Dict, Any, Optional
-import torch
-from transformers import AutoTokenizer, AutoModel
 import numpy as np
 
 from .base_llm import BaseEmbeddingService, EmbeddingResponse, ModelConfig
@@ -34,6 +32,16 @@ class Qwen3EmbeddingService(BaseEmbeddingService):
             if not os.path.exists(self.model_name):
                 raise FileNotFoundError(f"Qwen3 Embedding model path does not exist: {self.model_name}")
                 
+            # Lazy import: torch/transformers only needed for local Qwen embedding
+            try:
+                import torch  # noqa: F401
+                from transformers import AutoTokenizer, AutoModel
+            except ImportError as e:
+                raise ImportError(
+                    "torch and transformers are required for qwen_local embedding; "
+                    "install optional local-model deps or use an API embedding provider"
+                ) from e
+
             # Load model and tokenizer
             logger.info(f"Loading Qwen3 Embedding model: {self.model_name}")
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name, trust_remote_code=True)
@@ -61,6 +69,7 @@ class Qwen3EmbeddingService(BaseEmbeddingService):
                                    max_length=self.max_length, return_tensors="pt")
             inputs = {k: v.to(self.device) for k, v in inputs.items()}
             
+            import torch
             with torch.no_grad():
                 outputs = self.model(**inputs)
                 

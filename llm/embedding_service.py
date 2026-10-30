@@ -18,6 +18,7 @@ from timem.utils.config_manager import get_config
 if TYPE_CHECKING:
     from llm.openai_adapter import OpenAIAdapter
     from llm.zhipuai_adapter import ZhipuAIAdapter
+    from llm.qwen_embedding_adapter import Qwen3EmbeddingService
 
 # Initialize module-level logger
 logger = get_logger(__name__)
@@ -320,10 +321,8 @@ class UnifiedEmbeddingService:
                 self.logger.info("Using SentenceBERT embedding service")
                 
             elif self.provider_name == 'qwen_local':
-                # Local Qwen requires optional torch/transformers dependencies.
+                # Qwen3 local embedding service (lazy import: needs torch/transformers)
                 from llm.qwen_embedding_adapter import Qwen3EmbeddingService
-
-                # Qwen3 local embedding service
                 self.default_service = Qwen3EmbeddingService(embedding_config)
                 self.logger.info(f"Using local Qwen3 Embedding service: {embedding_config.get('model', 'not specified')}")
 
@@ -398,10 +397,10 @@ class UnifiedEmbeddingService:
             }
         elif self.provider_name == 'qwen_local':
             return {
-                "model_name": self.default_service.model_name,
+                "model_name": getattr(self.default_service, 'model_name', None),
                 "dimension": self.default_service.get_dimension(),
-                "device": self.default_service.device,
-                "max_length": self.default_service.max_length,
+                "device": getattr(self.default_service, 'device', None),
+                "max_length": getattr(self.default_service, 'max_length', None),
                 "provider": "qwen_local"
             }
         elif isinstance(self.default_service, ZhipuAIEmbeddingService):

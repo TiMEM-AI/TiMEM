@@ -276,7 +276,11 @@ class GlobalConnectionPoolManager:
         # Configuration merge priority: user config > config file > production defaults
         final_config = self.PRODUCTION_CONFIG.copy()
         final_config.update(postgres_config)
-        
+        # Same precedence as the other engines: POSTGRES_* env beats YAML.
+        from storage.postgres_env import apply_postgres_env
+
+        final_config = apply_postgres_env(final_config)
+
         if user_config:
             final_config.update(user_config)
         

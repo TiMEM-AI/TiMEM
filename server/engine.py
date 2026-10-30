@@ -1,6 +1,7 @@
 """Thin facade over the existing L1 writer and memory-only retrieval."""
 
 import asyncio
+import os
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
@@ -68,6 +69,11 @@ class EngineMemoryService:
 
     def __init__(self, reply_model: str = "qwen3.7-flash"):
         self.reply_model = reply_model
+        self.source_store = None
+        if os.getenv("TIMEM_SOURCE_EVIDENCE", "").strip().lower() in {"1", "true", "on"}:
+            from server.source_evidence import SourceStore
+
+            self.source_store = SourceStore(os.getenv("TIMEM_SOURCE_EVIDENCE_PATH", "data/source_evidence.sqlite"))
 
     async def add(
         self,
@@ -103,6 +109,15 @@ class EngineMemoryService:
             })
             if not result.get("success"):
                 raise RuntimeError(result.get("error") or "L1 generation failed")
+            if self.source_store is not None:
+                memories = result.get("generated_memories") or []
+                if len(memories) != 1:
+                    raise RuntimeError("Source evidence requires exactly one generated L1 memory")
+                memory = memories[0]
+                memory_id = memory.get("id") if isinstance(memory, dict) else getattr(memory, "id", None)
+                if not memory_id:
+                    raise RuntimeError("Generated L1 memory has no id")
+                await asyncio.to_thread(self.source_store.put, user_id, str(memory_id), session_id, messages)
             asyncio.create_task(self._backfill(user_id))
 
     async def _backfill(self, user_id: str) -> None:
@@ -153,13 +168,18 @@ class EngineMemoryService:
                 records.append(item)
         from timem.memory_graph.recall import merge_search_results
 
-        return await merge_search_results(
+        records = await merge_search_results(
             records,
             user_id=user_id,
             expert_id=EXPERT_ID,
             question=query,
             top_k=top_k,
         )
+        if self.source_store is not None:
+            from server.source_evidence import supplement
+
+            records = await asyncio.to_thread(supplement, self.source_store, user_id, query, records, top_k)
+        return records
 
     async def list_memories(
         self,

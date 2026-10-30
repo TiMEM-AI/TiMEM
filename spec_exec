@@ -3,6 +3,23 @@
 # 仅放置 pip wheel 缺失时需要编译/运行的系统包，避免污染 Dockerfile 主体。
 set -e
 
+# ============================================================
+# spec_exec: 系统依赖安装与资源下载（开发者按需填写命令）
+# Dockerfile 通过 RUN ./spec_exec 调用本脚本
+# ============================================================
+
+# ---------- 1. 配置 apt 镜像加速 ----------
+if [ -f /etc/apt/sources.list.d/debian.sources ]; then
+    # Debian 12 及以上新格式
+    sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list.d/debian.sources
+    sed -i 's|security.debian.org|mirrors.aliyun.com/debian-security|g' /etc/apt/sources.list.d/debian.sources
+elif [ -f /etc/apt/sources.list ]; then
+    # Debian 11 及以下旧格式
+    sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list
+    sed -i 's|security.debian.org|mirrors.aliyun.com/debian-security|g' /etc/apt/sources.list
+fi
+
+# ---------- 2. 安装 apt 系统依赖 ----------
 apt-get update
 apt-get install -y --no-install-recommends libpq5
 rm -rf /var/lib/apt/lists/*

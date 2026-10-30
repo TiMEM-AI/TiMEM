@@ -290,6 +290,9 @@ class PostgreSQLStore(UnifiedStorageInterface):
             
             # Fix: Default configuration should be read from configuration file, only use default value if not in configuration file
             # Prefer values in configuration file to ensure production environment configuration takes effect
+            from storage.postgres_env import apply_postgres_env
+
+            postgres_config = apply_postgres_env(dict(postgres_config))
             self.config = {
                 'host': postgres_config.get('host', 'localhost'),
                 'port': postgres_config.get('port', 5432),

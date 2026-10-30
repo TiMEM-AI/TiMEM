@@ -170,6 +170,10 @@ class UnifiedConnectionManager:
         # PostgreSQL configuration
         postgres_config = storage_config.get("sql", {}).get("postgres", {})
         if postgres_config:
+            # Same precedence as storage/connection_pool_manager.py: env beats the YAML.
+            from storage.postgres_env import apply_postgres_env
+
+            postgres_config = apply_postgres_env(dict(postgres_config))
             configs[ConnectionPoolType.POSTGRES] = ConnectionPoolConfig(
                 pool_type=ConnectionPoolType.POSTGRES,
                 host=postgres_config.get("host", "localhost"),

@@ -7,8 +7,6 @@ import os
 import time
 import asyncio
 from typing import List, Dict, Any, Optional, AsyncIterator
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
 import numpy as np
 
 from .base_llm import (
@@ -65,6 +63,16 @@ class QwenLocalAdapter(BaseLLM):
     def _initialize_model(self):
         """Initialize model and tokenizer"""
         try:
+            # Lazy import: torch/transformers only for local qwen_local provider
+            try:
+                import torch
+                from transformers import AutoTokenizer, AutoModelForCausalLM
+            except ImportError as e:
+                raise ImportError(
+                    "torch and transformers are required for qwen_local; "
+                    "install optional local-model deps or use an API LLM provider"
+                ) from e
+
             if not os.path.exists(self.model_path):
                 raise FileNotFoundError(f"Model path does not exist: {self.model_path}")
             

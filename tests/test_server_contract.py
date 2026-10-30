@@ -33,10 +33,21 @@ class FakeMemory:
         return {"reply": f"echo {message}", "memories": []}
 
 
-def _client(tmp_path, mode="local"):
-    settings = ServerSettings(api_key="secret", deploy_mode=mode, host="127.0.0.1", port=8000)
+def _client(tmp_path, mode="local", admin_secret=""):
+    settings = ServerSettings(
+        api_key="secret",
+        deploy_mode=mode,
+        host="127.0.0.1",
+        port=8000,
+        admin_secret=admin_secret,
+        runtime_overrides_path=str(tmp_path / "runtime_overrides.json"),
+    )
     store = IdempotencyStore(str(tmp_path / "adds.sqlite"))
-    models = ModelSettingsStore(str(tmp_path / "models.json"))
+    from server.runtime_overrides import RuntimeOverridesStore
+    models = ModelSettingsStore(
+        str(tmp_path / "models.json"),
+        overrides=RuntimeOverridesStore(str(tmp_path / "runtime_overrides.json")),
+    )
     memory = FakeMemory()
     return TestClient(create_app(memory, settings, store, models)), memory, models
 
@@ -226,3 +237,68 @@ def test_server_mode_model_settings_require_key(tmp_path):
     assert client.get("/v1/settings/models").status_code == 401
     ok = client.get("/v1/settings/models", headers={"X-Api-Key": "secret"})
     assert ok.status_code == 200
+
+
+def test_admin_required_for_runtime_models(tmp_path):
+    client, memory, models = _client(tmp_path, admin_secret="admin-secret")
+    denied = client.put("/v1/admin/runtime-models", json={"memory_model": "deepseek-v4.1-flash"})
+    assert denied.status_code == 401
+    with_api = client.put(
+        "/v1/admin/runtime-models",
+        headers={"X-Api-Key": "secret"},
+        json={"memory_model": "deepseek-v4.1-flash"},
+    )
+    assert with_api.status_code == 401
+    ok = client.put(
+        "/v1/admin/runtime-models",
+        headers={"X-Admin-Key": "admin-secret"},
+        json={"memory_model": "deepseek-v4.1-flash"},
+    )
+    assert ok.status_code == 200
+    assert ok.json()["memory_model"] == "deepseek-v4.1-flash"
+    assert ok.json()["source"] == "override"
+    client.post(
+        "/aml/add",
+        headers={"X-Api-Key": "secret"},
+        json={
+            "request_id": "req-hot",
+            "user_id": "u",
+            "session_id": "s",
+            "messages": [{"role": "user", "content": "hi"}],
+        },
+    )
+    assert memory.adds[-1][3] == "deepseek-v4.1-flash"
+
+
+def test_registration_key_cannot_write_runtime_models(tmp_path):
+    client, _, _ = _client(tmp_path, mode="server", admin_secret="admin-secret")
+    denied = client.put(
+        "/v1/settings/models",
+        headers={"X-Api-Key": "secret"},
+        json={"reply_model": "qwen3.7-flash", "memory_model": "custom-mem"},
+    )
+    assert denied.status_code == 401
+    allowed = client.put(
+        "/v1/settings/models",
+        headers={"X-Admin-Key": "admin-secret"},
+        json={"reply_model": "qwen3.7-flash", "memory_model": "custom-mem"},
+    )
+    assert allowed.status_code == 200
+
+
+def test_runtime_override_rejects_embed_keys(tmp_path):
+    client, _, _ = _client(tmp_path, admin_secret="admin-secret")
+    # Pydantic forbids unknown keys on RuntimeModelsBody; also store rejects if passed.
+    bad = client.put(
+        "/v1/admin/runtime-models",
+        headers={"X-Admin-Key": "admin-secret"},
+        json={"memory_model": "x", "embed_model": "evil"},
+    )
+    assert bad.status_code == 422
+
+
+def test_admin_login(tmp_path):
+    client, _, _ = _client(tmp_path, admin_secret="admin-secret")
+    assert client.post("/v1/admin/login", json={"password": "wrong"}).status_code == 401
+    assert client.post("/v1/admin/login", json={"password": "admin-secret"}).json()["ok"] is True
+

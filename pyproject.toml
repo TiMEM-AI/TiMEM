@@ -59,6 +59,9 @@ dependencies = [
     "psycopg2-binary>=2.9.0",
     "SQLAlchemy>=2.0.0",
     "qdrant-client>=1.15.0",
+    "neo4j>=5.15.0",
+    "greenlet>=3.0.3",
+    "redis>=5.0.0",
     "aiohttp>=3.10.0",
     "aiofiles>=23.0.0",
     "aiosignal>=1.4.0",
@@ -127,3 +130,4 @@ exclude = ["tests*", "experiments*", "cloud-service*"]
 
 [tool.setuptools.package-data]
 "*" = ["*.yaml", "*.yml", "*.json", "*.sql", "*.conf", "*.md"]
+
