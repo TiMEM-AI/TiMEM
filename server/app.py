@@ -11,6 +11,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from server.idempotency import IdempotencyStore
 from server.model_settings import ModelSettingsStore
+from server.runtime_overrides import RuntimeOverridesStore, reject_forbidden_body
 from server.settings import ServerSettings
 
 DIST_DIR = Path(__file__).resolve().parents[1] / "frontend" / "dist"
@@ -80,6 +81,18 @@ class ModelSettingsBody(BaseModel):
     dimensions: int = 0
 
 
+class AdminLoginBody(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    password: str = ""
+
+
+class RuntimeModelsBody(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    memory_model: str = ""
+    clear: bool = False
+    updated_by: str = "admin"
+
+
 class VerifyModelBody(BaseModel):
     model_config = ConfigDict(extra="forbid")
     model: str = ""
@@ -119,7 +132,25 @@ def create_app(
 ) -> FastAPI:
     app = FastAPI(title="TiMem")
     store = idempotency
-    models = model_settings or ModelSettingsStore("data/model_settings.json")
+    overrides_path = getattr(settings, "runtime_overrides_path", None) or "data/runtime_overrides.json"
+    if model_settings is None:
+        models = ModelSettingsStore(
+            "data/model_settings.json",
+            overrides=RuntimeOverridesStore(overrides_path),
+        )
+    else:
+        models = model_settings
+        if models.overrides is None:
+            models.overrides = RuntimeOverridesStore(overrides_path)
+
+    def _extract_admin(request: Request) -> str:
+        header = request.headers.get("x-admin-key", "").strip()
+        if header:
+            return header
+        auth = request.headers.get("authorization", "")
+        if auth.lower().startswith("bearer "):
+            return auth[7:].strip()
+        return ""
 
     def require_key(request: Request) -> None:
         if not settings.api_key:
@@ -131,13 +162,32 @@ def create_app(
         if settings.chat_requires_key:
             require_key(request)
 
+    def require_admin(request: Request) -> None:
+        secret = (getattr(settings, "admin_secret", None) or "").strip()
+        if not secret:
+            raise HTTPException(status_code=503, detail="TIMEM_ADMIN_PASSWORD is not set")
+        if _extract_admin(request) != secret:
+            raise HTTPException(status_code=401, detail="invalid admin key")
+
+    def require_settings_access(request: Request) -> None:
+        """Model settings UI: admin when configured; else legacy chat/api key rules."""
+        if getattr(settings, "admin_configured", False):
+            require_admin(request)
+            return
+        require_chat_key(request)
+
     @app.get("/health")
     async def health():
         return {"status": "ok"}
 
     @app.get("/v1/bootstrap")
     async def bootstrap():
-        return {"chat_requires_key": settings.chat_requires_key, "deploy_mode": settings.deploy_mode}
+        return {
+            "chat_requires_key": settings.chat_requires_key,
+            "deploy_mode": settings.deploy_mode,
+            "admin_auth_configured": bool(getattr(settings, "admin_configured", False)),
+            "aml_lock_models": bool(getattr(settings, "aml_lock_models", False)),
+        }
 
     @app.get("/")
     async def index():
@@ -246,12 +296,12 @@ def create_app(
 
     @app.get("/v1/settings/models")
     async def get_model_settings(request: Request):
-        require_chat_key(request)
+        require_settings_access(request)
         return models.get()
 
     @app.put("/v1/settings/models")
     async def put_model_settings(body: ModelSettingsBody, request: Request):
-        require_chat_key(request)
+        require_settings_access(request)
         try:
             if body.target:
                 return models.update_target(body.target, body.model, body.base_url, body.api_key, body.dimensions)
@@ -261,7 +311,7 @@ def create_app(
 
     @app.post("/v1/settings/models/verify")
     async def verify_model(body: VerifyModelBody, request: Request):
-        require_chat_key(request)
+        require_settings_access(request)
         creds = models.credentials()
         if body.target == "embed":
             base_url = (body.base_url or creds["embed_base_url"]).strip()
@@ -302,6 +352,56 @@ def create_app(
         except Exception as exc:
             return {"ok": False, "message": str(exc)[:300]}
         return {"ok": True, "message": f"模型可用：{(response.content or 'ok')[:80]}"}
+
+
+    @app.post("/v1/admin/login")
+    async def admin_login(body: AdminLoginBody):
+        secret = (getattr(settings, "admin_secret", None) or "").strip()
+        if not secret:
+            raise HTTPException(status_code=503, detail="TIMEM_ADMIN_PASSWORD is not set")
+        if (body.password or "").strip() != secret:
+            raise HTTPException(status_code=401, detail="invalid admin key")
+        return {"ok": True, "admin_auth_configured": True}
+
+    @app.get("/v1/admin/runtime-models")
+    async def get_runtime_models(request: Request):
+        require_admin(request)
+        resolved = models.aml_memory_model_resolved()
+        snap = models.overrides.snapshot() if models.overrides else {}
+        return {
+            "memory_model": resolved["memory_model"],
+            "source": resolved["source"],
+            "env_default": resolved["env_default"],
+            "override": snap,
+            "locked": bool(getattr(settings, "aml_lock_models", False)),
+        }
+
+    @app.put("/v1/admin/runtime-models")
+    async def put_runtime_models(body: RuntimeModelsBody, request: Request):
+        require_admin(request)
+        if getattr(settings, "aml_lock_models", False):
+            raise HTTPException(status_code=403, detail="AML models are locked (TIMEM_AML_LOCK_MODELS)")
+        if models.overrides is None:
+            raise HTTPException(status_code=500, detail="runtime overrides store is not configured")
+        payload = body.model_dump()
+        try:
+            reject_forbidden_body(payload)
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
+        try:
+            if body.clear:
+                models.overrides.clear_memory_model(updated_by=body.updated_by or "admin")
+            else:
+                models.overrides.set_memory_model(body.memory_model, updated_by=body.updated_by or "admin")
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
+        resolved = models.aml_memory_model_resolved()
+        return {
+            "ok": True,
+            "memory_model": resolved["memory_model"],
+            "source": resolved["source"],
+            "env_default": resolved["env_default"],
+        }
 
     @app.post("/aml/add")
     async def aml_add(body: AddBody, request: Request):

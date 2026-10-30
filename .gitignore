@@ -102,3 +102,18 @@ D:/LLM/
 D:\LLM\
 *.bin
 *.safetensors
+
+# local secrets / runtime overrides
+.aml_admin_password.txt
+
+# local secrets / runtime overrides
+.aml_memory_system_key.txt
+
+# local secrets / runtime overrides
+.env.aml.for-ops
+
+# local secrets / runtime overrides
+data/runtime_overrides.json
+
+# local secrets / runtime overrides
+data/model_switch_audit.jsonl

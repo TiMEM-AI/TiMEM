@@ -4,10 +4,13 @@ import json
 import os
 from pathlib import Path
 
+from server.runtime_overrides import RuntimeOverridesStore
+
 
 class ModelSettingsStore:
-    def __init__(self, path: str):
+    def __init__(self, path: str, overrides: RuntimeOverridesStore | None = None):
         self.path = Path(path)
+        self.overrides = overrides
         self.reply_default = os.getenv("XINGLIU_REPLY_MODEL", "qwen3.7-flash")
         self.memory_default = os.getenv("XINGLIU_CHAT_MODEL", "glm-5.3-flash")
         self.base_default = (
@@ -20,7 +23,18 @@ class ModelSettingsStore:
         self.embed_dim = int(os.getenv("XINGLIU_EMBED_DIM", "2048"))
 
     def aml_memory_model(self) -> str:
-        return os.getenv("XINGLIU_CHAT_MODEL", "glm-5.3-flash")
+        env_default = os.getenv("XINGLIU_CHAT_MODEL", "glm-5.3-flash")
+        if self.overrides is not None:
+            model, _source = self.overrides.resolve_memory_model(env_default)
+            return model
+        return env_default
+
+    def aml_memory_model_resolved(self) -> dict:
+        env_default = os.getenv("XINGLIU_CHAT_MODEL", "glm-5.3-flash")
+        if self.overrides is not None:
+            model, source = self.overrides.resolve_memory_model(env_default)
+            return {"memory_model": model, "source": source, "env_default": env_default}
+        return {"memory_model": env_default, "source": "env", "env_default": env_default}
 
     def _saved(self) -> dict:
         if not self.path.is_file():

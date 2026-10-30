@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const PRESETS = ["qwen3.7-flash", "glm-5.3-flash"];
+const PRESETS = ["qwen3.7-flash", "glm-5.3-flash", "deepseek-v4.1-flash", "gpt-4o-mini"];
 const LEVELS = [
   { id: "", label: "全部" },
   { id: "L1", label: "L1 片段" },
@@ -20,6 +20,15 @@ export default function App() {
   const [userId, setUserId] = useState("local-user");
   const [apiKey, setApiKey] = useState("");
   const [needsKey, setNeedsKey] = useState(false);
+  const [adminConfigured, setAdminConfigured] = useState(false);
+  const [adminPassword, setAdminPassword] = useState("");
+  const [adminAuthed, setAdminAuthed] = useState(false);
+  const [adminNote, setAdminNote] = useState("");
+  const [amlModel, setAmlModel] = useState("");
+  const [amlSource, setAmlSource] = useState("");
+  const [amlEnvDefault, setAmlEnvDefault] = useState("");
+  const [amlDraft, setAmlDraft] = useState("");
+  const [amlNote, setAmlNote] = useState("");
   const [message, setMessage] = useState("");
   const [log, setLog] = useState([]);
   const [modelTarget, setModelTarget] = useState("reply");
@@ -51,16 +60,34 @@ export default function App() {
     return result;
   }
 
+  function adminHeaders(json = true) {
+    const result = headers(json);
+    if (adminPassword) result["X-Admin-Key"] = adminPassword;
+    return result;
+  }
+
+  function settingsHeaders(json = true) {
+    if (adminConfigured) return adminHeaders(json);
+    return headers(json);
+  }
+
   useEffect(() => {
     fetch("/v1/bootstrap")
       .then((response) => response.json())
-      .then((data) => setNeedsKey(!!data.chat_requires_key))
-      .catch(() => setNeedsKey(false));
+      .then((data) => {
+        setNeedsKey(!!data.chat_requires_key);
+        setAdminConfigured(!!data.admin_auth_configured);
+      })
+      .catch(() => {
+        setNeedsKey(false);
+        setAdminConfigured(false);
+      });
   }, []);
 
   useEffect(() => {
-    if (needsKey && !apiKey) return;
-    fetch("/v1/settings/models", { headers: headers() })
+    if (adminConfigured && !adminAuthed) return;
+    if (!adminConfigured && needsKey && !apiKey) return;
+    fetch("/v1/settings/models", { headers: settingsHeaders() })
       .then((response) => (response.ok ? response.json() : null))
       .then((data) => {
         if (!data) return;
@@ -71,7 +98,87 @@ export default function App() {
         setEmbedDim(data.embed_dim ?? 2048);
       })
       .catch(() => {});
-  }, [needsKey, apiKey]);
+  }, [needsKey, apiKey, adminConfigured, adminAuthed, adminPassword]);
+
+  async function loadAmlRuntime() {
+    if (!adminAuthed || !adminPassword) return;
+    const response = await fetch("/v1/admin/runtime-models", { headers: adminHeaders(false) });
+    if (!response.ok) {
+      setAmlNote(response.status === 401 ? "管理员口令无效。" : "读不到比赛接口模型。");
+      return;
+    }
+    const data = await response.json();
+    setAmlModel(data.memory_model || "");
+    setAmlSource(data.source || "");
+    setAmlEnvDefault(data.env_default || "");
+    setAmlDraft(data.memory_model || "");
+    setAmlNote("");
+  }
+
+  useEffect(() => {
+    if (panel === "models" && adminAuthed) loadAmlRuntime();
+  }, [panel, adminAuthed, adminPassword]);
+
+  async function loginAdmin(event) {
+    event.preventDefault();
+    setAdminNote("验证中…");
+    const response = await fetch("/v1/admin/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password: adminPassword }),
+    });
+    if (!response.ok) {
+      setAdminAuthed(false);
+      setAdminNote("管理员口令错误。");
+      return;
+    }
+    setAdminAuthed(true);
+    setAdminNote("已登录管理员。");
+  }
+
+  function logoutAdmin() {
+    setAdminAuthed(false);
+    setAdminPassword("");
+    setAdminNote("已退出管理员。");
+    setAmlNote("");
+  }
+
+  async function applyAmlModel(event) {
+    event.preventDefault();
+    setAmlNote("写入中…");
+    const response = await fetch("/v1/admin/runtime-models", {
+      method: "PUT",
+      headers: adminHeaders(),
+      body: JSON.stringify({ memory_model: amlDraft, updated_by: "ui" }),
+    });
+    const payload = await response.json();
+    if (!response.ok) {
+      setAmlNote(`应用失败：${JSON.stringify(payload)}`);
+      return;
+    }
+    setAmlModel(payload.memory_model || "");
+    setAmlSource(payload.source || "override");
+    setAmlEnvDefault(payload.env_default || amlEnvDefault);
+    setAmlNote(`已应用到比赛接口：${payload.memory_model}（来源 ${payload.source}，无需重启）`);
+  }
+
+  async function clearAmlOverride() {
+    setAmlNote("清除中…");
+    const response = await fetch("/v1/admin/runtime-models", {
+      method: "PUT",
+      headers: adminHeaders(),
+      body: JSON.stringify({ clear: true, updated_by: "ui" }),
+    });
+    const payload = await response.json();
+    if (!response.ok) {
+      setAmlNote(`清除失败：${JSON.stringify(payload)}`);
+      return;
+    }
+    setAmlModel(payload.memory_model || "");
+    setAmlSource(payload.source || "env");
+    setAmlDraft(payload.memory_model || "");
+    setAmlNote(`已清除覆盖，比赛接口回落 ${payload.memory_model}（${payload.source}）`);
+  }
 
   async function loadMemories() {
     const params = new URLSearchParams({
@@ -133,7 +240,7 @@ export default function App() {
     const slot = slots[modelTarget];
     const response = await fetch("/v1/settings/models", {
       method: "PUT",
-      headers: headers(),
+      headers: settingsHeaders(),
       body: JSON.stringify({
         target: modelTarget,
         model: slot.model,
@@ -146,7 +253,7 @@ export default function App() {
     if (response.ok && payload[modelTarget]) {
       setSlots((prev) => ({ ...prev, [modelTarget]: payload[modelTarget] }));
       setDraftKeys((prev) => ({ ...prev, [modelTarget]: "" }));
-      setSettingsNote("已保存。这一项下次就会用新的配置。");
+      setSettingsNote("已保存到控制台配置。这不影响比赛接口，除非你点「应用到比赛接口」。");
     } else {
       setSettingsNote(`保存失败：${JSON.stringify(payload)}`);
     }
@@ -157,7 +264,7 @@ export default function App() {
     setCheckNote("验证中…");
     const response = await fetch("/v1/settings/models/verify", {
       method: "POST",
-      headers: headers(),
+      headers: settingsHeaders(),
       body: JSON.stringify({
         target: modelTarget,
         model: slot.model,
@@ -189,6 +296,8 @@ export default function App() {
         : { role: "error", text: JSON.stringify(payload) },
     ]);
   }
+
+  const modelsLocked = adminConfigured && !adminAuthed;
 
   return (
     <div className="shell">
@@ -314,68 +423,124 @@ export default function App() {
           <>
             <header className="stage-head">
               <h1>模型</h1>
-              <p>按 OpenAI 兼容接口填写地址和 Key。对话模型负责页面里的回复，记忆模型负责写入和检索。</p>
+              <p>
+                {adminConfigured
+                  ? "模型页需要管理员口令。控制台配置与比赛接口分开；只有「应用到比赛接口」会改 /aml/*。"
+                  : "按 OpenAI 兼容接口填写地址和 Key。对话模型负责页面回复，记忆模型负责写入和检索。"}
+              </p>
             </header>
-            <form className="settings" onSubmit={saveModels}>
-              <div className="switch">
-                <button type="button" className={modelTarget === "reply" ? "on" : ""} onClick={() => { setModelTarget("reply"); setCheckNote(""); setSettingsNote(""); }}>
-                  对话模型
-                </button>
-                <button type="button" className={modelTarget === "memory" ? "on" : ""} onClick={() => { setModelTarget("memory"); setCheckNote(""); setSettingsNote(""); }}>
-                  记忆模型
-                </button>
-                <button type="button" className={modelTarget === "embed" ? "on" : ""} onClick={() => { setModelTarget("embed"); setCheckNote(""); setSettingsNote(""); }}>
-                  向量模型
-                </button>
-              </div>
-              <label>
-                接口地址
-                <input
-                  value={slots[modelTarget].base_url}
-                  onChange={(event) => patchSlot("base_url", event.target.value)}
-                  placeholder="https://api.openai.com/v1"
-                />
-              </label>
-              <label>
-                API Key
-                <input
-                  type="password"
-                  value={draftKeys[modelTarget]}
-                  placeholder={slots[modelTarget].api_key_set ? "已保存，留空则不修改" : "sk-..."}
-                  onChange={(event) => setDraftKeys((prev) => ({ ...prev, [modelTarget]: event.target.value }))}
-                />
-              </label>
-              <label>
-                模型名
-                <input
-                  list="model-presets"
-                  value={slots[modelTarget].model}
-                  onChange={(event) => patchSlot("model", event.target.value)}
-                />
-              </label>
-              {modelTarget === "embed" ? (
-                <>
+            {modelsLocked ? (
+              <form className="settings" onSubmit={loginAdmin}>
+                <label>
+                  管理员口令
+                  <input
+                    type="password"
+                    value={adminPassword}
+                    onChange={(event) => setAdminPassword(event.target.value)}
+                    placeholder="TIMEM_ADMIN_PASSWORD"
+                  />
+                </label>
+                <button type="submit">管理员登录</button>
+                {adminNote ? <p className="embed">{adminNote}</p> : null}
+              </form>
+            ) : (
+              <>
+                {adminConfigured ? (
+                  <div className="settings" style={{ marginBottom: "1.5rem" }}>
+                    <p className="embed">
+                      比赛接口当前记忆模型：<strong>{amlModel || "…"}</strong>
+                      {amlSource ? `（来源 ${amlSource}）` : ""}
+                      {amlEnvDefault ? `；环境默认 ${amlEnvDefault}` : ""}
+                    </p>
+                    <label>
+                      比赛记忆模型
+                      <input
+                        list="model-presets"
+                        value={amlDraft}
+                        onChange={(event) => setAmlDraft(event.target.value)}
+                      />
+                    </label>
+                    <button type="button" onClick={applyAmlModel}>应用到比赛接口</button>
+                    <button type="button" onClick={clearAmlOverride}>清除覆盖（回落环境变量）</button>
+                    <button type="button" onClick={logoutAdmin}>退出管理员</button>
+                    {amlNote ? <p className="embed">{amlNote}</p> : null}
+                    {adminNote ? <p className="embed">{adminNote}</p> : null}
+                  </div>
+                ) : null}
+                <form className="settings" onSubmit={saveModels}>
+                  <p className="embed">以下仅影响控制台 /v1（对话与产品接口），默认不改比赛 /aml/*。</p>
+                  <div className="switch">
+                    <button type="button" className={modelTarget === "reply" ? "on" : ""} onClick={() => { setModelTarget("reply"); setCheckNote(""); setSettingsNote(""); }}>
+                      对话模型
+                    </button>
+                    <button type="button" className={modelTarget === "memory" ? "on" : ""} onClick={() => { setModelTarget("memory"); setCheckNote(""); setSettingsNote(""); }}>
+                      记忆模型
+                    </button>
+                    <button type="button" className={modelTarget === "embed" ? "on" : ""} onClick={() => { setModelTarget("embed"); setCheckNote(""); setSettingsNote(""); }}>
+                      向量模型
+                    </button>
+                  </div>
                   <label>
-                    向量维度
+                    接口地址
                     <input
-                      type="number"
-                      value={slots.embed.dimensions || 2048}
-                      onChange={(event) => patchSlot("dimensions", Number(event.target.value) || 0)}
+                      value={slots[modelTarget].base_url}
+                      onChange={(event) => patchSlot("base_url", event.target.value)}
+                      placeholder="https://api.openai.com/v1"
                     />
                   </label>
-                  <p className="embed">更换向量模型或维度后，已有向量对不上，需要重建向量库。</p>
-                </>
-              ) : null}
-              <datalist id="model-presets">
-                {PRESETS.map((name) => (
-                  <option key={name} value={name} />
-                ))}
-              </datalist>
-              <button type="button" onClick={verifyCurrent}>验证是否可用</button>
-              {checkNote ? <p className="embed">{checkNote}</p> : null}
-              <button type="submit">保存当前模型</button>
-              {settingsNote ? <p className="embed">{settingsNote}</p> : null}
-            </form>
+                  <label>
+                    API Key
+                    <input
+                      type="password"
+                      value={draftKeys[modelTarget]}
+                      placeholder={slots[modelTarget].api_key_set ? "已保存，留空则不修改" : "sk-..."}
+                      onChange={(event) => setDraftKeys((prev) => ({ ...prev, [modelTarget]: event.target.value }))}
+                    />
+                  </label>
+                  <label>
+                    模型名
+                    <input
+                      list="model-presets"
+                      value={slots[modelTarget].model}
+                      onChange={(event) => patchSlot("model", event.target.value)}
+                    />
+                  </label>
+                  {modelTarget === "embed" ? (
+                    <>
+                      <label>
+                        向量维度
+                        <input
+                          type="number"
+                          value={slots.embed.dimensions || 2048}
+                          onChange={(event) => patchSlot("dimensions", Number(event.target.value) || 0)}
+                        />
+                      </label>
+                      <p className="embed">向量模型不可热切到比赛接口；更换维度需要重建向量库。</p>
+                    </>
+                  ) : null}
+                  <datalist id="model-presets">
+                    {PRESETS.map((name) => (
+                      <option key={name} value={name} />
+                    ))}
+                  </datalist>
+                  <button type="button" onClick={verifyCurrent}>验证是否可用</button>
+                  {checkNote ? <p className="embed">{checkNote}</p> : null}
+                  <button type="submit">保存控制台模型</button>
+                  {modelTarget === "memory" && adminConfigured ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setAmlDraft(slots.memory.model);
+                        setAmlNote("已填入上方比赛模型框，请再点「应用到比赛接口」。");
+                      }}
+                    >
+                      填入比赛模型框
+                    </button>
+                  ) : null}
+                  {settingsNote ? <p className="embed">{settingsNote}</p> : null}
+                </form>
+              </>
+            )}
           </>
         ) : null}
       </section>

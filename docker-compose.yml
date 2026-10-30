@@ -157,6 +157,7 @@ services:
       - NEO4J_USER=neo4j
       - TIMEM_IDEMPOTENCY_PATH=/app/data/aml_adds.sqlite
       - TIMEM_MODEL_SETTINGS_PATH=/app/data/model_settings.json
+      - TIMEM_RUNTIME_OVERRIDES_PATH=/app/data/runtime_overrides.json
     networks:
       - project-network
     volumes:
