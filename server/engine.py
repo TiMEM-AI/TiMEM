@@ -70,7 +70,9 @@ class EngineMemoryService:
     def __init__(self, reply_model: str = "qwen3.7-flash"):
         self.reply_model = reply_model
         self.source_store = None
-        if os.getenv("TIMEM_SOURCE_EVIDENCE", "").strip().lower() in {"1", "true", "on"}:
+        # Default ON; only explicit 0/false/off disables SourceStore.
+        _source_flag = (os.getenv("TIMEM_SOURCE_EVIDENCE") or "1").strip().lower()
+        if _source_flag not in {"0", "false", "off"}:
             from server.source_evidence import SourceStore
 
             self.source_store = SourceStore(os.getenv("TIMEM_SOURCE_EVIDENCE_PATH", "data/source_evidence.sqlite"))

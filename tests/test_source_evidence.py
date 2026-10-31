@@ -85,9 +85,16 @@ async def test_engine_add_indexes_generated_native_memory(tmp_path, monkeypatch)
     assert service.source_store.search('bob', 'skincare') == []
 
 
-def test_disabled_by_default(monkeypatch):
+def test_enabled_by_default(monkeypatch, tmp_path):
     from server.engine import EngineMemoryService
     monkeypatch.delenv('TIMEM_SOURCE_EVIDENCE', raising=False)
+    monkeypatch.setenv('TIMEM_SOURCE_EVIDENCE_PATH', str(tmp_path / 'sources.sqlite'))
+    assert EngineMemoryService().source_store is not None
+
+
+def test_disabled_when_explicitly_off(monkeypatch):
+    from server.engine import EngineMemoryService
+    monkeypatch.setenv('TIMEM_SOURCE_EVIDENCE', '0')
     assert EngineMemoryService().source_store is None
 
 
