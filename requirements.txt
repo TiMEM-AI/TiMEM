@@ -1,4 +1,10 @@
 # TiMem Dependencies - Updated for Python 3.10 compatibility
+# ----------------------------------------------------------------------------
+# Deploy note (optional hardening): prefer pinning critical runtime packages with
+# == after a known-good deploy (or generate a lock via pip freeze) so deps image
+# rebuilds are reproducible. Do not wholesale re-pin without a smoke test —
+# >= ranges below are intentional for open-source flexibility.
+# ----------------------------------------------------------------------------
 # ============================================================================
 # Core AI/ML Framework
 # ============================================================================

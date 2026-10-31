@@ -1,0 +1,7 @@
+# Deploy / container shell hooks must stay LF (CRLF breaks shebang in Linux images)
+spec_exec text eol=lf
+deploy/*.sh text eol=lf
+deploy/*.sh.example text eol=lf
+*.sh text eol=lf
+Dockerfile text eol=lf
+Dockerfile.deps text eol=lf

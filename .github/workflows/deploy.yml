@@ -59,6 +59,9 @@ jobs:
       - name: Deploy with Docker Compose
         run: |
           # 远程脚本将执行以下操作：
+          # - 推荐：在服务器 deploy_run.sh 内调用仓库 deploy/build_app.sh
+          #   （按 requirements/spec_exec 哈希复用 ${PROJECT_NAME}_deps 镜像，避免每次全量 pip）
+          #   示例见 deploy/deploy_run.sh.example
           # - docker-compose.yml 文件中动态添加 app.depends_on 配置，确保 app 服务在依赖服务启动后启动
           # - 如果缺失，自动拉取并启动 mysql/redis/chroma 等依赖服务
           # - 总是构建并启动 app 服务，确保应用服务正常运行

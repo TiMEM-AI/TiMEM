@@ -122,3 +122,40 @@ TIMEM_RUNTIME_OVERRIDES_PATH=data/runtime_overrides.json
 ```
 
 报名 Memory System Key **不能**改比赛模型；只有管理员口令可以。
+
+## 9. 部署构建加速（deps 基础镜像）
+
+线上慢的主要原因曾是：Dockerfile 用 `RUN --mount=type=bind` 挂**整个构建上下文**，任意改 yaml/代码都会让 apt + `pip install` 缓存失效，每次远端 `docker compose build app` 重装依赖约 2～3 分钟。
+
+当前策略：
+
+| 项 | 说明 |
+|----|------|
+| A | 只 `COPY spec_exec` / `requirements.txt`，不再整仓 bind mount |
+| B | `Dockerfile.deps` 打 deps 镜像；日常 app 镜像 `FROM` deps，只拷代码 + `pip install --no-deps -e .` |
+| 脚本 | 仓库内 `deploy/build_app.sh`：按 `Dockerfile.deps` + `spec_exec` + `requirements.txt` + `pyproject.toml` 内容哈希打 tag；镜像已存在则**跳过** deps 重建 |
+| 兼容 | 仍可直接 `DOCKER_BUILDKIT=1 docker compose build app`（默认 `DEPS_IMAGE=deps` 用同文件内 deps 阶段，改 yaml 时 pip 层应 CACHED） |
+
+**服务器 `deploy_run.sh`（root 家目录）请改为调用构建脚本**，示例见 `deploy/deploy_run.sh.example`。关键片段：
+
+```bash
+cd /www/wwwroot/${PROJECT_NAME}_${BRANCH_NAME}
+bash deploy/build_app.sh          # 替代裸 docker compose build app
+docker compose up -d app autoheal
+```
+
+**本机验收（改配置不应重装 pip）：**
+
+```bash
+export PROJECT_NAME=timem_aml COMMIT=test1
+bash deploy/build_app.sh
+# 再随意改一个 yaml 后：
+export COMMIT=test2
+bash deploy/build_app.sh
+# 日志中 requirements 的 pip install / Dockerfile.deps 应跳过或显示 CACHED
+```
+
+可选（C）：在已知良好版本后对关键包改用 `==` 或 `pip freeze` 锁文件，利于 deps 镜像复现；不要无回归测试地整表改版本。
+
+清理：可保留多个 `${PROJECT_NAME}_deps:<hash>`；不要对 deps 做激进 `docker image prune`，否则会被迫重装 pip。
+

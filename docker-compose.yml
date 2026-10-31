@@ -131,13 +131,28 @@ services:
     labels:
       - autoheal_${PROJECT_NAME}=true
 
+  # Optional: docker compose --profile build-deps build deps
+  # Prefer deploy/build_app.sh which tags deps by content hash and skips rebuild.
+  deps:
+    profiles: ["build-deps"]
+    build:
+      context: .
+      dockerfile: Dockerfile.deps
+      args:
+        BUILDKIT_INLINE_CACHE: 1
+    image: "${PROJECT_NAME}_deps:${DEPS_TAG:-latest}"
+    pull_policy: never
+
   # Service name must stay "app" — deploy.yml injects depends_on under this key
   app:
     pull_policy: never
     build:
       context: .
+      dockerfile: Dockerfile
       args:
         BUILDKIT_INLINE_CACHE: 1
+        # Default stage name "deps" inside Dockerfile when unset; build_app.sh sets a tagged image.
+        DEPS_IMAGE: "${DEPS_IMAGE:-deps}"
     image: "${PROJECT_NAME}_app:${COMMIT:-latest}"
     container_name: "${PROJECT_NAME}_app"
     ports:

@@ -1,0 +1,32 @@
+# syntax=docker/dockerfile:1.4
+# TiMEM AML dependency base image: system packages + pip install -r requirements.txt
+# Rebuild only when requirements.txt / spec_exec / this file change.
+# Tag example: docker build -f Dockerfile.deps -t ${PROJECT_NAME}_deps:<hash> .
+# Prefer deploy/build_app.sh which hashes inputs and skips rebuild when the tag exists.
+
+FROM python:3.11.10-slim
+WORKDIR /app
+
+ENV PIP_DEFAULT_TIMEOUT=600 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    TZ=UTC \
+    DEBIAN_FRONTEND=noninteractive \
+    TIMEM_DEPLOY_MODE=server \
+    TIMEM_HOST=0.0.0.0 \
+    TIMEM_PORT=8000
+
+RUN python -m pip install pip==23.3.1 --no-cache-dir
+
+# Only COPY spec_exec (not the whole context) so unrelated file edits do not bust apt cache
+COPY spec_exec ./
+RUN chmod +x spec_exec && sed -i "s/\r$//" spec_exec && ./spec_exec
+
+ENV PIP_INDEX_URL=https://mirrors.aliyun.com/pypi/simple/ \
+    PIP_EXTRA_INDEX_URL=https://mirrors.cloud.tencent.com/pypi/simple/
+
+COPY requirements.txt pyproject.toml ./
+RUN --mount=type=cache,target=/root/.cache/pip \
+    python -m pip install -r requirements.txt
+
+# Optional: add requirements_nodeps.txt + a RUN --no-deps here if needed.

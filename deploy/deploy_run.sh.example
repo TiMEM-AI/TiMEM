@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# EXAMPLE server-side deploy helper (install as ~/deploy_run.sh on the AML host).
+# The production workflow SSHes: PROJECT_NAME=... COMMIT=... ./deploy_run.sh
+# Key change vs older scripts: build app via deploy/build_app.sh so deps are reused.
+#
+# This file is an example — review paths against your host before replacing the live script.
+set -euo pipefail
+
+: "${PROJECT_NAME:?}"
+: "${COMMIT:?}"
+: "${BRANCH_NAME:?}"
+APP_PORT="${APP_PORT:-8000}"
+DEPEND_SERVICES="${DEPEND_SERVICES:-postgres qdrant neo4j app}"
+
+SITE="/www/wwwroot/${PROJECT_NAME}_${BRANCH_NAME}"
+CICD="/www/wwwroot/cicd/${PROJECT_NAME}_${BRANCH_NAME}"
+
+echo "[deploy_run] unpack ${CICD}/deploy.tgz → ${SITE}"
+mkdir -p "${SITE}"
+tar -xzf "${CICD}/deploy.tgz" -C "${SITE}"
+cp -f "${CICD}/deploy.env" "${SITE}/.env"
+chmod 600 "${SITE}/.env"
+
+cd "${SITE}"
+export PROJECT_NAME APP_PORT COMMIT BRANCH_NAME DEPEND_SERVICES
+export COMPOSE_PROJECT_NAME="${PROJECT_NAME}"
+
+# Bring up data plane first (names without app)
+deps_only="$(echo " ${DEPEND_SERVICES} " | sed 's/[[:space:]]app[[:space:]]/ /g; s/[[:space:]]\+/ /g; s/^ //; s/ $//')"
+if [[ -n "${deps_only}" ]]; then
+  docker compose up -d ${deps_only}
+fi
+
+if echo " ${DEPEND_SERVICES} " | grep -iq "[[:space:]]app[[:space:]]"; then
+  bash deploy/build_app.sh
+  docker compose up -d app autoheal
+fi
+
+# Keep a few old app tags; do not prune deps images aggressively
+docker images --filter=reference="${PROJECT_NAME}_app" -q | tail -n +9 | xargs -r docker rmi -f || true
+
+echo "[deploy_run] health:"
+curl -fsS "http://127.0.0.1:${APP_PORT}/health" || true
