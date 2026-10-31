@@ -22,7 +22,7 @@ memory_refiner:
     enabled: true
     fallback_count: 5
     min_original_count: 3
-  enabled: true # Enable, only disabled during ablation studies
+  enabled: false # Default off for AML eval (prompt/JSON retries caused Search timeouts); set true only for ablation
   llm_model: gpt-4o-mini
   llm_provider: openai
   max_tokens: 1024
