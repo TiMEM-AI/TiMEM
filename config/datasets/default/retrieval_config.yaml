@@ -47,7 +47,7 @@ retrieval:
     bm25_b: 0.75
     bm25_k1: 1.5
     weight: 0.1
-  max_execution_time: 180
+  max_execution_time: 1800
   semantic:
     score_threshold: 0.0
     weight: 0.9

@@ -2,7 +2,7 @@
 retrieval:
   use_v2_retrievers: true
   
-  max_execution_time: 180  
+  max_execution_time: 1800  
   
   semantic:
     weight: 0.9  
