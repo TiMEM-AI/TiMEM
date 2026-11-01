@@ -88,6 +88,9 @@ class MemoryGenerator:
         
         # Record the last final prompt used to call LLM for test reading
         self._last_prompt: Optional[str] = None
+        # Last dialogue/input excerpt + level for moderation HTTP 400 diagnostics
+        self._last_input_excerpt: Optional[str] = None
+        self._last_prompt_level: Optional[str] = None
         
         # [NEW] Record the last ChatResponse from LLM call for extracting token information
         self._last_chat_response: Optional[Any] = None
@@ -186,6 +189,104 @@ class MemoryGenerator:
             logger.warning(f"Failed to get global language configuration: {e}, using default 'en'")
             return "en"
 
+
+    # Competition/eval: upstream content-moderation HTTP 400 must not infinite-retry into 429.
+    CONTENT_MODERATION_MAX_ATTEMPTS = 3
+
+    @staticmethod
+    def _is_content_moderation_error(error_msg: str) -> bool:
+        """Detect upstream content-moderation / safety filter refusals (often HTTP 400)."""
+        msg = (error_msg or "").lower()
+        keywords = (
+            "inappropri",
+            "input text data may contain",
+            "content moderation",
+            "content_filter",
+            "content filter",
+            "safety filter",
+            "prompt blocked",
+            "内容审核",
+            "敏感内容",
+            "违规内容",
+        )
+        if any(k.lower() in msg for k in keywords):
+            return True
+        # HTTP 400 alone is not enough; require a moderation-ish signal nearby.
+        if "400" in msg and any(
+            k in msg for k in ("moderat", "inappropri", "sensitive", "safety", "审核", "敏感", "违规")
+        ):
+            return True
+        return False
+
+
+    @staticmethod
+    def _truncate_prompt_for_log(prompt: Optional[str], head: int = 2000, tail: int = 1000) -> str:
+        """Keep head+tail of a long prompt for ERROR logs / moderation side file."""
+        text = prompt or ""
+        if len(text) <= head + tail + 64:
+            return text
+        omitted = len(text) - head - tail
+        return f"{text[:head]}\n\n...[omitted {omitted} chars]...\n\n{text[-tail:]}"
+
+    def _log_moderation_context(
+        self,
+        operation_name: str,
+        attempt: int,
+        error_msg: str,
+        *,
+        final: bool = False,
+    ) -> None:
+        """On content-moderation HTTP 400: log input context and append side file next to prompts_l1."""
+        input_excerpt = self._last_input_excerpt or ""
+        prompt = self._last_prompt or ""
+        level = (self._last_prompt_level or "L?").upper()
+        prompt_for_log = self._truncate_prompt_for_log(prompt)
+        tag = "FINAL" if final else f"attempt={attempt}"
+        logger.error(
+            f"[MODERATION][{tag}] {operation_name} content moderation / HTTP 400 | "
+            f"level={level} | error={error_msg[:500]}"
+        )
+        logger.error(
+            f"[MODERATION][{tag}] input_excerpt (len={len(input_excerpt)}): "
+            f"{input_excerpt[:4000]}"
+        )
+        logger.error(
+            f"[MODERATION][{tag}] prompt (len={len(prompt)}, shown={len(prompt_for_log)}): "
+            f"{prompt_for_log}"
+        )
+        try:
+            os.makedirs("logs/tests", exist_ok=True)
+            log_path = os.path.join("logs/tests", f"moderation_{level.lower()}.jsonl")
+            record = {
+                "time": datetime.now().isoformat(),
+                "level": level,
+                "operation": operation_name,
+                "attempt": attempt,
+                "final": final,
+                "error": (error_msg or "")[:2000],
+                "input_excerpt": input_excerpt,
+                "prompt": prompt_for_log,
+                "prompt_full_len": len(prompt),
+            }
+            with open(log_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(record, ensure_ascii=False, indent=2))
+                f.write("\n\n")
+        except Exception:
+            # Side-file failure must not hide the original moderation error
+            pass
+
+    def _raise_content_moderation(
+        self, operation_name: str, attempt: int, error_msg: str, cause: BaseException
+    ) -> None:
+        self._log_moderation_context(operation_name, attempt, error_msg, final=True)
+        msg = (
+            f"{operation_name} aborted after {attempt} attempts due to upstream content moderation "
+            f"(HTTP 400 / Input text data may contain inappropri): {error_msg[:500]}"
+        )
+        logger.error(f"[MODERATION] {msg}")
+        raise RuntimeError(msg) from cause
+
+
     async def _retry_with_exponential_backoff_for_streaming(self, operation_func, layer: str, operation_name: str):
         """
         Retry mechanism designed specifically for streaming generation
@@ -222,6 +323,24 @@ class MemoryGenerator:
                 attempt += 1
                 error_msg = str(e)
                 error_msg_lower = error_msg.lower()
+                
+                # Content-moderation HTTP 400: limited retries then raise (do not skip; do not infinite-retry).
+                if self._is_content_moderation_error(error_msg):
+                    if attempt >= self.CONTENT_MODERATION_MAX_ATTEMPTS:
+                        self._raise_content_moderation(operation_name, attempt, error_msg, e)
+                    self._log_moderation_context(operation_name, attempt, error_msg, final=False)
+                    delay = min(2.0, self._calculate_backoff_delay(attempt))
+                    logger.warning(
+                        f"[MODERATION] {operation_name} attempt {attempt} content moderation / HTTP 400 "
+                        f"(inappropri): {error_msg[:160]}"
+                    )
+                    logger.warning(
+                        f"[RETRY] Retrying after {delay:.1f}s "
+                        f"(content moderation, max {self.CONTENT_MODERATION_MAX_ATTEMPTS} attempts then raise)"
+                    )
+                    await asyncio.sleep(delay)
+                    continue
+                
                 
                 # [SEARCH] Precisely identify error type
                 is_connection_error = any(keyword in error_msg_lower for keyword in [
@@ -293,6 +412,24 @@ class MemoryGenerator:
                 attempt += 1
                 error_msg = str(e)
                 error_msg_lower = error_msg.lower()
+                
+                # Content-moderation HTTP 400: limited retries then raise (do not skip; do not infinite-retry).
+                if self._is_content_moderation_error(error_msg):
+                    if attempt >= self.CONTENT_MODERATION_MAX_ATTEMPTS:
+                        self._raise_content_moderation(operation_name, attempt, error_msg, e)
+                    self._log_moderation_context(operation_name, attempt, error_msg, final=False)
+                    delay = min(2.0, self._calculate_backoff_delay(attempt))
+                    logger.warning(
+                        f"[MODERATION] {operation_name} attempt {attempt} content moderation / HTTP 400 "
+                        f"(inappropri): {error_msg[:160]}"
+                    )
+                    logger.warning(
+                        f"[RETRY] Retrying after {delay:.1f}s "
+                        f"(content moderation, max {self.CONTENT_MODERATION_MAX_ATTEMPTS} attempts then raise)"
+                    )
+                    await asyncio.sleep(delay)
+                    continue
+                
                 
                 # [SEARCH] Precisely identify error type
                 is_connection_error = any(keyword in error_msg_lower for keyword in [
@@ -414,11 +551,21 @@ class MemoryGenerator:
     def get_last_prompt(self) -> Optional[str]:
         return self._last_prompt
 
-    def _append_prompt_log(self, level: str, prompt: str, input_excerpt: str) -> None:
+    def _append_prompt_log(
+        self,
+        level: str,
+        prompt: str,
+        input_excerpt: str,
+        *,
+        input_full: Optional[str] = None,
+    ) -> None:
         """Append the final concatenated prompt to local log file (JSONL).
         - Use multi-line, well-indented JSON for easy human reading
         - Add blank lines between records as separators
+        - Keep fuller input_full in memory for moderation diagnostics
         """
+        self._last_prompt_level = level
+        self._last_input_excerpt = input_full if input_full is not None else input_excerpt
         try:
             os.makedirs("logs/tests", exist_ok=True)
             # Record different levels to different files
@@ -479,7 +626,11 @@ class MemoryGenerator:
         # Record final prompt for testing
         self._last_prompt = formatted_prompt
         # Local persistence for manual inspection
-        self._append_prompt_log("L1", formatted_prompt, input_excerpt=str(new_dialogue)[:120])
+        self._append_prompt_log(
+            "L1", formatted_prompt,
+            input_excerpt=str(new_dialogue)[:120],
+            input_full=str(new_dialogue)[:20000],
+        )
         
         # Distinguish log information
         generation_type = "first-time" if previous_content is None else "progressive"
@@ -1298,7 +1449,11 @@ Session Summary:""".format(fragment_summaries=child_contents)
         formatted_prompt = apply_l1_policy(formatted_prompt, getattr(prompt_template, "template", None))
         
         self._last_prompt = formatted_prompt
-        self._append_prompt_log("L1", formatted_prompt, input_excerpt=str(new_dialogue)[:120])
+        self._append_prompt_log(
+            "L1", formatted_prompt,
+            input_excerpt=str(new_dialogue)[:120],
+            input_full=str(new_dialogue)[:20000],
+        )
         
         generation_type = "first-time" if previous_content is None else "progressive"
         logger.info(f"Starting streaming generation of L1 {generation_type} content")
@@ -1322,6 +1477,10 @@ Session Summary:""".format(fragment_summaries=child_contents)
             logger.info(f"Streaming generation of L1 {generation_type} content completed, total length: {len(full_content)} characters")
             
         except Exception as e:
+            if self._is_content_moderation_error(str(e)):
+                self._log_moderation_context(
+                    f"L1 {generation_type} content stream", 1, str(e), final=True
+                )
             logger.error(f"Failed to stream generate L1 content: {e}", exc_info=True)
             raise
     
